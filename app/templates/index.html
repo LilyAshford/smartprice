@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <p class="tagline">{{ _('Track prices and save money!') }}</p>
+</div>
+
+<main class="main-content">
+  <div class="card tracking-form-wrapper">
+    <h2><i class="fas fa-bell"></i> {{ _('Add Product to Track') }}</h2>
+
+    <form method="POST"
+          action="{{ url_for('products.index') }}"
+          class="tracking-form"
+          id="add-product-form">
+      {{ form.hidden_tag() }}
+
+      {% if form.errors %}
+      <div class="form-errors">
+        <div class="alert alert-danger">
+          <strong>{{ _('Error!') }}</strong> {{ _('Please correct errors:') }}
+          <ul>
+            {% for f, errs in form.errors.items() %}
+              {% for err in errs %}
+                <li>{{ form[f].label.text }}: {{ err }}</li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Product URL -->
+      <div class="form-group">
+        {{ form.product_url.label }}
+        {{ form.product_url(class="form-control", placeholder=_("https://...")) }}
+        <small class="hint">{{ _("Supported: Amazon, eBay, Walmart, Wildberries") }}</small>
+        <button type="button" id="toggle-url-btn" class="info-btn">
+          {{ _('How to get product URL?') }}
+        </button>
+        <div id="url-instructions" class="hidden mt-2">
+          <h4>{{ _('How to Find Product URL') }}</h4>
+        <div class="instruction-step">
+            <h5>1. {{ _('Go to the product page') }}</h5>
+            <p>{{ _('Navigate to the product you want to track on the supported website') }}</p>
+          </div>
+          <div class="instruction-step">
+            <h5>2. {{ _('Copy the address') }}</h5>
+            <p>{{ _('Highlight and copy the entire URL from your browser\'s address bar') }}</p>
+            <img src="{{ url_for('static', filename='images/url_example.png') }}"
+                 alt="{{ _('URL example') }}" width="400" height="200" class="instruction-image">
+          </div>
+          <div class="instruction-step">
+            <h5>3. {{ _('Paste it here') }}</h5>
+            <p>{{ _('Make sure the URL starts with https:// and contains the product details') }}</p>
+          </div>
+        </div>
+        {% for err in form.product_url.errors %}
+          <div class="error">{{ err }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- Product Name -->
+      <div class="form-group">
+        {{ form.product_name.label }}
+        {{ form.product_name(class="form-control", placeholder=_("e.g. iPhone 16 Pro Max")) }}
+        {% for err in form.product_name.errors %}
+          <div class="error">{{ err }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- Target Price -->
+      <div class="form-group">
+        {{ form.target_price.label }}
+        {{ form.target_price(class="form-control", placeholder="699.99") }}
+        <small class="hint">{{ _("We'll notify when price drops below this") }}</small>
+        {% for err in form.target_price.errors %}
+          <div class="error">{{ err }}</div>
+        {% endfor %}
+      </div>
+
+      <!-- Price Drop Threshold -->
+      <div class="form-group">
+        {{ form.price_drop_alert_threshold.label }}
+        {{ form.price_drop_alert_threshold(class="form-control", placeholder="5.00") }}
+        {% if form.price_drop_alert_threshold.description %}
+          <small class="form-text text-muted">{{ form.price_drop_alert_threshold.description }}</small>
+        {% endif %}
+      </div>
+
+      <!-- Price Increase Threshold -->
+      <div class="form-group">
+        {{ form.price_increase_alert_threshold.label }}
+        {{ form.price_increase_alert_threshold(class="form-control", placeholder="10.00") }}
+        {% if form.price_increase_alert_threshold.description %}
+          <small class="form-text text-muted">{{ form.price_increase_alert_threshold.description }}</small>
+        {% endif %}
+      </div>
+
+      <!-- Notification Methods -->
+      <div class="form-group" id="notification_methods_group">
+        <div class="checkbox-group">
+          {% for subfield in form.notification_methods %}
+          <label class="checkbox-item">
+            {{ subfield }}<span class="checkmark"></span><span>{{ subfield.label.text }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <!-- Check Frequency -->
+      <div class="form-group">
+        {{ form.check_frequency.label }}
+        {{ form.check_frequency(class="form-control") }}
+        {% for err in form.check_frequency.errors %}
+          <div class="error">{{ err }}</div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-chart-line"></i> {{ _('Start Tracking') }}
+      </button>
+    </form>
+  </div>
+
+<div class="features">
+  <div class="feature">
+    <div class="feature-icon-wrapper">
+      <i class="fas fa-bell"></i>
+    </div>
+    <h3>{{ _('Instant Price Alerts') }}</h3>
+    <p class="feature-description">{{ _('Never miss a deal! Get real-time notifications when prices drop below your target, so you can buy at the perfect moment.') }}</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon-wrapper">
+      <i class="fas fa-history"></i>
+    </div>
+    <h3>{{ _('Detailed Price History') }}</h3>
+    <p class="feature-description">{{ _('Track price trends over time to make smarter purchasing decisions with confidence.') }}</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon-wrapper">
+      <i class="fas fa-mobile-alt"></i>
+    </div>
+    <h3>{{ _('Flexible Notifications') }}</h3>
+    <p class="feature-description">{{ _('Stay informed your way—choose Email, Telegram, or Account Inbox for seamless price updates.') }}</p>
+  </div>
+</div>
+</main>
+
+<div id="emailConfirmModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>{{ _('Email Notifications Disabled') }}</h3>
+      <p>{{ _('Email notifications are disabled in your account settings. Do you want to enable them for this product?') }}</p>
+      <button id="confirmNo" class="btn btn-secondary">{{ _('No') }}</button>
+      <button id="confirmYes" class="btn btn-primary">{{ _('Yes') }}</button>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('emailConfirmModal');
+  const confirmYesBtn = document.getElementById('confirmYes');
+  const confirmNoBtn = document.getElementById('confirmNo');
+
+  {% if show_email_confirm_modal %}
+    console.log('Showing modal window');
+    modal.classList.remove('hidden');
+  {% endif %}
+
+  function handleModalSubmit(enableEmail) {
+    const productData = {{ product_data|tojson|default('{}')|safe }};
+
+    if (!enableEmail) {
+      productData.notification_methods = productData.notification_methods ? productData.notification_methods.filter(method => method !== 'email') : [];
+    }
+
+    if (!productData.notification_methods || productData.notification_methods.length === 0) {
+      alert('{{ _("No notification methods selected. Add at least one (except email) or enable email in settings.") }}');
+      modal.classList.add('hidden');
+      return;
+    }
+
+    fetch("{{ url_for('products.add_product_confirmed') }}", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ form.csrf_token._value() }}'
+      },
+      body: JSON.stringify({
+        product_data: productData,
+        enable_email: enableEmail
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.text().then(text => {
+          throw new Error(`HTTP error: ${response.status} ${response.statusText}, Response: ${text}`);
+        });
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'success') {
+        window.location.href = data.redirect_url;
+      } else {
+        alert(data.message || '{{ _("Failed to add product, check error messages.") }}');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('{{ _("A network error occurred. Please try again.") }}');
+    });
+
+    modal.classList.add('hidden');
+  }
+
+  if (confirmYesBtn && confirmNoBtn) {
+    confirmYesBtn.addEventListener('click', () => handleModalSubmit(true));
+    confirmNoBtn.addEventListener('click', () => handleModalSubmit(false));
+  }
+
+  const toggleUrlBtn = document.getElementById('toggle-url-btn');
+  const urlInstructions = document.getElementById('url-instructions');
+  if (toggleUrlBtn && urlInstructions) {
+    toggleUrlBtn.addEventListener('click', () => {
+      urlInstructions.classList.toggle('hidden');
+    });
+  }
+});
+</script>
+
+<style>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content h3 {
+  margin-top: 0;
+}
+.modal-content .btn {
+  margin: 10px;
+  padding: 10px 20px;
+}
+</style>
+{% endblock %}

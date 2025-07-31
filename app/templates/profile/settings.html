@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2><i class="fas fa-user-cog"></i> {{ _('Account Settings') }}</h2>
+            <p>{{ _('Manage your personal and notification settings.') }}</p>
+        </div>
+
+        <div class="settings-section">
+            <h3>{{ _('Account Information') }}</h3>
+            <form method="POST" novalidate>
+                {{ username_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ username_form.username.label(class="form-label") }}
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        {{ username_form.username(class="form-control" + (" is-invalid" if username_form.username.errors else "")) }}
+                    </div>
+                    {% if username_form.username.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in username_form.username.errors %}
+                                <span>{{ error }}</span><br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {{ username_form.submit_username(class="btn btn-primary auth-submit") }}
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="settings-section">
+            <h3>{{ _('Security') }}</h3>
+            <div class="form-group">
+                <a href="{{ url_for('auth.change_password') }}" class="btn btn-secondary auth-button"><i class="fas fa-key"></i> {{ _('Change Password') }}</a>
+            </div>
+            <div class="form-group">
+                <a href="{{ url_for('auth.change_email_request') }}" class="btn btn-secondary auth-button"><i class="fas fa-envelope"></i> {{ _('Change Email Address') }}</a>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="settings-section">
+            <h3>{{ _('Notification Preferences') }}</h3>
+            <form method="POST" novalidate>
+                {{ notification_form.hidden_tag() }}
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        {{ notification_form.enable_price_drop_notifications(class="form-check-input") }}
+                        {{ notification_form.enable_price_drop_notifications.label }}
+                        <span class="checkmark"></span>
+                    </label>
+                    {% if notification_form.enable_price_drop_notifications.errors %}
+                        <div class="invalid-feedback d-block">
+                        {% for error in notification_form.enable_price_drop_notifications.errors %}<span>{{ error }}</span><br>{% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <label class="checkbox-container" style="margin-top: 10px;">
+                        {{ notification_form.enable_target_price_reached_notifications(class="form-check-input") }}
+                        {{ notification_form.enable_target_price_reached_notifications.label }}
+                        <span class="checkmark"></span>
+                    </label>
+                    {% if notification_form.enable_target_price_reached_notifications.errors %}
+                        <div class="invalid-feedback d-block">
+                        {% for error in notification_form.enable_target_price_reached_notifications.errors %}<span>{{ error }}</span><br>{% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <label class="checkbox-container" style="margin-top: 10px;">
+                        {{ notification_form.enable_email_notifications(class="form-check-input") }}
+                        {{ notification_form.enable_email_notifications.label }}
+                        <span class="checkmark"></span>
+                    </label>
+                    {% if notification_form.enable_email_notifications.errors %}
+                        <div class="invalid-feedback d-block">
+                        {% for error in notification_form.enable_email_notifications.errors %}<span>{{ error }}</span><br>{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {{ notification_form.submit_notifications(class="btn btn-primary auth-submit") }}
+            </form>
+            <div class="form-group" style="margin-top: 15px;">
+                <a href="{{ url_for('profile.telegram_setup') }}" class="btn btn-secondary auth-button"><i class="fab fa-telegram-plane"></i> {{ _('Setup Telegram Notifications') }}</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="settings-section">
+            <h3>{{ _('Interface Language') }}</h3>
+            <p class="text-muted small">{{ _('This setting changes the language of the website interface.') }}</p>
+            <form method="POST" novalidate>
+                {{ language_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ language_form.language.label(class="form-label") }}
+                    {{ language_form.language(class="form-control" + (" is-invalid" if language_form.language.errors else "")) }}
+                    {% if language_form.language.errors %}
+                        <div class="invalid-feedback">
+                        {% for error in language_form.language.errors %}<span>{{ error }}</span><br>{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {{ language_form.submit_language(class="btn btn-primary auth-submit") }}
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

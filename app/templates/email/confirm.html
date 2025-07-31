@@ -1,0 +1,17 @@
+{% extends "email/base_notification.html" %}
+{% block email_content %}
+<h2>{{ _('Confirm Your Account') }}</h2>
+<p>{{ _('Hi %(username)s,', username=user.username) }}</p>
+<p>
+    {{ _('Thanks for signing up for SmartPrice! To complete your registration, please click the button below to verify your email address.') }}
+</p>
+<div class="button-container">
+    <a href="{{ url_for('auth.confirm', token=token, _external=True) }}" class="button">{{ _('Verify My Email') }}</a>
+</div>
+<p>
+    <small>{{ _('This link will expire in %(hours)s hours.', hours=expiry_hours) }}</small>
+</p>
+<p>
+    {{ _('If you did not sign up for an account, you can safely ignore this email.') }}
+</p>
+{% endblock %}

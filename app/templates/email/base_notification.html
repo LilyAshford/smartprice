@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f7; color: #333; }
+        .email-container { max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background-color: #1a1a2e; padding: 30px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 28px; }
+        .content { padding: 30px; }
+        .content h2 { color: #1a1a2e; font-size: 22px; margin-top: 0; }
+        .content p { line-height: 1.6; font-size: 16px; margin: 15px 0; }
+        .button-container { text-align: center; margin: 30px 0; }
+        .button { background-color: #FF9900; color: #ffffff !important; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; }
+        .footer { background-color: #f4f4f7; padding: 20px; text-align: center; font-size: 12px; color: #777; }
+        .footer a { color: #FF9900; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>SmartPrice</h1>
+        </div>
+        <div class="content">
+            {% block email_content %}{% endblock %}
+        </div>
+        <div class="footer">
+            <p>&copy; SmartPrice. All Rights Reserved.</p>
+            <p><a href="{{ url_for('profile.settings', _external=True) }}">{{ _('Manage your notification settings') }}</a></p>
+        </div>
+    </div>
+</body>
+</html>

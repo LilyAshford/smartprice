@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+<div class="error-card">
+<div class="error-illustration">
+<img src="{{ url_for('static', filename='images/robot.svg') }}" alt="Broken robot" width="200">
+</div>
+<h1>{{ _('500 - Our Robots Have Rebelled') }}</h1>
+<p class="lead">{{ _('The machines have taken over... temporarily') }}</p>
+
+<div class="error-message">
+<p>{{ _('Our server is currently experiencing an existential crisis.') }}</p>
+<p>{{ _('While we negotiate with our AI overlords, why don\'t you:') }}</p>
+</div>
+
+<div class="error-checklist">
+    <div class="list-group-item d-flex align-items-center">
+      <i class="fas fa-check-circle text-success mr-3"></i>
+      <span>{{ _('Refresh the page (the classic IT solution)') }}</span>
+    </div>
+    <div class="list-group-item d-flex align-items-center">
+      <i class="fas fa-check-circle text-success mr-3"></i>
+      <span>{{ _('Pet a dog/cat for emotional support') }}</span>
+    </div>
+    <div class="list-group-item d-flex align-items-center" style="margin-bottom:20px">
+      <i class="fas fa-check-circle text-success mr-3"></i>
+      <span>{{ _('Try again in a few minutes') }}</span>
+    </div>
+</div>
+
+
+<div class="error-actions" style="margin-bottom:15px">
+<a href="{{ url_for('profile.index') }}" class="btn btn-primary">
+<i class="fas fa-home"></i> {{ _('Return to Safety') }}
+</a>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-secondary" target="_blank">
+<i class="fas fa-music"></i> {{ _('Emergency Distraction') }}
+</a>
+</div>
+
+<div class="error-fun-fact">
+<p><small>{{ _('Meanwhile, our developers are frantically googling "how to appease robot overlords".') }}</small></p>
+</div>
+</div>
+</div>
+{% endblock %}

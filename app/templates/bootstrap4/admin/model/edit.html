@@ -1,0 +1,30 @@
+{% extends 'bootstrap4/admin/model/edit.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+{% endblock %}
+{% block edit_form %}
+    <div class="container">
+        <h1>{{ _("%(name)s Edit", name=model_name) }}</h1>
+        <form method="POST" action="{{ get_url('.edit_view', id=model.id, url=return_url) }}">
+            {{ form.hidden_tag() }}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field(class="form-control") }}
+                    {% if field.errors %}
+                        <ul class="errors">
+                            {% for error in field.errors %}
+                                <li class="text-danger">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">{{ _('Save') }}</button>
+            <a href="{{ return_url }}" class="btn btn-secondary">{{ _('Cancel') }}</a>
+        </form>
+    </div>
+{% endblock %}

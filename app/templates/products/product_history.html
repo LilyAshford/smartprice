@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .metric-card { text-align: center; }
+    .price-diff-pos { color: #e74c3c; } /* Red for increase */
+    .price-diff-neg { color: #2ecc71; } /* Green for decrease */
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="fas fa-chart-line"></i> {{ product.name }}</h2>
+        <a href="{{ url_for('profile.tracked_products') }}" class="btn btn-secondary">&larr; Back to Products</a>
+    </div>
+
+    <div class="row text-center mb-4">
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ _('Current Price') }}</h5>
+                    <p class="card-text h3">
+                        {% if metrics.current_price is not none %}
+                            {{ metrics.current_price|round(2) }}$
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ _('Target Price') }}</h5>
+                    <p class="card-text h3">{{ metrics.initial_price|round(2) }}$</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ _('Difference') }}</h5>
+                    <p class="card-text h3 {% if metrics.price_difference > 0 %}price-diff-pos{% elif metrics.price_difference < 0 %}price-diff-neg{% endif %}">
+                        {{ '%+.2f'|format(metrics.price_difference) }}$ ({{ metrics.price_difference_percent }}%)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card metric-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ _('Min Price Ever') }}</h5>
+                    <p class="card-text h3">{{ metrics.min_price|round(2) if metrics.min_price else 'N/A' }}$</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area"></i> {{ _('Price Chart') }}
+                </div>
+                <div class="card-body">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-clock"></i> {{ _('Check Schedule') }}
+                </div>
+                <div class="card-body">
+                    <p><strong>{{ _('Interval:') }}</strong> {{ _('Every %(num)s hours', num=check_info.interval) }}</p>
+                    <p><strong>{{ _('Last Check:') }}</strong> {{ check_info.last_checked.strftime('%d.%m.%Y %H:%M') if check_info.last_checked else 'Never' }}</p>
+                    <p><strong>{{ _('Next Check:') }}</strong> {{ check_info.next_check.strftime('%d.%m.%Y %H:%M') if check_info.next_check else 'Scheduled soon' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-history"></i> {{ _('Price History Details') }}
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>{{ _('Date') }}</th>
+                        <th>{{ _('Price') }}</th>
+                        <th>{{ _('Change') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in history_table %}
+                    <tr>
+                        <td>{{ item.record.timestamp.strftime('%d.%m.%Y %H:%M') }}</td>
+                        <td>{{ item.record.price|round(2) }}$</td>
+                        <td>
+                            {% if item.diff is not none %}
+                                {% if item.diff < 0 %}
+                                    <span class="price-diff-neg">↓ {{ '%+.2f'|format(item.diff|abs) }}$</span>
+                                {% elif item.diff > 0 %}
+                                    <span class="price-diff-pos">↑ {{ '%+.2f'|format(item.diff) }}$</span>
+                                {% else %}
+                                    <span>-</span>
+                                {% endif %}
+                            {% else %}
+                                <span>-</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    const priceChart = new Chart(ctx, {
+        type: 'line', // или 'bar'
+        data: {
+            labels: {{ chart_data.labels | tojson }},
+            datasets: [{
+                label: '{{ _("Price ($)") }}',
+                data: {{ chart_data.prices | tojson }},
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 2,
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Invalid Confirmation Link') }}{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card error-card"> {# error-card для выделения важности #}
+        <div class="auth-header">
+            <h2><i class="fas fa-link-slash"></i> {{ _('Invalid Confirmation Link') }}</h2>
+            <p>{{ _('The confirmation link is invalid or has expired.') }}</p>
+        </div>
+
+        <p class="text-center">
+            {{ _('Please request a new confirmation email to verify your account.') }}
+        </p>
+        <div class="form-group text-center">
+            <a href="{{ url_for('auth.resend_confirmation') }}" class="btn btn-primary auth-submit">{{ _('Resend Confirmation Email') }}</a>
+        </div>
+        <div class="auth-footer">
+            <p>{{ _('Go back to') }} <a href="{{ url_for('auth.login') }}">{{ _('Login Page') }}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

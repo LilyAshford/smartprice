@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Account Not Confirmed') }}{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2><i class="fas fa-exclamation-triangle"></i> {{ _('Account Not Confirmed') }}</h2>
+            <p>{{ _('Your account has not been confirmed yet.') }}</p>
+        </div>
+
+        <p class="text-center">
+            {{ _('Please check your inbox for a confirmation email. If you have not received one, you can request another one.') }}
+        </p>
+        <div class="form-group text-center">
+            <a href="{{ url_for('auth.resend_confirmation') }}" class="btn btn-primary auth-submit">{{ _('Resend Confirmation Email') }}</a>
+        </div>
+        <div class="auth-footer">
+            <p>{{ _('Already confirmed?') }} <a href="{{ url_for('auth.login') }}">{{ _('Sign In') }}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

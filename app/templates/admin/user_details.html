@@ -1,0 +1,65 @@
+{% extends 'admin/custom_base.html' %}
+
+{% block admin_content %}
+<div class="container">
+    <h2>{{ _('User Details: %(username)s', username=user.username) }}</h2>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>{{ _('ID') }}:</strong> {{ user.id }}</p>
+            <p><strong>{{ _('Username') }}:</strong> {{ user.username }}</p>
+            <p><strong>{{ _('Email') }}:</strong> {{ user.email }}</p>
+            <p><strong>{{ _('Telegram Chat ID') }}:</strong> {{ user.telegram_chat_id or 'Not set' }}</p>
+            <p><strong>{{ _('Confirmed') }}:</strong> {{ 'Yes' if user.confirmed else 'No' }}</p>
+            <p><strong>{{ _('Active') }}:</strong> {{ 'Yes' if user.is_active else 'No' }}</p>
+            <p><strong>{{ _('Administrator') }}:</strong> {{ 'Yes' if is_admin else 'No' }}</p>
+            <p><strong>{{ _('Last Seen') }}:</strong> {{ user.last_seen | datetime }}</p>
+        </div>
+    </div>
+
+    <h3>{{ _('Tracked Products') }}</h3>
+    {% if products %}
+    <div class="product-list">
+        {% for product in products %}
+        <div class="product-item card">
+            <h3 class="product-name"><a href="{{ product.url }}" target="_blank">{{ product.name }}</a></h3>
+            <p><strong>{{ _('Current Price') }}:</strong> {{ product.current_price or 'N/A' }}</p>
+            <p><strong>{{ _('Target Price') }}:</strong> {{ product.target_price }}</p>
+            <p><strong>{{ _('Marketplace') }}:</strong> {{ urlparse(product.url).netloc.replace('www.', '') }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>{{ _('No products tracked by this user.') }}</p>
+    {% endif %}
+
+    <h3>{{ _('Recent Notifications (Last 10)') }}</h3>
+    {% if notifications %}
+    <ul class="notification-list">
+        {% for notification in notifications %}
+        <li class="notification-item {% if not notification.is_read %}is-unread{% endif %}">
+            <div class="notification-body">
+                <div class="notification-main-content">
+                    <p class="notification-message">
+                        {% if notification.product %}
+                        <a href="{{ url_for('profile.product_price_history', product_id=notification.product.id) }}" class="product-link">{{ notification.product.name }}</a>
+                        {% endif %}
+                        {{ notification.message or notification.short_message }}
+                    </p>
+                    <div class="notification-meta">
+                        <span class="timestamp">{{ notification.created_at | datetime }}</span>
+                        <div class="actions">
+                            {% if not notification.is_read %}
+                            <a href="{{ url_for('profile.mark_notification_read', notification_id=notification.id) }}" class="action-link">{{ _('Mark as Read') }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>{{ _('No notifications for this user.') }}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{{ _('📉 Price Drop Alert!') }}
+
+{{ _('Hi %(username)s,', username=user.username) }}
+
+{{ _('The price has dropped for a product you are tracking: "%(product_name)s".', product_name=product.name) }}
+
+{% if old_price is not none %}
+{{ _('Previous Price: %(old_price)s$', old_price=old_price) }}
+{% else %}
+{{ _('Previous Price: N/A') }}
+{% endif %}
+{{ _('New Price: %(new_price)s$', new_price=new_price) }}
+
+You can view the product here: {{ product.url }}
+Manage your tracked products: {{ tracking_dashboard_url }}
+
+--
+{{ _('The SmartPrice Team') }}

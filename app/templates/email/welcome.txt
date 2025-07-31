@@ -1,0 +1,9 @@
+{{ _('Welcome to SmartPrice, %(username)s!', username=user.username) }}
+
+{{ _('We are thrilled to have you on board. You are now ready to start tracking prices and saving money.') }}
+
+{{ _('Get started by tracking your first product:') }}
+{{ url_for('products.index', _external=True) }}
+
+--
+{{ _('The SmartPrice Team') }}

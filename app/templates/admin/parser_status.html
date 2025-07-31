@@ -1,0 +1,75 @@
+{% extends 'admin/custom_base.html' %}
+{% from 'bootstrap4/form.html' import render_form %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col">
+            <h2><i class="fas fa-microscope"></i> Parser Status & Testing</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-vial"></i> Test a URL
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group">
+                            {{ form.url.label(class="font-weight-bold") }}
+                            {{ form.url(class="form-control", placeholder="https://www.amazon.com/dp/B08P2H5LW7") }}
+                            <small class="form-text text-muted">Enter the full product URL to test.</small>
+                        </div>
+                        {{ form.submit(class="btn btn-primary w-100") }}
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-cogs"></i> Available Parsers
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for domain in available_parsers %}
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success mr-2"></i> {{ domain }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            {% if result_data %}
+            <div class="card">
+                <div class="card-header {% if result_data.error %}bg-danger text-white{% else %}bg-success text-white{% endif %}">
+                    <i class="fas fa-poll"></i> Result
+                </div>
+                <div class="card-body">
+                    {% if result_data.error %}
+                        <h5 class="card-title text-danger">Error</h5>
+                        <p class="card-text">{{ result_data.get('details', result_data.error) }}</p>
+                    {% else %}
+                        <h5 class="card-title text-success">Success!</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><strong>Name:</strong> {{ result_data.get('name', 'N/A') }}</li>
+                            <li class="list-group-item"><strong>Price:</strong> {{ result_data.get('price', 'N/A') }}</li>
+                            <li class="list-group-item"><strong>Currency:</strong> {{ result_data.get('currency', 'N/A') }}</li>
+                        </ul>
+                    {% endif %}
+
+                    <hr>
+                    <h6>Raw JSON Output:</h6>
+                    <pre style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; border-radius: 4px; max-height: 400px; overflow-y: auto;"><code>{{ result_data | tojson(indent=2) }}</code></pre>
+                </div>
+            </div>
+            {% else %}
+                 <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Submit a URL to see the parsing result here.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

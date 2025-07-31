@@ -1,0 +1,29 @@
+{% extends "email/base_email.html" %}
+
+{% block email_content %}
+<table width="100%" style="border-spacing: 0;">
+    <tr>
+        <td style="padding-bottom: 20px;">
+            <h1 style="margin: 0; color: #34495e; font-size: 24px; font-weight: 600;">{{ subject }}</h1>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px; background-color: #fdfae5; border-radius: 8px; border-left: 4px solid #f1c40f;">
+            <table width="100%" style="border-spacing: 0;">
+                <tr>
+                    <td>
+                        <p style="margin: 0; font-size: 16px; color: #333; line-height: 1.6;">
+                            {{ message_body|safe }}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 20px;">
+                         <p style="margin: 0; font-size: 14px; color: #555;">{{ _('Sincerely,') }}<br>{{ _('The SmartPrice Team') }}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'admin/custom_base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block admin_content %}
+<div class="container-fluid admin-container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1><i class="fas fa-user-edit"></i> {{ title }}</h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            {{ _('Editing User:') }} <strong>{{ user.username }}</strong> (ID: {{ user.id }})
+        </div>
+        <a href="{{ url_for('user_details.index', user_id=user.id) }}">View Details</a>
+        <div class="card-body">
+
+            {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.username.label(class="form-control-label") }}
+                        {{ form.username(class="form-control" + (" is-invalid" if form.username.errors else "")) }}
+                        {% if form.username.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}<span>{{ error }}</span>{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.email.label(class="form-control-label") }}
+                        {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else "")) }}
+                        {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}<span>{{ error }}</span>{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.role.label(class="form-control-label") }}
+                    {{ form.role(class="form-control" + (" is-invalid" if form.role.errors else "")) }}
+                    {% if form.role.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in form.role.errors %}<span>{{ error }}</span>{% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                         <div class="custom-control custom-checkbox">
+                            {{ form.is_active(class="custom-control-input" + (" is-invalid" if form.is_active.errors else "")) }}
+                            {{ form.is_active.label(class="custom-control-label") }}
+                             {% if form.is_active.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.is_active.errors %}<span>{{ error }}</span>{% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                     <div class="form-group col-md-6">
+                         <div class="custom-control custom-checkbox">
+                            {{ form.confirmed(class="custom-control-input" + (" is-invalid" if form.confirmed.errors else "")) }}
+                            {{ form.confirmed.label(class="custom-control-label") }}
+                             {% if form.confirmed.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.confirmed.errors %}<span>{{ error }}</span>{% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label">{{ _('Notification Settings:') }}</label>
+                    <div class="custom-control custom-checkbox">
+                        {{ form.enable_price_drop_notifications(class="custom-control-input") }}
+                        {{ form.enable_price_drop_notifications.label(class="custom-control-label") }}
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        {{ form.enable_target_price_reached_notifications(class="custom-control-input") }}
+                        {{ form.enable_target_price_reached_notifications.label(class="custom-control-label") }}
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group mt-3">
+                    {{ form.submit(class="btn btn-primary") }}
+                    <a href="{{ url_for('admin.manage_users') }}" class="btn btn-secondary">{{ _('Cancel') }}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

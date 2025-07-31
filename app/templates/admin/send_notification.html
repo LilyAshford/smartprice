@@ -1,0 +1,13 @@
+{% extends 'admin/custom_base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block body %}
+  <h2>Send Custom Notification</h2>
+  <p>This will send an in-account notification to a specific user.</p>
+  <form method="POST">
+      {{ form.hidden_tag() }}
+                  {{ form.email.label }} {{ form.email() }}
+      {{ form.message.label }} {{ form.message() }}
+                  {{ form.submit() }}
+  </form>
+{% endblock %}

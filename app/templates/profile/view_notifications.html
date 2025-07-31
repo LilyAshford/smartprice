@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% macro get_store_icon(url) %}
+    {% if 'amazon' in url %}
+        <i class="fab fa-amazon"></i>
+    {% elif 'wildberries' in url %}
+        <i class="fas fa-shopping-bag"></i>
+    {% elif 'ozon' in url %}
+        <i class="fas fa-store"></i>
+    {% elif 'ebay' in url %}
+        <i class="fab fa-ebay"></i>
+    {% elif 'walmart' in url %}
+        <i class="fas fa-cart-plus"></i>
+    {% else %}
+        <i class="fas fa-shopping-cart"></i>
+    {% endif %}
+{% endmacro %}
+
+{% block content %}
+<div class="notifications-page">
+    <div class="notifications-header">
+        <div>
+            <h2>{{ title }}</h2>
+            <div class="notification-stats">
+                <span class="stat-item"><strong>{{ _('Total:') }}</strong> {{ total_count }}</span>
+                <span class="stat-item"><strong>{{ _('Unread:') }}</strong> {{ unread_count }}</span>
+            </div>
+        </div>
+
+        {% if notifications %}
+        <div class="header-actions">
+           <a href="{{ url_for('profile.mark_all_notifications_read') }}" class="btn btn-sm btn-primary">{{ _('Mark All as Read') }}</a>
+            <a href="{{ url_for('profile.clear_all_notifications') }}" class="btn btn-sm btn-danger">{{ _('Clear All') }}</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <ul class="notification-list">
+        {% if notifications %}
+            {% for n in notifications %}
+                {% if n.type == 'system_message' %}
+                    <li class="admin-notification">
+                        <div class="notification-header">
+                            <i class="fas fa-bullhorn admin-icon"></i>
+                            <strong>{{ n.short_message }}</strong>
+                        </div>
+                        <div class="notification-body">
+                            <p>{{ n.message|safe }}</p>
+                        </div>
+                        <div class="notification-meta">
+                            <span class="timestamp">{{ n.created_at.strftime('%b %d, %H:%M') }}</span>
+                            <div class="actions">
+                                {% if not n.is_read %}
+                                    <a href="{{ url_for('profile.mark_notification_read', notification_id=n.id) }}" class="action-link">{{ _('Read') }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="notification-item {{ 'is-unread' if not n.is_read else 'is-read' }}">
+                        <div class="notification-icon">
+                            <span class="icon-bg" style="background-color: var(--primary-color);">
+                                <i class="fas fa-bell"></i>
+                            </span>
+                        </div>
+                        <div class="notification-body">
+                            <div class="notification-main-content">
+                                <p class="notification-message">
+                                    {% if n.product %}
+                                        <span>{{ get_store_icon(n.product.url) }}</span>
+                                        <a href="{{ n.product.url }}" class="product-link">{{ n.product.name }}</a>
+                                        — {{ n.short_message }}
+                                    {% else %}
+                                        {{ n.message|safe }}
+                                    {% endif %}
+                                </p>
+                                {% if n.data.old_price and n.data.new_price %}
+                                    <div class="price-details">
+                                        <span class="price-old">{{ n.data.old_price|float|round(2) }}$</span>
+                                        <span class="price-new">{{ n.data.new_price|float|round(2) }}$</span>
+                                        {% if n.data.price_diff and n.data.price_diff > 0 %}
+                                            {% set percent_drop = (n.data.price_diff / n.data.old_price * 100)|round(1) %}
+                                            <span class="price-diff-badge">{{ n.data.price_diff|round(2) }}$ ({{ percent_drop }}%)</span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="notification-meta">
+                                <span class="timestamp">{{ n.created_at.strftime('%b %d, %H:%M') }}</span>
+                                <div class="actions">
+                                    <a href="{{ n.product.url }}" target="_blank" class="action-link">{{ _('View') }}</a>
+                                    {% if not n.is_read %}
+                                        <a href="{{ url_for('profile.mark_notification_read', notification_id=n.id) }}" class="action-link">{{ _('Read') }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="no-notifications">
+                <i class="fas fa-bell-slash"></i>
+                <h3>{{ _('All Quiet Here') }}</h3>
+                <p>{{ _('You have no unread notifications. We will let you know when there is news about your products!') }}</p>
+                <a href="{{ url_for('profile.tracked_products') }}" class="btn btn-primary">{{ _('View My Tracked Products') }}</a>
+            </div>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

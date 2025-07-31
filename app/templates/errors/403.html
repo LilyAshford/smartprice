@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-card">
+        <div class="error-illustration">
+            <lottie-player
+                src="{{ url_for('static', filename='images/forbidden.json') }}"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px;"
+                loop
+                autoplay>
+            </lottie-player>
+        </div>
+        <h1>{{ _('403 - Access Denied') }}</h1>
+        <p class="lead">{{ _('You shall not pass!') }}</p>
+
+        <div class="error-message">
+            <p>{{ _("Our digital bouncers have determined you don't have the proper credentials.") }}</p>
+            <p>{{ _("If you believe this is a mistake, please contact support.") }}</p>
+        </div>
+
+        <div class="error-actions">
+            <a href="{{ url_for('products.index') }}" class="btn btn-primary">
+                <i class="fas fa-home"></i> {{ _('Return Home') }}
+            </a>
+            <a href="mailto:support@smartprice.com" class="btn btn-secondary">
+                <i class="fas fa-envelope"></i> {{ _('Contact Support') }}
+            </a>
+        </div>
+
+        <div class="error-fun-fact">
+            <p><small>{{ _('Fun fact: The average developer spends 403 minutes per week debugging permission issues.') }}</small></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,2496 @@
+# Russian translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <lillianashford70@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: lillianashford70@gmail.com\n"
+"POT-Creation-Date: 2025-07-14 13:13+0300\n"
+"PO-Revision-Date: 2025-05-13 15:09+0300\n"
+"Last-Translator: FULL NAME <lillianashford70@gmail.com>\n"
+"Language: ru\n"
+"Language-Team: ru <Me>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/models.py:352
+msgid "Bug Report"
+msgstr "Сообщение об ошибке"
+
+#: app/models.py:354
+msgid "Suggestion"
+msgstr "Предложение"
+
+#: app/models.py:356
+#, fuzzy
+msgid "Praise"
+msgstr "Похвала"
+
+#: app/models.py:357
+msgid "Other"
+msgstr "Другое"
+
+#: app/models.py:408 app/models.py:410
+msgid "View Product"
+msgstr "Просмотреть товар"
+
+#: app/models.py:412 app/templates/email/notifications/price_increase.html:32
+msgid "Check Product"
+msgstr "Проверить товар"
+
+#: app/models.py:415
+msgid "Details"
+msgstr "Подробности"
+
+#: app/auth/forms.py:17
+msgid "Email or Username"
+msgstr "Email или имя пользователя"
+
+#: app/auth/forms.py:20 app/auth/forms.py:54
+msgid "Password"
+msgstr "Пароль"
+
+#: app/auth/forms.py:23
+msgid "Remember Me"
+msgstr "Запомнить меня"
+
+#: app/auth/forms.py:24 app/templates/auth/register.html:60
+#: app/templates/auth/unconfirmed.html:20 app/templates/main/index.html:20
+msgid "Sign In"
+msgstr "Войти"
+
+#: app/auth/forms.py:30 app/auth/forms.py:49 app/auth/forms.py:69
+#: app/products/forms.py:53 app/templates/admin/user_details.html:10
+msgid "Email"
+msgstr "Email"
+
+#: app/auth/forms.py:31
+msgid "Send"
+msgstr "Отправить"
+
+#: app/auth/forms.py:37 app/profile/forms.py:12
+#: app/templates/admin/user_details.html:9
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: app/auth/forms.py:44
+msgid ""
+"Username may contain international characters, numbers, dots, underscores"
+" and hyphens"
+msgstr ""
+"Имя пользователя может содержать международные символы, цифры, точки, "
+"подчеркивания и дефисы"
+
+#: app/auth/forms.py:56 app/auth/forms.py:81
+msgid "Password must be at least 8 characters"
+msgstr "Пароль должен содержать не менее 8 символов"
+
+#: app/auth/forms.py:59 app/auth/forms.py:84
+msgid "Repeat Password"
+msgstr "Повторите пароль"
+
+#: app/auth/forms.py:61 app/auth/forms.py:86
+msgid "Passwords must match"
+msgstr "Пароли должны совпадать"
+
+#: app/auth/forms.py:63 app/auth/routes.py:174 app/templates/base.html:59
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: app/auth/forms.py:73
+msgid "Request Password Reset"
+msgstr "Запросить сброс пароля"
+
+#: app/auth/forms.py:79 app/templates/auth/change_password.html:31
+#: app/templates/auth/reset_password.html:16
+msgid "New Password"
+msgstr "Новый пароль"
+
+#: app/auth/forms.py:88 app/auth/routes.py:323 app/auth/routes.py:324
+#: app/auth/routes.py:355 app/templates/auth/email/reset_password.html:30
+#: app/templates/auth/reset_password_request.html:7
+msgid "Reset Password"
+msgstr "Сбросить пароль"
+
+#: app/auth/forms.py:94 app/templates/auth/resend_verification.html:6
+msgid "Resend Verification Email"
+msgstr "Повторно отправить письмо для подтверждения"
+
+#: app/auth/routes.py:85
+#, python-format
+msgid ""
+"Your account has not been confirmed. Please check your email or <a "
+"href=\"%(url)s\" class=\"alert-link\">resend the confirmation link</a>."
+msgstr ""
+"Ваш аккаунт не подтвержден. Пожалуйста, проверьте вашу почту или <a "
+"href=\"%(url)s\" class=\"alert-link\">повторно отправьте ссылку для "
+"подтверждения</a>."
+
+#: app/auth/routes.py:89
+msgid "Your account is disabled"
+msgstr "Ваш аккаунт отключен"
+
+#: app/auth/routes.py:100
+msgid "Invalid email or password"
+msgstr "Неверный email или пароль"
+
+#: app/auth/routes.py:101 app/templates/base.html:58
+msgid "Login"
+msgstr "Вход"
+
+#: app/auth/routes.py:121
+msgid "Email already registered"
+msgstr "Email уже зарегистрирован"
+
+#: app/auth/routes.py:141
+msgid ""
+"Registration successful! A confirmation email has been sent to you. "
+"Please check your inbox (and spam folder!) to activate your account."
+msgstr ""
+"Регистрация прошла успешно! Письмо с подтверждением отправлено на вашу "
+"почту. Пожалуйста, проверьте входящие (и папку спама!) для активации "
+"аккаунта."
+
+#: app/auth/routes.py:143 app/auth/routes.py:197 app/auth/routes.py:254
+#: app/auth/routes.py:315 app/auth/routes.py:375
+msgid "Emails can sometimes take a few minutes to arrive. Please be patient."
+msgstr ""
+"Письма иногда могут приходить с задержкой в несколько минут. Пожалуйста, "
+"подождите."
+
+#: app/auth/routes.py:148
+msgid "Something went wrong!"
+msgstr "Что-то пошло не так!"
+
+#: app/auth/routes.py:152
+msgid "User already exists!."
+msgstr "Пользователь уже существует!"
+
+#: app/auth/routes.py:156
+msgid "Invalid Entry"
+msgstr "Неверные данные"
+
+#: app/auth/routes.py:160 app/auth/routes.py:164
+msgid "Error connecting to the database"
+msgstr "Ошибка подключения к базе данных"
+
+#: app/auth/routes.py:168
+msgid "An error occurred!"
+msgstr "Произошла ошибка!"
+
+#: app/auth/routes.py:173
+msgid "Registration failed. Please try again."
+msgstr "Регистрация не удалась. Пожалуйста, попробуйте снова."
+
+#: app/auth/routes.py:192 app/auth/routes.py:227
+msgid "This account is already confirmed. Please log in."
+msgstr "Этот аккаунт уже подтвержден. Пожалуйста, войдите."
+
+#: app/auth/routes.py:196
+msgid "A new confirmation email has been sent to your email address."
+msgstr "Новое письмо с подтверждением отправлено на ваш email."
+
+#: app/auth/routes.py:200
+msgid "No account found with that email address."
+msgstr "Аккаунт с таким email не найден."
+
+#: app/auth/routes.py:201 app/templates/auth/confirmation_invalid.html:17
+#: app/templates/auth/unconfirmed.html:17
+msgid "Resend Confirmation Email"
+msgstr "Повторно отправить письмо для подтверждения"
+
+#: app/auth/routes.py:217
+msgid "Your account is already confirmed."
+msgstr "Ваш аккаунт уже подтвержден."
+
+#: app/auth/routes.py:223 app/templates/auth/confirmation_invalid.html:10
+msgid "The confirmation link is invalid or has expired."
+msgstr "Ссылка для подтверждения недействительна или истек срок ее действия."
+
+#: app/auth/routes.py:224 app/auth/routes.py:241
+msgid "Confirmation Failed"
+msgstr "Подтверждение не удалось"
+
+#: app/auth/routes.py:233
+msgid "You have confirmed your account. A welcome email has been sent. Thanks!"
+msgstr "Вы подтвердили свой аккаунт. Приветственное письмо отправлено. Спасибо!"
+
+#: app/auth/routes.py:236
+msgid "You have confirmed your account. Thanks! You can now log in."
+msgstr "Вы подтвердили свой аккаунт. Спасибо! Теперь вы можете войти."
+
+#: app/auth/routes.py:240
+msgid ""
+"Failed to confirm your account. The link might be invalid or an error "
+"occurred."
+msgstr ""
+"Не удалось подтвердить ваш аккаунт. Ссылка может быть недействительной "
+"или произошла ошибка."
+
+#: app/auth/routes.py:253
+msgid ""
+"A new confirmation email has been sent. Please check your inbox and spam "
+"folder."
+msgstr ""
+"Новое письмо с подтверждением отправлено. Пожалуйста, проверьте входящие "
+"и папку спама."
+
+#: app/auth/routes.py:272
+msgid "Your password has been updated."
+msgstr "Ваш пароль обновлен."
+
+#: app/auth/routes.py:275
+msgid "Invalid password."
+msgstr "Неверный пароль."
+
+#: app/auth/routes.py:289
+msgid "You have been logged out."
+msgstr "Вы вышли из системы."
+
+#: app/auth/routes.py:314
+msgid ""
+"An email with instructions to reset your password has been sent. Please "
+"check your inbox and spam folder."
+msgstr ""
+"Письмо с инструкциями по сбросу пароля отправлено. Пожалуйста, проверьте "
+"входящие и папку спама."
+
+#: app/auth/routes.py:317
+msgid "Error sending email. Please try again later."
+msgstr "Ошибка при отправке письма. Пожалуйста, попробуйте снова позже."
+
+#: app/auth/routes.py:322
+msgid "If this email exists in our system, you will receive a password reset link"
+msgstr ""
+"Если этот email зарегистрирован в нашей системе, вы получите ссылку для "
+"сброса пароля"
+
+#: app/auth/routes.py:343
+msgid ""
+"This password reset link is invalid or has expired. Please request a new "
+"one."
+msgstr ""
+"Эта ссылка для сброса пароля недействительна или истек срок ее действия. "
+"Пожалуйста, запросите новую."
+
+#: app/auth/routes.py:349
+msgid "Your password has been updated! You can now log in."
+msgstr "Ваш пароль обновлен! Теперь вы можете войти."
+
+#: app/auth/routes.py:352 app/products/routes.py:122
+msgid "An unexpected error occurred. Please try again."
+msgstr "Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова."
+
+#: app/auth/routes.py:371
+msgid "Confirm your email address"
+msgstr "Подтвердите ваш email"
+
+#: app/auth/routes.py:374
+msgid ""
+"An email with instructions to confirm your new email address has been "
+"sent to you"
+msgstr "Письмо с инструкциями по подтверждению нового адреса email отправлено вам"
+
+#: app/auth/routes.py:378
+msgid "Invalid email or password."
+msgstr "Неверный email или пароль."
+
+#: app/auth/routes.py:396
+msgid "Your email address has been updated! Please log in with your new email."
+msgstr "Ваш адрес email обновлен! Пожалуйста, войдите с новым email."
+
+#: app/auth/routes.py:399
+msgid "Invalid request. Please try again"
+msgstr "Неверный запрос. Пожалуйста, попробуйте снова"
+
+#: app/mail_services/__init__.py:47
+msgid "Verify Your SmartPrice Account"
+msgstr "Подтвердите ваш аккаунт SmartPrice"
+
+#: app/mail_services/__init__.py:61
+#, fuzzy
+msgid "Welcome to SmartPrice!"
+msgstr "Добро пожаловать в SmartPrice!"
+
+#: app/mail_services/__init__.py:99
+msgid "New Feedback Received on SmartPrice"
+msgstr "Получен новый отзыв на SmartPrice"
+
+#: app/notifications/account_notifier.py:46
+#, python-format
+msgid "🎯 Price for \"%(name)s\" reached your target!"
+msgstr "🎯 Цена на \"%(name)s\" достигла вашей цели!"
+
+#: app/notifications/account_notifier.py:47
+#, python-format
+msgid "Current Price: %(new_price)s$. Target: %(target)s$."
+msgstr "Текущая цена: %(new_price)s$. Цель: %(target)s$."
+
+#: app/notifications/account_notifier.py:49
+#, python-format
+msgid "📉 Price dropped for \"%(name)s\" to %(new_price)s$!"
+msgstr "📉 Цена на \"%(name)s\" упала до %(new_price)s$!"
+
+#: app/notifications/account_notifier.py:50
+#, python-format
+msgid "Previous price was %(old_price)s$."
+msgstr "Предыдущая цена была %(old_price)s$."
+
+#: app/notifications/account_notifier.py:53
+#, fuzzy
+msgid "Product:"
+msgstr "Товары"
+
+#: app/notifications/account_notifier.py:66
+msgid "Message from Admin"
+msgstr "Сообщение от администратора"
+
+#: app/notifications/account_notifier.py:76
+#, python-format
+msgid "🎉 Your Savings Report for %(period)s is here!"
+msgstr "🎉 Ваш отчет об экономии за %(period)s здесь!"
+
+#: app/notifications/account_notifier.py:77
+#, python-format
+msgid "You've saved approximately %(amount)s$ with SmartPrice. Keep tracking!"
+msgstr "Вы сэкономили примерно %(amount)s$ с SmartPrice. Продолжайте отслеживать!"
+
+#: app/notifications/email_notifier.py:35
+#, python-format
+msgid "🎯 Price Alert! \"%(name)s\" reached your target price!"
+msgstr "🎯 Оповещение о цене! \"%(name)s\" достиг вашей целевой цены!"
+
+#: app/notifications/email_notifier.py:38
+#, python-format
+msgid "📉 Price Drop for \"%(name)s\"!"
+msgstr "📉 Снижение цены на \"%(name)s\"!"
+
+#: app/notifications/email_notifier.py:41
+#, python-format
+msgid "📈 Price Increase for \"%(name)s\"!"
+msgstr "📈 Повышение цены на \"%(name)s\"!"
+
+#: app/products/forms.py:15
+msgid "You must select at least one notification method"
+msgstr "Вы должны выбрать хотя бы один способ уведомления"
+
+#: app/products/forms.py:23
+msgid "Product URL"
+msgstr "URL товара"
+
+#: app/products/forms.py:29
+msgid "Product Name (optional)"
+msgstr "Название товара (необязательно)"
+
+#: app/products/forms.py:33
+msgid "Target Price ($)"
+msgstr "Целевая цена ($)"
+
+#: app/products/forms.py:39 app/profile/forms.py:85
+msgid "Also, notify if price just drops by ($)"
+msgstr "Также уведомлять, если цена упадет на ($)"
+
+#: app/products/forms.py:41 app/profile/forms.py:87
+msgid ""
+"For example, enter 5 to get a notification for any price drop of $5 or "
+"more. Leave it blank to get a notification for any, even the slightest, "
+"drop."
+msgstr ""
+"Например, введите 5, чтобы получать уведомления о снижении цены на $5 или"
+" больше. Оставьте поле пустым, чтобы получать уведомления о любом, даже "
+"самом незначительном, снижении."
+
+#: app/products/forms.py:45 app/profile/forms.py:91
+msgid "And notify if price increases by ($)"
+msgstr "И уведомлять, если цена вырастет на ($)"
+
+#: app/products/forms.py:47 app/profile/forms.py:93
+msgid ""
+"Useful if you want to know when the price has returned to its previous "
+"level. Leave blank to not receive notifications about increases."
+msgstr ""
+"Полезно, если вы хотите знать, когда цена вернется к предыдущему уровню. "
+"Оставьте пустым, чтобы не получать уведомления о повышении."
+
+#: app/products/forms.py:51 app/profile/forms.py:97
+msgid "Notification Methods"
+msgstr "Способы уведомления"
+
+#: app/products/forms.py:52
+msgid "Account notifications"
+msgstr "Уведомления в аккаунте"
+
+#: app/products/forms.py:54
+msgid "Telegram"
+msgstr "Telegram"
+
+#: app/products/forms.py:59 app/profile/forms.py:107
+msgid "Check Frequency"
+msgstr "Частота проверки"
+
+#: app/products/forms.py:60 app/profile/forms.py:108
+#, fuzzy
+msgid "Twice a day (every 12 hours)"
+msgstr "Дважды в день (каждые 12 часов)"
+
+#: app/products/forms.py:61 app/profile/forms.py:109
+#, fuzzy
+msgid "Once a day (every 24 hours)"
+msgstr "Раз в день (каждые 24 часа)"
+
+#: app/products/forms.py:62 app/profile/forms.py:110
+#, fuzzy
+msgid "Every 2 days"
+msgstr "Каждые 2 дня"
+
+#: app/products/forms.py:63 app/profile/forms.py:111
+msgid "Once a week"
+msgstr "Раз в неделю"
+
+#: app/products/forms.py:65 app/templates/main/index.html:72
+#, fuzzy
+msgid "Add Product"
+msgstr "Добавить товар"
+
+#: app/products/routes.py:48
+msgid "Could not extract any data from the product page."
+msgstr "Не удалось извлечь данные со страницы товара."
+
+#: app/products/routes.py:49 app/products/routes.py:53
+#: app/products/routes.py:62 app/products/routes.py:73
+#, fuzzy
+msgid "Add a Product"
+msgstr "Добавить товар"
+
+#: app/products/routes.py:52
+#, fuzzy
+msgid "Could not parse product page due to an internal error."
+msgstr "Не удалось разобрать страницу товара из-за внутренней ошибки."
+
+#: app/products/routes.py:61
+msgid ""
+"Could not parse product page. Please check the URL and/or try one more "
+"time."
+msgstr ""
+"Не удалось разобрать страницу товара. Пожалуйста, проверьте URL и/или "
+"попробуйте еще раз."
+
+#: app/products/routes.py:66
+msgid ""
+"Heads up! Note on Wildberries prices: The price in our app may differ "
+"slightly (5-7%) from Wildberries' website. This happens because "
+"Wildberries shows discounted prices (e.g., for WB Wallet or SBP "
+"payments), while we display the actual price from their system — what "
+"you’d pay without extra discounts."
+msgstr ""
+"Внимание! Примечание о ценах на Wildberries: цена в нашем приложении "
+"может немного отличаться (на 5-7%) от цены на сайте Wildberries. Это "
+"происходит потому, что Wildberries показывает цены со скидками (например,"
+" для WB Wallet или оплаты через СБП), а мы отображаем фактическую цену из"
+" их системы — ту, которую вы заплатите без дополнительных скидок."
+
+#: app/products/routes.py:72
+msgid "Could not determine a valid price from the product page."
+msgstr "Не удалось определить действительную цену на странице товара."
+
+#: app/products/routes.py:110
+msgid ""
+"Mock product added. A test notification has been queued! Check your "
+"notifications in a minute."
+msgstr ""
+"Тестовый товар добавлен. Тестовое уведомление поставлено в очередь! "
+"Проверьте уведомления через минуту."
+
+#: app/products/routes.py:112
+#, python-format
+msgid ""
+"Product \"%(name)s\" added for tracking! We will notify you when the "
+"price drops below %(price)s"
+msgstr ""
+"Товар \"%(name)s\" добавлен для отслеживания! Мы уведомим вас, когда цена"
+" упадёт ниже %(price)s"
+
+#: app/products/routes.py:118
+msgid "Sorry, we could not save the product at this time. Please try again later."
+msgstr ""
+"К сожалению, мы не смогли сохранить товар в данный момент. Пожалуйста, "
+"попробуйте снова позже."
+
+#: app/products/routes.py:126
+#, python-format
+msgid "Error adding product: %(error)s"
+msgstr "Ошибка при добавлении товара: %(error)s"
+
+#: app/products/routes.py:129
+msgid "Track New Product"
+msgstr "Отслеживать новый товар"
+
+#: app/products/routes.py:214
+msgid "Email notifications have been enabled for your account."
+msgstr "Уведомления по email включены для вашего аккаунта."
+
+#: app/products/routes.py:220 app/products/services.py:243
+#, fuzzy
+msgid "At least one notification method is required."
+msgstr "Требуется хотя бы один способ уведомления."
+
+#: app/products/routes.py:226
+msgid ""
+"Failed to add product. Possibly it's already tracked or missing required "
+"fields."
+msgstr ""
+"Не удалось добавить товар. Возможно, он уже отслеживается или отсутствуют"
+" обязательные поля."
+
+#: app/products/routes.py:230 app/products/services.py:276
+#, python-format
+msgid "Product \"%(name)s\" added for tracking!"
+msgstr "Товар \"%(name)s\" добавлен для отслеживания!"
+
+#: app/products/routes.py:235
+msgid "Unexpected server error. Please try again later."
+msgstr "Непредвиденная ошибка сервера. Пожалуйста, попробуйте снова позже."
+
+#: app/products/services.py:41
+msgid "This product is already being tracked"
+msgstr "Этот товар уже отслеживается"
+
+#: app/products/services.py:44
+#, fuzzy
+msgid "No notification method selected."
+msgstr "Не выбран способ уведомления."
+
+#: app/products/services.py:239
+msgid "This product is already being tracked."
+msgstr "Этот товар уже отслеживается."
+
+#: app/products/services.py:273
+msgid "Target price has already been reached! A notification has been sent."
+msgstr "Целевая цена уже достигнута! Уведомление отправлено."
+
+#: app/products/services.py:281
+msgid "There was a database error. It seems this product is already tracked."
+msgstr "Произошла ошибка базы данных. Похоже, этот товар уже отслеживается."
+
+#: app/products/services.py:286
+msgid "An unexpected error occurred while adding the product."
+msgstr "Произошла непредвиденная ошибка при добавлении товара."
+
+#: app/profile/forms.py:15
+msgid "Username must be between 3 and 20 characters."
+msgstr "Имя пользователя должно содержать от 3 до 20 символов."
+
+#: app/profile/forms.py:19
+msgid ""
+"Usernames must start with a letter and have only letters, numbers, dots "
+"or underscores"
+msgstr ""
+"Имя пользователя должно начинаться с буквы и содержать только буквы, "
+"цифры, точки или подчеркивания"
+
+#: app/profile/forms.py:22
+msgid "Update Username"
+msgstr "Обновить имя пользователя"
+
+#: app/profile/forms.py:31
+msgid "This username is already taken."
+msgstr "Это имя пользователя уже занято."
+
+#: app/profile/forms.py:34
+#, fuzzy
+msgid "Enable Price Drop Notifications"
+msgstr "Включить уведомления о снижении цены"
+
+#: app/profile/forms.py:35
+msgid "Enable Target Price Reached Notifications"
+msgstr "Включить уведомления о достижении целевой цены"
+
+#: app/profile/forms.py:36
+#, fuzzy
+msgid "Enable Email Notifications"
+msgstr "Включить уведомления по email"
+
+#: app/profile/forms.py:37
+#, fuzzy
+msgid "Save Notification Settings"
+msgstr "Сохранить настройки уведомлений"
+
+#: app/profile/forms.py:40
+#, fuzzy
+msgid "Your Telegram Chat ID"
+msgstr "Ваш ID чата Telegram"
+
+#: app/profile/forms.py:44 app/profile/forms.py:53
+msgid "Chat ID must be a number (can be negative for groups)."
+msgstr "ID чата должен быть числом (может быть отрицательным для групп)."
+
+#: app/profile/forms.py:46
+#, fuzzy
+msgid "Save Telegram Chat ID"
+msgstr "Сохранить ID чата Telegram"
+
+#: app/profile/forms.py:57
+msgid "Interface Display Language"
+msgstr "Язык интерфейса"
+
+#: app/profile/forms.py:58 app/templates/base.html:28
+msgid "English"
+msgstr "Английский"
+
+#: app/profile/forms.py:59 app/templates/base.html:29
+msgid "Russian"
+msgstr "Русский"
+
+#: app/profile/forms.py:60 app/templates/base.html:30
+msgid "Spanish"
+msgstr "Испанский"
+
+#: app/profile/forms.py:61 app/templates/base.html:31
+msgid "Chinese"
+msgstr "Китайский"
+
+#: app/profile/forms.py:63
+msgid "Change Interface Language"
+msgstr "Изменить язык интерфейса"
+
+#: app/profile/forms.py:68
+msgid "Category"
+msgstr "Категория"
+
+#: app/profile/forms.py:73
+msgid "Your Message"
+msgstr "Ваше сообщение"
+
+#: app/profile/forms.py:78
+msgid "Send Feedback"
+msgstr "Отправить отзыв"
+
+#: app/profile/forms.py:82
+#, fuzzy
+msgid "Product Name"
+msgstr "Название товара"
+
+#: app/profile/forms.py:83 app/templates/admin/user_details.html:26
+#: app/templates/admin/view_all_products.html:54
+#: app/templates/products/product_history.html:41
+#, fuzzy
+msgid "Target Price"
+msgstr "Целевая цена"
+
+#: app/profile/forms.py:114
+msgid "Update Product"
+msgstr "Обновить товар"
+
+#: app/profile/routes.py:30
+msgid "Please confirm your account to access full profile features."
+msgstr ""
+"Пожалуйста, подтвердите ваш аккаунт, чтобы получить доступ ко всем "
+"функциям профиля."
+
+#: app/profile/routes.py:50
+msgid "Your Profile"
+msgstr "Ваш профиль"
+
+#: app/profile/routes.py:61 app/templates/profile/tracked_products.html:9
+#, fuzzy
+msgid "My Tracked Products"
+msgstr "Мои отслеживаемые товары"
+
+#: app/profile/routes.py:69
+#, fuzzy
+msgid "Product not found."
+msgstr "Товар не найден."
+
+#: app/profile/routes.py:78
+#, python-format
+msgid "Product \"%(name)s\" has been successfully deleted."
+msgstr "Товар \"%(name)s\" успешно удален."
+
+#: app/profile/routes.py:80
+msgid "Failed to delete product."
+msgstr "Не удалось удалить товар."
+
+#: app/profile/routes.py:83
+#, fuzzy
+msgid "Could not remove the product."
+msgstr "Не удалось удалить товар."
+
+#: app/profile/routes.py:101
+msgid "Your username has been updated!"
+msgstr "Ваше имя пользователя обновлено!"
+
+#: app/profile/routes.py:104
+msgid "This username is already taken. Please choose another."
+msgstr "Это имя пользователя уже занято. Пожалуйста, выберите другое."
+
+#: app/profile/routes.py:108
+msgid "An error occurred while updating your username."
+msgstr "Произошла ошибка при обновлении вашего имени пользователя."
+
+#: app/profile/routes.py:110
+msgid "Username is the same, no changes made."
+msgstr "Имя пользователя не изменилось, изменения не внесены."
+
+#: app/profile/routes.py:121
+#, fuzzy
+msgid "Notification settings saved!"
+msgstr "Настройки уведомлений сохранены!"
+
+#: app/profile/routes.py:125
+msgid "An error occurred while saving notification settings."
+msgstr "Произошла ошибка при сохранении настроек уведомлений."
+
+#: app/profile/routes.py:137
+msgid "Interface language updated and saved to your profile!"
+msgstr "Язык интерфейса обновлен и сохранен в вашем профиле!"
+
+#: app/profile/routes.py:141
+msgid "Could not save language preference to profile."
+msgstr "Не удалось сохранить языковые настройки в профиле."
+
+#: app/profile/routes.py:143
+msgid "Interface language updated for this session!"
+msgstr "Язык интерфейса обновлен для этой сессии!"
+
+#: app/profile/routes.py:145
+msgid "Invalid language selected."
+msgstr "Выбран неверный язык."
+
+#: app/profile/routes.py:158 app/templates/profile/index.html:37
+#: app/templates/profile/settings.html:10
+#, fuzzy
+msgid "Account Settings"
+msgstr "Настройки аккаунта"
+
+#: app/profile/routes.py:171
+#, fuzzy
+msgid "Telegram Notifications Setup"
+msgstr "Настройка уведомлений Telegram"
+
+#: app/profile/routes.py:190
+msgid ""
+"Thank you for your feedback! We appreciate you helping us improve "
+"SmartPrice."
+msgstr "Спасибо за ваш отзыв! Мы ценим вашу помощь в улучшении SmartPrice."
+
+#: app/profile/routes.py:196
+msgid ""
+"Sorry, there was an issue submitting your feedback. Please try again "
+"later."
+msgstr ""
+"К сожалению, возникла проблема с отправкой вашего отзыва. Пожалуйста, "
+"попробуйте снова позже."
+
+#: app/profile/routes.py:198 app/templates/base.html:47
+#: app/templates/base.html:48
+msgid "Leave Feedback"
+msgstr "Оставить отзыв"
+
+#: app/profile/routes.py:215
+#, python-format
+msgid "Product \"%(name)s\" updated successfully!"
+msgstr "Товар \"%(name)s\" успешно обновлен!"
+
+#: app/profile/routes.py:220
+#, fuzzy, python-format
+msgid "Error updating product: %(error)s"
+msgstr "Ошибка при обновлении товара: %(error)s"
+
+#: app/profile/routes.py:228 app/templates/profile/index.html:68
+#, fuzzy
+msgid "Edit Product"
+msgstr "Редактировать товар"
+
+#: app/profile/routes.py:251
+#, fuzzy
+msgid "My Notifications"
+msgstr "Мои уведомления"
+
+#: app/profile/routes.py:264
+msgid "All notifications have been cleared."
+msgstr "Все уведомления очищены."
+
+#: app/profile/routes.py:268
+msgid "An error occurred while clearing notifications."
+msgstr "Произошла ошибка при очистке уведомлений."
+
+#: app/profile/routes.py:282
+#, fuzzy
+msgid "Notification marked as read."
+msgstr "Уведомление отмечено как прочитанное."
+
+#: app/profile/routes.py:286
+#, fuzzy
+msgid "Could not mark notification as read."
+msgstr "Не удалось отметить уведомление как прочитанное."
+
+#: app/profile/routes.py:298
+#, fuzzy, python-format
+msgid "%(count)s notifications marked as read."
+msgstr "%(count)s уведомлений отмечено как прочитанное."
+
+#: app/profile/routes.py:300
+#, fuzzy
+msgid "No unread notifications to mark."
+msgstr "Нет непрочитанных уведомлений для отметки."
+
+#: app/profile/routes.py:304
+#, fuzzy
+msgid "Could not mark all notifications as read."
+msgstr "Не удалось отметить все уведомления как прочитанные."
+
+#: app/templates/base.html:36 app/templates/profile/index.html:8
+msgid "Admin Panel"
+msgstr "Панель администратора"
+
+#: app/templates/admin/index.html:45 app/templates/base.html:41
+#, fuzzy
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: app/templates/base.html:51 app/templates/profile/index.html:16
+msgid "Profile"
+msgstr "Профиль"
+
+#: app/templates/base.html:52
+msgid "Logout"
+msgstr "Выйти"
+
+#: app/templates/base.html:80
+msgid "©"
+msgstr "©"
+
+#: app/templates/base.html:80
+#, fuzzy
+msgid "SmartPrice. All rights reserved."
+msgstr "SmartPrice. Все права защищены."
+
+#: app/templates/index.html:5
+msgid "Track prices and save money!"
+msgstr "Отслеживайте цены и экономьте деньги!"
+
+#: app/templates/index.html:10
+msgid "Add Product to Track"
+msgstr "Добавить товар для отслеживания"
+
+#: app/templates/index.html:21
+msgid "Error!"
+msgstr "Ошибка!"
+
+#: app/templates/index.html:21
+#, fuzzy
+msgid "Please correct errors:"
+msgstr "Пожалуйста, исправьте ошибки:"
+
+#: app/templates/index.html:36
+msgid "https://..."
+msgstr "https://..."
+
+#: app/templates/index.html:37
+#, fuzzy
+msgid "Supported: Amazon, eBay, Walmart, Wildberries, Ozon"
+msgstr "Поддерживаются: Amazon, eBay, Walmart, Wildberries, Ozon"
+
+#: app/templates/index.html:39
+#, fuzzy
+msgid "How to get product URL?"
+msgstr "Как получить URL товара?"
+
+#: app/templates/index.html:42
+#, fuzzy
+msgid "How to Find Product URL"
+msgstr "Как найти URL товара"
+
+#: app/templates/index.html:44
+msgid "Go to the product page"
+msgstr "Перейдите на страницу товара"
+
+#: app/templates/index.html:45
+msgid "Navigate to the product you want to track on the supported website"
+msgstr ""
+"Перейдите на страницу товара, который вы хотите отслеживать, на "
+"поддерживаемом сайте"
+
+#: app/templates/index.html:48
+msgid "Copy the address"
+msgstr "Скопируйте адрес"
+
+#: app/templates/index.html:49
+msgid "Highlight and copy the entire URL from your browser's address bar"
+msgstr "Выделите и скопируйте полный URL из адресной строки браузера"
+
+#: app/templates/index.html:51
+msgid "URL example"
+msgstr "Пример URL"
+
+#: app/templates/index.html:54
+msgid "Paste it here"
+msgstr "Вставьте сюда"
+
+#: app/templates/index.html:55
+msgid "Make sure the URL starts with https:// and contains the product details"
+msgstr "Убедитесь, что URL начинается с https:// и содержит информацию о товаре"
+
+#: app/templates/index.html:66
+#, fuzzy
+msgid "e.g. iPhone 16 Pro Max"
+msgstr "например, iPhone 16 Pro Max"
+
+#: app/templates/index.html:76
+#, fuzzy
+msgid "We'll notify when price drops below this"
+msgstr "Мы уведомим, когда цена упадет ниже этого значения"
+
+#: app/templates/index.html:122
+msgid "Start Tracking"
+msgstr "Начать отслеживание"
+
+#: app/templates/index.html:132
+#, fuzzy
+msgid "Instant Price Alerts"
+msgstr "Мгновенные оповещения о ценах"
+
+#: app/templates/index.html:133
+msgid ""
+"Never miss a deal! Get real-time notifications when prices drop below "
+"your target, so you can buy at the perfect moment."
+msgstr ""
+"Не упустите выгодную сделку! Получайте уведомления в реальном времени, "
+"когда цены падают ниже вашей цели, чтобы купить в идеальный момент."
+
+#: app/templates/index.html:139
+#, fuzzy
+msgid "Detailed Price History"
+msgstr "Подробная история цен"
+
+#: app/templates/index.html:140
+msgid ""
+"Track price trends over time to make smarter purchasing decisions with "
+"confidence."
+msgstr ""
+"Отслеживайте ценовые тенденции с течением времени, чтобы принимать более "
+"обоснованные решения о покупке."
+
+#: app/templates/index.html:146
+#, fuzzy
+msgid "Flexible Notifications"
+msgstr "Гибкие уведомления"
+
+#: app/templates/index.html:147
+msgid ""
+"Stay informed your way—choose Email, Telegram, or Account Inbox for "
+"seamless price updates."
+msgstr ""
+"Будьте в курсе по-своему — выбирайте уведомления по email, Telegram или в"
+" личном кабинете для удобных обновлений цен."
+
+#: app/templates/index.html:154
+#, fuzzy
+msgid "Email Notifications Disabled"
+msgstr "Уведомления по email отключены"
+
+#: app/templates/index.html:155
+msgid ""
+"Email notifications are disabled in your account settings. Do you want to"
+" enable them for this product?"
+msgstr ""
+"Уведомления по email отключены в настройках вашего аккаунта. Хотите "
+"включить их для этого товара?"
+
+#: app/templates/index.html:156
+msgid "No"
+msgstr "Нет"
+
+#: app/templates/index.html:157
+msgid "Yes"
+msgstr "Да"
+
+#: app/templates/index.html:185
+msgid ""
+"No notification methods selected. Add at least one (except email) or "
+"enable email in settings."
+msgstr ""
+"Не выбраны способы уведомления. Добавьте хотя бы один (кроме email) или "
+"включите email в настройках."
+
+#: app/templates/index.html:213
+msgid "Failed to add product, check error messages."
+msgstr "Не удалось добавить товар, проверьте сообщения об ошибках."
+
+#: app/templates/index.html:218
+msgid "A network error occurred. Please try again."
+msgstr "Произошла сетевая ошибка. Пожалуйста, попробуйте снова."
+
+#: app/templates/admin/edit_user.html:16
+msgid "Editing User:"
+msgstr "Редактирование пользователя:"
+
+#: app/templates/admin/edit_user.html:83
+#, fuzzy
+msgid "Notification Settings:"
+msgstr "Настройки уведомлений:"
+
+#: app/templates/admin/edit_user.html:97
+#: app/templates/bootstrap4/admin/model/edit.html:27
+#: app/templates/profile/edit_product.html:94
+msgid "Cancel"
+msgstr "Отмена"
+
+#: app/templates/admin/index.html:2
+msgid "Admin Dashboard"
+msgstr "Панель администратора"
+
+#: app/templates/admin/index.html:5
+msgid "SmartPrice Admin Dashboard"
+msgstr "Панель администратора SmartPrice"
+
+#: app/templates/admin/index.html:7
+msgid "Go to Profile"
+msgstr "Перейти в профиль"
+
+#: app/templates/admin/index.html:23
+msgid "Users"
+msgstr "Пользователи"
+
+#: app/templates/admin/index.html:27
+msgid "users registered"
+msgstr "зарегистрированных пользователей"
+
+#: app/templates/admin/index.html:34
+#, fuzzy
+msgid "Products"
+msgstr "Товары"
+
+#: app/templates/admin/index.html:38
+#, fuzzy
+msgid "products tracked"
+msgstr "отслеживаемых товаров"
+
+#: app/templates/admin/index.html:49
+msgid "sent in last 24 hours"
+msgstr "отправлено за последние 24 часа"
+
+#: app/templates/admin/index.html:58
+msgid "Platform Statistics"
+msgstr "Статистика платформы"
+
+#: app/templates/admin/index.html:64
+msgid "Domain"
+msgstr "Домен"
+
+#: app/templates/admin/index.html:65
+#, fuzzy
+msgid "Product Count"
+msgstr "Количество товаров"
+
+#: app/templates/admin/index.html:82
+msgid "Refresh Statistics"
+msgstr "Обновить статистику"
+
+#: app/templates/admin/testing.html:3 app/templates/admin/testing.html:26
+msgid "Testing Tools"
+msgstr "Инструменты тестирования"
+
+#: app/templates/admin/testing.html:44
+msgid "Real Price Check"
+msgstr "Проверка реальной цены"
+
+#: app/templates/admin/testing.html:47
+msgid ""
+"Queue a task to fetch the current price for a product from the live "
+"website."
+msgstr ""
+"Поставить задачу на получение текущей цены товара с сайта в реальном "
+"времени."
+
+#: app/templates/admin/testing.html:49
+msgid "Enter product ID for all price checks"
+msgstr "Введите ID товара для всех проверок цен"
+
+#: app/templates/admin/testing.html:57
+msgid "Mock Price Check"
+msgstr "Тестовая проверка цены"
+
+#: app/templates/admin/testing.html:60
+msgid ""
+"Simulate different pricing scenarios to test notification logic without "
+"making real requests."
+msgstr ""
+"Имитируйте различные ценовые сценарии для тестирования логики уведомлений"
+" без реальных запросов."
+
+#: app/templates/admin/testing.html:78
+#, fuzzy
+msgid "Test Notification"
+msgstr "Тестовое уведомление"
+
+#: app/templates/admin/testing.html:81
+msgid ""
+"Send a pre-formatted test notification to a user to verify delivery "
+"channels."
+msgstr ""
+"Отправить предварительно отформатированное тестовое уведомление "
+"пользователю для проверки каналов доставки."
+
+#: app/templates/admin/user_details.html:5
+#, python-format
+msgid "User Details: %(username)s"
+msgstr "Данные пользователя: %(username)s"
+
+#: app/templates/admin/user_details.html:8
+#: app/templates/admin/view_all_products.html:50
+msgid "ID"
+msgstr "ID"
+
+#: app/templates/admin/user_details.html:11
+msgid "Telegram Chat ID"
+msgstr "ID чата Telegram"
+
+#: app/templates/admin/user_details.html:12
+msgid "Confirmed"
+msgstr "Подтвержден"
+
+#: app/templates/admin/user_details.html:13
+msgid "Active"
+msgstr "Активен"
+
+#: app/templates/admin/user_details.html:14
+msgid "Administrator"
+msgstr "Администратор"
+
+#: app/templates/admin/user_details.html:15
+msgid "Last Seen"
+msgstr "Последний вход"
+
+#: app/templates/admin/user_details.html:19
+msgid "Tracked Products"
+msgstr "Отслеживаемые товары"
+
+#: app/templates/admin/user_details.html:25
+#: app/templates/admin/view_all_products.html:55
+#: app/templates/products/product_history.html:26
+#, fuzzy
+msgid "Current Price"
+msgstr "Текущая цена"
+
+#: app/templates/admin/user_details.html:27
+#, fuzzy
+msgid "Marketplace"
+msgstr "Маркетплейс"
+
+#: app/templates/admin/user_details.html:32
+msgid "No products tracked by this user."
+msgstr "Этот пользователь не отслеживает товары."
+
+#: app/templates/admin/user_details.html:35
+#, fuzzy
+msgid "Recent Notifications (Last 10)"
+msgstr "Последние уведомления (последние 10)"
+
+#: app/templates/admin/user_details.html:52
+msgid "Mark as Read"
+msgstr "Отметить как прочитанное"
+
+#: app/templates/admin/user_details.html:62
+#, fuzzy
+msgid "No notifications for this user."
+msgstr "Нет уведомлений для этого пользователя."
+
+#: app/templates/admin/view_all_products.html:15
+msgid "Search & Filter Products"
+msgstr "Поиск и фильтрация товаров"
+
+#: app/templates/admin/view_all_products.html:21
+msgid "Search by Product Name or URL..."
+msgstr "Поиск по названию товара или URL..."
+
+#: app/templates/admin/view_all_products.html:25
+msgid "All Users"
+msgstr "Все пользователи"
+
+#: app/templates/admin/view_all_products.html:32
+msgid "Apply"
+msgstr "Применить"
+
+#: app/templates/admin/view_all_products.html:35
+msgid "Clear Filters"
+msgstr "Очистить фильтры"
+
+#: app/templates/admin/view_all_products.html:44
+#, fuzzy
+msgid "Product List"
+msgstr "Список товаров"
+
+#: app/templates/admin/view_all_products.html:44
+#: app/templates/profile/view_notifications.html:27
+msgid "Total:"
+msgstr "Всего:"
+
+#: app/templates/admin/view_all_products.html:51
+msgid "Name"
+msgstr "Название"
+
+#: app/templates/admin/view_all_products.html:52
+msgid "URL"
+msgstr "URL"
+
+#: app/templates/admin/view_all_products.html:53
+msgid "User"
+msgstr "Пользователь"
+
+#: app/templates/admin/view_all_products.html:56
+msgid "Last Checked"
+msgstr "Последняя проверка"
+
+#: app/templates/admin/view_all_products.html:57
+msgid "Actions"
+msgstr "Действия"
+
+#: app/templates/admin/view_all_products.html:70
+#: app/templates/admin/view_all_products.html:83
+#: app/templates/email/notifications/price_drop.html:29
+#: app/templates/profile/index.html:62
+#: app/templates/profile/tracked_products.html:30
+msgid "N/A"
+msgstr "Н/Д"
+
+#: app/templates/admin/view_all_products.html:88
+#: app/templates/profile/tracked_products.html:48
+msgid "Edit"
+msgstr "Редактировать"
+
+#: app/templates/admin/view_all_products.html:89
+msgid "Are you sure you want to delete this product?"
+msgstr "Вы уверены, что хотите удалить этот товар?"
+
+#: app/templates/admin/view_all_products.html:90
+#: app/templates/profile/tracked_products.html:52
+msgid "Delete"
+msgstr "Удалить"
+
+#: app/templates/admin/view_all_products.html:92
+msgid "N/A for MVP"
+msgstr "Н/Д для MVP"
+
+#: app/templates/admin/view_all_products.html:107
+msgid "No products found matching your criteria."
+msgstr "Товары, соответствующие вашим критериям, не найдены."
+
+#: app/templates/auth/change_email.html:3
+#: app/templates/auth/change_email.html:9
+#: app/templates/profile/settings.html:44
+msgid "Change Email Address"
+msgstr "Изменить адрес email"
+
+#: app/templates/auth/change_email.html:10
+msgid "Update your account email address."
+msgstr "Обновите адрес email вашего аккаунта."
+
+#: app/templates/auth/change_email.html:20
+msgid "New Email Address"
+msgstr "Новый адрес email"
+
+#: app/templates/auth/change_email.html:31
+msgid "Your Current Password"
+msgstr "Ваш текущий пароль"
+
+#: app/templates/auth/change_email.html:38
+msgid "Update Email Address"
+msgstr "Обновить адрес email"
+
+#: app/templates/auth/change_password.html:3
+#: app/templates/auth/change_password.html:9
+#: app/templates/profile/settings.html:41
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: app/templates/auth/change_password.html:10
+msgid "Update your account password."
+msgstr "Обновите пароль вашего аккаунта."
+
+#: app/templates/auth/change_password.html:20
+msgid "Current Password"
+msgstr "Текущий пароль"
+
+#: app/templates/auth/change_password.html:33
+msgid "Minimum 8 characters"
+msgstr "Минимум 8 символов"
+
+#: app/templates/auth/change_password.html:43
+msgid "Confirm New Password"
+msgstr "Подтвердите новый пароль"
+
+#: app/templates/auth/change_password.html:50
+msgid "Update Password"
+msgstr "Обновить пароль"
+
+#: app/templates/auth/confirmation_invalid.html:3
+#: app/templates/auth/confirmation_invalid.html:9
+msgid "Invalid Confirmation Link"
+msgstr "Недействительная ссылка для подтверждения"
+
+#: app/templates/auth/confirmation_invalid.html:14
+msgid "Please request a new confirmation email to verify your account."
+msgstr ""
+"Пожалуйста, запросите новое письмо для подтверждения, чтобы "
+"верифицировать ваш аккаунт."
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Go back to"
+msgstr "Вернуться к"
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Login Page"
+msgstr "Странице входа"
+
+#: app/templates/auth/login.html:7
+msgid "Welcome Back"
+msgstr "С возвращением"
+
+#: app/templates/auth/login.html:8
+msgid "Sign in to track your products"
+msgstr "Войдите, чтобы отслеживать ваши товары"
+
+#: app/templates/auth/login.html:16 app/templates/auth/register.html:24
+#: app/templates/auth/reset_password_request.html:16
+msgid "your@email.com"
+msgstr "your@email.com"
+
+#: app/templates/auth/login.html:24
+msgid "Your password"
+msgstr "Ваш пароль"
+
+#: app/templates/auth/login.html:35
+msgid "Forgot Password?"
+msgstr "Забыли пароль?"
+
+#: app/templates/auth/login.html:41
+msgid "Didn't receive a confirmation email?"
+msgstr "Не получили письмо с подтверждением?"
+
+#: app/templates/auth/login.html:42
+msgid "Resend it"
+msgstr "Отправить повторно"
+
+#: app/templates/auth/login.html:50
+msgid "Don't have an account?"
+msgstr "Нет аккаунта?"
+
+#: app/templates/auth/login.html:51
+msgid "Sign Up"
+msgstr "Зарегистрироваться"
+
+#: app/templates/auth/register.html:7
+#, fuzzy
+msgid "Create Account"
+msgstr "Создать аккаунт"
+
+#: app/templates/auth/register.html:8
+#, fuzzy
+msgid "Join SmartPrice to start tracking prices"
+msgstr "Присоединяйтесь к SmartPrice, чтобы начать отслеживать цены"
+
+#: app/templates/auth/register.html:16
+msgid "your_user_name"
+msgstr "your_user_name"
+
+#: app/templates/auth/register.html:32
+#, fuzzy
+msgid "Create a password"
+msgstr "Создать пароль"
+
+#: app/templates/auth/register.html:34
+msgid "Minimum 8 characters. Must include uppercase, lowercase, and a digit."
+msgstr ""
+"Минимум 8 символов. Должен включать заглавные и строчные буквы, а также "
+"цифру."
+
+#: app/templates/auth/register.html:49
+msgid "Repeat your password"
+msgstr "Повторите ваш пароль"
+
+#: app/templates/auth/register.html:59 app/templates/main/index.html:20
+msgid "Already have an account?"
+msgstr "Уже есть аккаунт?"
+
+#: app/templates/auth/resend_confirmation_request.html:11
+msgid "Enter your email address and we will send you a new confirmation link."
+msgstr "Введите ваш адрес email, и мы отправим вам новую ссылку для подтверждения."
+
+#: app/templates/auth/resend_verification.html:12
+msgid "Enter your email address to resend the verification link."
+msgstr "Введите ваш адрес email, чтобы повторно отправить ссылку для верификации."
+
+#: app/templates/auth/resend_verification.html:20
+msgid "Back to Login"
+msgstr "Вернуться к входу"
+
+#: app/templates/auth/reset_password.html:7
+msgid "Reset Your Password"
+msgstr "Сбросить ваш пароль"
+
+#: app/templates/auth/reset_password.html:8
+msgid "Enter your new password below."
+msgstr "Введите новый пароль ниже."
+
+#: app/templates/auth/reset_password.html:24
+msgid "Repeat New Password"
+msgstr "Повторите новый пароль"
+
+#: app/templates/auth/reset_password.html:34
+#: app/templates/auth/reset_password_request.html:26
+msgid "Back to Sign In"
+msgstr "Вернуться к входу"
+
+#: app/templates/auth/reset_password_request.html:8
+msgid "Enter your email to receive a reset link"
+msgstr "Введите ваш email, чтобы получить ссылку для сброса"
+
+#: app/templates/auth/unconfirmed.html:3 app/templates/auth/unconfirmed.html:9
+#, fuzzy
+msgid "Account Not Confirmed"
+msgstr "Аккаунт не подтвержден"
+
+#: app/templates/auth/unconfirmed.html:10
+msgid "Your account has not been confirmed yet."
+msgstr "Ваш аккаунт еще не подтвержден."
+
+#: app/templates/auth/unconfirmed.html:14
+msgid ""
+"Please check your inbox for a confirmation email. If you have not "
+"received one, you can request another one."
+msgstr ""
+"Пожалуйста, проверьте ваш почтовый ящик на наличие письма с "
+"подтверждением. Если вы его не получили, вы можете запросить новое."
+
+#: app/templates/auth/unconfirmed.html:20
+msgid "Already confirmed?"
+msgstr "Уже подтверждено?"
+
+#: app/templates/auth/email/reset_password.html:5
+msgid "Password Reset"
+msgstr "Сброс пароля"
+
+#: app/templates/auth/email/reset_password.html:24
+msgid "SmartPrice Password Reset"
+msgstr "Сброс пароля SmartPrice"
+
+#: app/templates/auth/email/reset_password.html:26
+#, python-format
+msgid "Hello %(username)s,"
+msgstr "Здравствуйте, %(username)s,"
+
+#: app/templates/auth/email/reset_password.html:28
+msgid ""
+"You recently requested to reset your password for your SmartPrice "
+"account. Click the button below to reset it."
+msgstr ""
+"Вы недавно запросили сброс пароля для вашего аккаунта SmartPrice. Нажмите"
+" кнопку ниже, чтобы сбросить его."
+
+#: app/templates/auth/email/reset_password.html:32
+#, python-format
+msgid "This password reset link will expire in %(hours)d hours."
+msgstr "Эта ссылка для сброса пароля истечет через %(hours)d часов."
+
+#: app/templates/auth/email/reset_password.html:34
+msgid ""
+"If you didn't request a password reset, please ignore this email or "
+"contact support if you have questions."
+msgstr ""
+"Если вы не запрашивали сброс пароля, пожалуйста, проигнорируйте это "
+"письмо или свяжитесь с поддержкой, если у вас есть вопросы."
+
+#: app/templates/auth/email/reset_password.html:37
+msgid "Thanks,"
+msgstr "Спасибо,"
+
+#: app/templates/auth/email/reset_password.html:38
+#: app/templates/email/admin_message.html:22
+#: app/templates/email/welcome.html:14
+#, fuzzy
+msgid "The SmartPrice Team"
+msgstr "Команда SmartPrice"
+
+#: app/templates/bootstrap4/admin/model/edit.html:10
+#, python-format
+msgid "%(name)s Edit"
+msgstr "Редактирование %(name)s"
+
+#: app/templates/bootstrap4/admin/model/edit.html:26
+msgid "Save"
+msgstr "Сохранить"
+
+#: app/templates/email/admin_message.html:22
+msgid "Sincerely,"
+msgstr "С уважением,"
+
+#: app/templates/email/base_email.html:42
+msgid "You received this email because you are tracking products on SmartPrice."
+msgstr "Вы получили это письмо, потому что отслеживаете товары на SmartPrice."
+
+#: app/templates/email/base_notification.html:30
+#, fuzzy
+msgid "Manage your notification settings"
+msgstr "Управление настройками уведомлений"
+
+#: app/templates/email/change_email.html:3
+msgid "Confirm Your New Email Address"
+msgstr "Подтвердите ваш новый адрес email"
+
+#: app/templates/email/change_email.html:4 app/templates/email/confirm.html:4
+#, python-format
+msgid "Hi %(username)s,"
+msgstr "Привет, %(username)s,"
+
+#: app/templates/email/change_email.html:6
+msgid ""
+"You requested to change the email address for your SmartPrice account. To"
+" confirm this change, please click the button below."
+msgstr ""
+"Вы запросили изменение адреса email для вашего аккаунта SmartPrice. Чтобы"
+" подтвердить это изменение, пожалуйста, нажмите кнопку ниже."
+
+#: app/templates/email/change_email.html:9
+msgid "Confirm New Email"
+msgstr "Подтвердить новый email"
+
+#: app/templates/email/change_email.html:12
+msgid ""
+"If you did not request this change, please ignore this email or contact "
+"our support."
+msgstr ""
+"Если вы не запрашивали это изменение, пожалуйста, проигнорируйте это "
+"письмо или свяжитесь с нашей поддержкой."
+
+#: app/templates/email/confirm.html:3
+msgid "Confirm Your Account"
+msgstr "Подтвердите ваш аккаунт"
+
+#: app/templates/email/confirm.html:6
+msgid ""
+"Thanks for signing up for SmartPrice! To complete your registration, "
+"please click the button below to verify your email address."
+msgstr ""
+"Спасибо за регистрацию в SmartPrice! Чтобы завершить регистрацию, "
+"пожалуйста, нажмите кнопку ниже, чтобы подтвердить ваш адрес email."
+
+#: app/templates/email/confirm.html:9
+msgid "Verify My Email"
+msgstr "Подтвердить мой email"
+
+#: app/templates/email/confirm.html:12
+#, python-format
+msgid "This link will expire in %(hours)s hours."
+msgstr "Эта ссылка истечет через %(hours)s часов."
+
+#: app/templates/email/confirm.html:15
+msgid "If you did not sign up for an account, you can safely ignore this email."
+msgstr ""
+"Если вы не регистрировались, вы можете спокойно проигнорировать это "
+"письмо."
+
+#: app/templates/email/welcome.html:3
+#, python-format
+msgid "Welcome to SmartPrice, %(username)s!"
+msgstr "Добро пожаловать в SmartPrice, %(username)s!"
+
+#: app/templates/email/welcome.html:4
+msgid ""
+"We are thrilled to have you on board. You are now ready to start tracking"
+" prices and saving money."
+msgstr ""
+"Мы рады приветствовать вас на борту. Теперь вы готовы начать отслеживать "
+"цены и экономить деньги."
+
+#: app/templates/email/welcome.html:5
+msgid "Here are a few things you can do to get started:"
+msgstr "Вот несколько шагов, чтобы начать:"
+
+#: app/templates/email/welcome.html:7
+msgid "Track your first product from your favorite online store."
+msgstr ""
+"Начните отслеживать свой первый товар из вашего любимого "
+"интернет-магазина."
+
+#: app/templates/email/welcome.html:8
+msgid "Set up your notification preferences in your profile."
+msgstr "Настройте предпочтения уведомлений в вашем профиле."
+
+#: app/templates/email/welcome.html:9
+msgid "Connect your Telegram account for instant alerts."
+msgstr "Подключите ваш аккаунт Telegram для мгновенных уведомлений."
+
+#: app/templates/email/welcome.html:12
+msgid "Track Your First Product"
+msgstr "Отслеживайте ваш первый товар"
+
+#: app/templates/email/welcome.html:14
+#, fuzzy
+msgid "Happy tracking!"
+msgstr "Удачного отслеживания!"
+
+#: app/templates/email/notifications/price_drop.html:11
+#, fuzzy
+msgid "Price Drop!"
+msgstr "Снижение цены!"
+
+#: app/templates/email/notifications/price_drop.html:12
+#, python-format
+msgid ""
+"Good news, %(username)s! The price has dropped for a product you are "
+"tracking."
+msgstr "Хорошие новости, %(username)s! Цена на отслеживаемый вами товар упала."
+
+#: app/templates/email/notifications/price_drop.html:38
+msgid "View on Store"
+msgstr "Посмотреть в магазине"
+
+#: app/templates/email/notifications/price_drop.html:39
+#: app/templates/email/notifications/price_increase.html:33
+#: app/templates/email/notifications/target_price_reached.html:33
+#, fuzzy
+msgid "My Products"
+msgstr "Мои товары"
+
+#: app/templates/email/notifications/price_increase.html:11
+#, fuzzy
+msgid "Price Increase Alert"
+msgstr "Оповещение о повышении цены"
+
+#: app/templates/email/notifications/price_increase.html:12
+#, python-format
+msgid ""
+"Hi %(username)s, just a heads-up: the price has increased for a product "
+"you are tracking."
+msgstr ""
+"Привет, %(username)s, небольшое предупреждение: цена на отслеживаемый "
+"вами товар выросла."
+
+#: app/templates/email/notifications/price_increase.html:25
+msgid "Was:"
+msgstr "Было:"
+
+#: app/templates/email/notifications/target_price_reached.html:11
+#, fuzzy
+msgid "Target Price Reached!"
+msgstr "Целевая цена достигнута!"
+
+#: app/templates/email/notifications/target_price_reached.html:12
+#, python-format
+msgid ""
+"Amazing news, %(username)s! A product you are tracking has reached your "
+"target price."
+msgstr ""
+"Потрясающие новости, %(username)s! Товар, который вы отслеживаете, достиг"
+" вашей целевой цены."
+
+#: app/templates/email/notifications/target_price_reached.html:25
+#: app/templates/profile/index.html:64
+msgid "Target:"
+msgstr "Цель:"
+
+#: app/templates/email/notifications/target_price_reached.html:32
+msgid "Buy Now"
+msgstr "Купить сейчас"
+
+#: app/templates/errors/403.html:16
+msgid "403 - Access Denied"
+msgstr "403 - Доступ запрещен"
+
+#: app/templates/errors/403.html:17
+msgid "You shall not pass!"
+msgstr "Вы не пройдете!"
+
+#: app/templates/errors/403.html:20
+msgid ""
+"Our digital bouncers have determined you don't have the proper "
+"credentials."
+msgstr "Наши цифровые вышибалы определили, что у вас нет необходимых полномочий."
+
+#: app/templates/errors/403.html:21
+msgid "If you believe this is a mistake, please contact support."
+msgstr "Если вы считаете, что это ошибка, пожалуйста, свяжитесь с поддержкой."
+
+#: app/templates/errors/403.html:26
+msgid "Return Home"
+msgstr "Вернуться на главную"
+
+#: app/templates/errors/403.html:29
+msgid "Contact Support"
+msgstr "Связаться с поддержкой"
+
+#: app/templates/errors/403.html:34
+msgid ""
+"Fun fact: The average developer spends 403 minutes per week debugging "
+"permission issues."
+msgstr ""
+"Интересный факт: Средний разработчик тратит 403 минуты в неделю на "
+"отладку проблем с правами доступа."
+
+#: app/templates/errors/404.html:19
+msgid "404 - Mission Control, We Have a Problem"
+msgstr "404 - Центр управления, у нас проблема"
+
+#: app/templates/errors/404.html:20
+msgid "Houston, this page has left the atmosphere!"
+msgstr "Хьюстон, эта страница покинула атмосферу!"
+
+#: app/templates/errors/404.html:23
+msgid "Our team of highly trained monkeys (and developers) can't find this page."
+msgstr ""
+"Наша команда высококвалифицированных обезьян (и разработчиков) не может "
+"найти эту страницу."
+
+#: app/templates/errors/404.html:24
+msgid "Maybe it was abducted by aliens, or you mistyped the URL?"
+msgstr "Может, ее похитили инопланетяне, или вы ошиблись в URL?"
+
+#: app/templates/errors/404.html:29
+msgid "Beam Me Home"
+msgstr "Вернуть меня домой"
+
+#: app/templates/errors/404.html:32
+msgid "Call for Backup"
+msgstr "Вызвать подкрепление"
+
+#: app/templates/errors/404.html:37
+msgid ""
+"Fun fact: The number 404 is actually how many cups of coffee our "
+"developers drink daily."
+msgstr ""
+"Интересный факт: Число 404 — это количество чашек кофе, которые наши "
+"разработчики выпивают ежедневно."
+
+#: app/templates/errors/500.html:9
+msgid "500 - Our Robots Have Rebelled"
+msgstr "500 - Наши роботы взбунтовались"
+
+#: app/templates/errors/500.html:10
+msgid "The machines have taken over... temporarily"
+msgstr "Машины захватили власть... временно"
+
+#: app/templates/errors/500.html:13
+msgid "Our server is currently experiencing an existential crisis."
+msgstr "Наш сервер сейчас переживает экзистенциальный кризис."
+
+#: app/templates/errors/500.html:14
+msgid "While we negotiate with our AI overlords, why don't you:"
+msgstr "Пока мы договариваемся с нашими ИИ-владыками, почему бы вам не:"
+
+#: app/templates/errors/500.html:20
+msgid "Refresh the page (the classic IT solution)"
+msgstr "Обновить страницу (классическое ИТ-решение)"
+
+#: app/templates/errors/500.html:24
+msgid "Pet a dog/cat for emotional support"
+msgstr "Погладить собаку/кошку для эмоциональной поддержки"
+
+#: app/templates/errors/500.html:28
+msgid "Try again in a few minutes"
+msgstr "Попробовать снова через несколько минут"
+
+#: app/templates/errors/500.html:35
+msgid "Return to Safety"
+msgstr "Вернуться в безопасное место"
+
+#: app/templates/errors/500.html:38
+msgid "Emergency Distraction"
+msgstr "Экстренное отвлечение"
+
+#: app/templates/errors/500.html:43
+msgid ""
+"Meanwhile, our developers are frantically googling \"how to appease robot"
+" overlords\"."
+msgstr ""
+"Тем временем наши разработчики лихорадочно ищут в Google \"как "
+"умилостивить роботизированных владык\"."
+
+#: app/templates/main/index.html:13
+msgid "SmartPrice: Never Miss a Deal Again!"
+msgstr "SmartPrice: Никогда не пропустите выгодную сделку!"
+
+#: app/templates/main/index.html:14
+msgid ""
+"Track product prices effortlessly and save money on your online shopping."
+" We watch, you save!"
+msgstr ""
+"Отслеживайте цены на товары без усилий и экономьте на онлайн-покупках. Мы"
+" следим, вы экономите!"
+
+#: app/templates/main/index.html:16
+msgid "Get Started for Free"
+msgstr "Начать бесплатно"
+
+#: app/templates/main/index.html:18
+msgid "Go to My Products"
+msgstr "Перейти к моим товарам"
+
+#: app/templates/main/index.html:26
+#, fuzzy
+msgid "What is SmartPrice?"
+msgstr "Что такое SmartPrice?"
+
+#: app/templates/main/index.html:28
+msgid ""
+"Tired of manually checking if that wishlist item finally dropped in "
+"price? SmartPrice is your personal shopping assistant that automates "
+"price tracking across your favorite online stores. Set your desired "
+"price, and we’ll notify you the moment it hits your target or drops "
+"significantly. Shop smarter, not harder!"
+msgstr ""
+"Надоело вручную проверять, снизилась ли цена на товар из вашего списка "
+"желаний? SmartPrice — ваш личный помощник по покупкам, который "
+"автоматизирует отслеживание цен в ваших любимых интернет-магазинах. "
+"Установите желаемую цену, и мы уведомим вас, как только она достигнет "
+"цели или значительно снизится. Покупайте умнее, а не сложнее!"
+
+#: app/templates/main/index.html:33
+#, fuzzy
+msgid "Effortless Tracking"
+msgstr "Легкое отслеживание"
+
+#: app/templates/main/index.html:34
+msgid ""
+"Just paste the product URL, set your target price, and let us do the "
+"heavy lifting. Supports a growing list of popular stores."
+msgstr ""
+"Просто вставьте URL товара, установите целевую цену, и мы сделаем всю "
+"тяжелую работу. Поддерживается растущий список популярных магазинов."
+
+#: app/templates/main/index.html:38
+#, fuzzy
+msgid "Instant Notifications"
+msgstr "Мгновенные уведомления"
+
+#: app/templates/main/index.html:39
+msgid ""
+"Receive alerts via email, Telegram, or directly in your account dashboard"
+" when a price meets your criteria."
+msgstr ""
+"Получайте уведомления по email, Telegram или прямо в вашем личном "
+"кабинете, когда цена соответствует вашим критериям."
+
+#: app/templates/main/index.html:43
+#: app/templates/profile/tracked_products.html:45
+msgid "Price History"
+msgstr "История цен"
+
+#: app/templates/main/index.html:44
+msgid ""
+"Visualize price trends over time to make even more informed purchasing "
+"decisions. Know the best time to buy!"
+msgstr ""
+"Визуализируйте ценовые тенденции с течением времени, чтобы принимать "
+"более обоснованные решения о покупке. Знайте лучшее время для покупки!"
+
+#: app/templates/main/index.html:48
+msgid "Multi-Language Support"
+msgstr "Поддержка нескольких языков"
+
+#: app/templates/main/index.html:49
+msgid ""
+"Use SmartPrice in your preferred language. We currently support English, "
+"Russian, Spanish, and Chinese."
+msgstr ""
+"Используйте SmartPrice на предпочитаемом языке. Мы поддерживаем "
+"английский, русский, испанский и китайский."
+
+#: app/templates/main/index.html:53
+msgid "Accessible Anywhere"
+msgstr "Доступно везде"
+
+#: app/templates/main/index.html:54
+msgid ""
+"Our web application is designed to work seamlessly on your desktop, "
+"tablet, or smartphone."
+msgstr ""
+"Наше веб-приложение разработано для бесперебойной работы на вашем "
+"компьютере, планшете или смартфоне."
+
+#: app/templates/main/index.html:58
+msgid "Secure & Private"
+msgstr "Безопасно и конфиденциально"
+
+#: app/templates/main/index.html:59
+msgid ""
+"Your data privacy is important to us. We only track what you ask us to "
+"and keep your information secure."
+msgstr ""
+"Конфиденциальность ваших данных важна для нас. Мы отслеживаем только то, "
+"что вы просите, и сохраняем вашу информацию в безопасности."
+
+#: app/templates/main/index.html:67
+msgid "Simple Steps to Savings"
+msgstr "Простые шаги к экономии"
+
+#: app/templates/main/index.html:73
+msgid ""
+"Copy the URL of the product you want to track from an online store and "
+"paste it into SmartPrice."
+msgstr ""
+"Скопируйте URL товара, который вы хотите отслеживать, из "
+"интернет-магазина и вставьте его в SmartPrice."
+
+#: app/templates/main/index.html:78
+#, fuzzy
+msgid "Set Target Price"
+msgstr "Установить целевую цену"
+
+#: app/templates/main/index.html:79
+msgid ""
+"Tell us the price you’re willing to pay. You can also opt for general "
+"price drop notifications."
+msgstr ""
+"Укажите цену, которую вы готовы заплатить. Вы также можете выбрать "
+"уведомления о любом снижении цены."
+
+#: app/templates/main/index.html:84
+msgid "Get Notified & Save"
+msgstr "Получайте уведомления и экономьте"
+
+#: app/templates/main/index.html:85
+msgid ""
+"Relax! We’ll monitor the price and send you an alert when it’s time to "
+"buy and save money."
+msgstr ""
+"Расслабьтесь! Мы будем следить за ценой и отправим вам уведомление, когда"
+" придет время покупать и экономить."
+
+#: app/templates/main/index.html:93
+#, fuzzy
+msgid "Stores We Track"
+msgstr "Магазины, которые мы отслеживаем"
+
+#: app/templates/main/index.html:95
+msgid ""
+"We are constantly expanding our list of supported online retailers. "
+"Currently, you can track prices on:"
+msgstr ""
+"Мы постоянно расширяем список поддерживаемых интернет-магазинов. В "
+"настоящее время вы можете отслеживать цены на:"
+
+#: app/templates/main/index.html:99
+msgid "Amazon"
+msgstr "Amazon"
+
+#: app/templates/main/index.html:102
+msgid "Wildberries"
+msgstr "Wildberries"
+
+#: app/templates/main/index.html:105
+msgid "eBay"
+msgstr "eBay"
+
+#: app/templates/main/index.html:108
+msgid "AliExpress"
+msgstr "AliExpress"
+
+#: app/templates/main/index.html:111
+msgid "Ozon"
+msgstr "Ozon"
+
+#: app/templates/main/index.html:114
+msgid "Many more coming soon!"
+msgstr "Скоро появится еще больше!"
+
+#: app/templates/main/index.html:122
+msgid "What Our Users Say"
+msgstr "Что говорят наши пользователи"
+
+#: app/templates/main/index.html:128
+msgid ""
+"SmartPrice saved me $50 on a new laptop! I set my target price and got an"
+" email as soon as it dropped. So easy!"
+msgstr ""
+"SmartPrice сэкономил мне $50 на новом ноутбуке! Я установил целевую цену "
+"и получил письмо, как только она снизилась. Так просто!"
+
+#: app/templates/main/index.html:129
+msgid "Alex P., Tech Enthusiast"
+msgstr "Алекс П., Техноэнтузиаст"
+
+#: app/templates/main/index.html:134
+msgid ""
+"I love that I can track items from multiple stores all in one place. The "
+"Telegram notifications are super convenient too!"
+msgstr ""
+"Мне нравится, что я могу отслеживать товары из разных магазинов в одном "
+"месте. Уведомления в Telegram тоже очень удобны!"
+
+#: app/templates/main/index.html:135
+msgid "Maria G., Savvy Shopper"
+msgstr "Мария Г., Умный покупатель"
+
+#: app/templates/main/index.html:140
+msgid ""
+"Finally, a price tracker that just works. Simple interface, reliable "
+"notifications. Highly recommend SmartPrice!"
+msgstr ""
+"Наконец-то трекер цен, который просто работает. Простой интерфейс, "
+"надежные уведомления. Настоятельно рекомендую SmartPrice!"
+
+#: app/templates/main/index.html:141
+msgid "David K., Online Bargain Hunter"
+msgstr "Давид К., Охотник за онлайн-выгодой"
+
+#: app/templates/main/index.html:155
+msgid "Ready to Start Saving?"
+msgstr "Готовы начать экономить?"
+
+#: app/templates/main/index.html:156
+msgid ""
+"Join thousands of smart shoppers who use SmartPrice to get the best "
+"deals. It's free to get started!"
+msgstr ""
+"Присоединяйтесь к тысячам умных покупателей, которые используют "
+"SmartPrice, чтобы получать лучшие предложения. Начать бесплатно!"
+
+#: app/templates/main/index.html:158
+msgid "Sign Up Now - It's Free!"
+msgstr "Зарегистрируйтесь сейчас — это бесплатно!"
+
+#: app/templates/main/index.html:160
+#, fuzzy
+msgid "Manage My Tracked Products"
+msgstr "Управление моими отслеживаемыми товарами"
+
+#: app/templates/products/product_history.html:49
+msgid "Difference"
+msgstr "Разница"
+
+#: app/templates/products/product_history.html:59
+#, fuzzy
+msgid "Min Price Ever"
+msgstr "Минимальная цена за все время"
+
+#: app/templates/products/product_history.html:70
+#, fuzzy
+msgid "Price Chart"
+msgstr "График цен"
+
+#: app/templates/products/product_history.html:80
+#, fuzzy
+msgid "Check Schedule"
+msgstr "Расписание проверок"
+
+#: app/templates/products/product_history.html:83
+msgid "Interval:"
+msgstr "Интервал:"
+
+#: app/templates/products/product_history.html:83
+#, fuzzy, python-format
+msgid "Every %(num)s hours"
+msgstr "Каждые %(num)s часов"
+
+#: app/templates/products/product_history.html:84
+msgid "Last Check:"
+msgstr "Последняя проверка:"
+
+#: app/templates/products/product_history.html:85
+msgid "Next Check:"
+msgstr "Следующая проверка:"
+
+#: app/templates/products/product_history.html:93
+#, fuzzy
+msgid "Price History Details"
+msgstr "Подробности истории цен"
+
+#: app/templates/products/product_history.html:99
+msgid "Date"
+msgstr "Дата"
+
+#: app/templates/products/product_history.html:100
+#, fuzzy
+msgid "Price"
+msgstr "Цена"
+
+#: app/templates/products/product_history.html:101
+#, fuzzy
+msgid "Change"
+msgstr "Изменение"
+
+#: app/templates/products/product_history.html:142
+#, fuzzy
+msgid "Price ($)"
+msgstr "Цена ($)"
+
+#: app/templates/profile/edit_product.html:10
+#, fuzzy
+msgid "Edit Product Tracking"
+msgstr "Редактировать отслеживание товара"
+
+#: app/templates/profile/edit_product.html:11
+#, python-format
+msgid "Update the details for \"%(name)s\""
+msgstr "Обновите данные для \"%(name)s\""
+
+#: app/templates/profile/edit_product.html:22
+msgid "e.g., My Awesome Gadget"
+msgstr "например, Мой потрясающий гаджет"
+
+#: app/templates/profile/edit_product.html:29
+msgid "Original URL (not editable):"
+msgstr "Исходный URL (нельзя редактировать):"
+
+#: app/templates/profile/index.html:17
+#, python-brace-format
+msgid "Welcome back, {}!"
+msgstr "С возвращением, {}!"
+
+#: app/templates/profile/index.html:21
+#, fuzzy
+msgid "Email:"
+msgstr "Email:"
+
+#: app/templates/profile/index.html:22
+msgid "Language:"
+msgstr "Язык:"
+
+#: app/templates/profile/index.html:23
+msgid "Total Tracked Products:"
+msgstr "Всего отслеживаемых товаров:"
+
+#: app/templates/profile/index.html:25
+msgid "Products with Price Drops:"
+msgstr "Товары со снижением цены:"
+
+#: app/templates/profile/index.html:27
+msgid "No price drops currently detected."
+msgstr "На данный момент снижение цен не обнаружено."
+
+#: app/templates/profile/index.html:29
+msgid "Member since:"
+msgstr "Участник с:"
+
+#: app/templates/profile/index.html:35
+msgid "Quick Actions"
+msgstr "Быстрые действия"
+
+#: app/templates/profile/index.html:36
+#, fuzzy
+msgid "View Tracked Products"
+msgstr "Просмотреть отслеживаемые товары"
+
+#: app/templates/profile/index.html:39
+#: app/templates/profile/tracked_products.html:65
+#, fuzzy
+msgid "Add New Product"
+msgstr "Добавить новый товар"
+
+#: app/templates/profile/index.html:47
+#, fuzzy
+msgid "Recently Tracked Products"
+msgstr "Недавно отслеживаемые товары"
+
+#: app/templates/profile/index.html:53
+msgid "Current:"
+msgstr "Текущая:"
+
+#: app/templates/profile/index.html:67
+#, fuzzy
+msgid "View Price History"
+msgstr "Просмотреть историю цен"
+
+#: app/templates/profile/index.html:73
+msgid "View All Products"
+msgstr "Посмотреть все товары"
+
+#: app/templates/profile/index.html:79
+msgid "You are not tracking any products yet."
+msgstr "Вы пока не отслеживаете ни одного товара."
+
+#: app/templates/profile/index.html:80
+#, fuzzy
+msgid "Start Tracking Now!"
+msgstr "Начать отслеживание сейчас!"
+
+#: app/templates/profile/index.html:96
+#, fuzzy, python-format
+msgid ""
+"Note for Wildberries: The tracked price may be 5-7%% higher than "
+"displayed on the site. This is due to special discounts for specific "
+"payment methods (e.g., WB Wallet). We track the standard card price."
+msgstr ""
+"Примечание для Wildberries: Отслеживаемая цена может быть на 5-7% выше, "
+"чем на сайте. Это связано с особыми скидками для определенных способов "
+"оплаты (например, WB Wallet). Мы отслеживаем стандартную цену по карте."
+
+#: app/templates/profile/leave_feedback.html:9
+msgid "Share Your Feedback"
+msgstr "Поделитесь своим отзывом"
+
+#: app/templates/profile/leave_feedback.html:10
+msgid ""
+"Help us make SmartPrice better! Your thoughts and suggestions are "
+"valuable to us."
+msgstr ""
+"Помогите нам улучшить SmartPrice! Ваши мысли и предложения очень ценны "
+"для нас."
+
+#: app/templates/profile/leave_feedback.html:44
+msgid "Back"
+msgstr "Назад"
+
+#: app/templates/profile/settings.html:11
+msgid "Manage your personal and notification settings."
+msgstr "Управляйте вашими личными настройками и уведомлениями."
+
+#: app/templates/profile/settings.html:15
+#, fuzzy
+msgid "Account Information"
+msgstr "Информация об аккаунте"
+
+#: app/templates/profile/settings.html:39
+msgid "Security"
+msgstr "Безопасность"
+
+#: app/templates/profile/settings.html:52
+#, fuzzy
+msgid "Notification Preferences"
+msgstr "Настройки уведомлений"
+
+#: app/templates/profile/settings.html:92
+#, fuzzy
+msgid "Setup Telegram Notifications"
+msgstr "Настройка уведомлений Telegram"
+
+#: app/templates/profile/settings.html:99
+msgid "Interface Language"
+msgstr "Язык интерфейса"
+
+#: app/templates/profile/settings.html:100
+msgid "This setting changes the language of the website interface."
+msgstr "Эта настройка изменяет язык интерфейса сайта."
+
+#: app/templates/profile/telegram_setup.html:9
+msgid ""
+"To connect your Telegram account, simply click the button below and press"
+" \"Start\" in the Telegram app."
+msgstr ""
+"Чтобы подключить ваш аккаунт Telegram, просто нажмите кнопку ниже и "
+"выберите \"Start\" в приложении Telegram."
+
+#: app/templates/profile/telegram_setup.html:14
+msgid "Your Telegram account is already connected!"
+msgstr "Ваш аккаунт Telegram уже подключен!"
+
+#: app/templates/profile/telegram_setup.html:19
+msgid "Connect with Telegram"
+msgstr "Подключиться через Telegram"
+
+#: app/templates/profile/telegram_setup.html:26
+msgid "Back to Settings"
+msgstr "Вернуться к настройкам"
+
+#: app/templates/profile/tracked_products.html:10
+msgid "Here are all the products you are currently tracking."
+msgstr "Здесь представлены все товары, которые вы сейчас отслеживаете."
+
+#: app/templates/profile/tracked_products.html:20
+msgid "URL:"
+msgstr "URL:"
+
+#: app/templates/profile/tracked_products.html:21
+#, fuzzy
+msgid "Current Price:"
+msgstr "Текущая цена:"
+
+#: app/templates/profile/tracked_products.html:35
+#, python-format
+msgid "Note: Price may differ by 5-7%% due to payment method discounts."
+msgstr "Примечание: Цена может отличаться на 5-7%% из-за скидок на способы оплаты."
+
+#: app/templates/profile/tracked_products.html:38
+#, fuzzy
+msgid "Target Price:"
+msgstr "Целевая цена:"
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Last Checked:"
+msgstr "Последняя проверка:"
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Never"
+msgstr "Никогда"
+
+#: app/templates/profile/tracked_products.html:40
+#, fuzzy
+msgid "Check Frequency:"
+msgstr "Частота проверки:"
+
+#: app/templates/profile/tracked_products.html:40
+msgid "hours"
+msgstr "часов"
+
+#: app/templates/profile/tracked_products.html:41
+#, fuzzy
+msgid "Notification Methods:"
+msgstr "Способы уведомления:"
+
+#: app/templates/profile/tracked_products.html:50
+msgid "Are you sure you want to delete this product tracking?"
+msgstr "Вы уверены, что хотите удалить отслеживание этого товара?"
+
+#: app/templates/profile/tracked_products.html:60
+msgid "You are not tracking any products yet"
+msgstr "Вы пока не отслеживаете ни одного товара"
+
+#: app/templates/profile/tracked_products.html:61
+msgid "Add First Product"
+msgstr "Добавить первый товар"
+
+#: app/templates/profile/view_notifications.html:28
+msgid "Unread:"
+msgstr "Непрочитанные:"
+
+#: app/templates/profile/view_notifications.html:34
+msgid "Mark All as Read"
+msgstr "Отметить все как прочитанные"
+
+#: app/templates/profile/view_notifications.html:35
+msgid "Clear All"
+msgstr "Очистить все"
+
+#: app/templates/profile/view_notifications.html:56
+#: app/templates/profile/view_notifications.html:95
+msgid "Read"
+msgstr "Прочитано"
+
+#: app/templates/profile/view_notifications.html:93
+msgid "View"
+msgstr "Просмотреть"
+
+#: app/templates/profile/view_notifications.html:106
+msgid "All Quiet Here"
+msgstr "Здесь все тихо"
+
+#: app/templates/profile/view_notifications.html:107
+msgid ""
+"You have no unread notifications. We will let you know when there is news"
+" about your products!"
+msgstr ""
+"У вас нет непрочитанных уведомлений. Мы сообщим вам, когда появятся "
+"новости о ваших товарах!"
+
+#: app/templates/profile/view_notifications.html:108
+msgid "View My Tracked Products"
+msgstr "Просмотреть мои отслеживаемые товары"
+
+#: app/utils/validators.py:14
+msgid "Telegram token is required"
+msgstr "Требуется токен Telegram"
+
+#: app/utils/validators.py:16
+msgid "Invalid Telegram bot token format"
+msgstr "Неверный формат токена Telegram бота"
+
+#: app/utils/validators.py:24
+#, fuzzy
+msgid "URL is required."
+msgstr "Требуется URL."
+
+#: app/utils/validators.py:32
+msgid "Invalid URL: missing scheme (e.g., https://) or domain"
+msgstr "Неверный URL: отсутствует схема (например, https://) или домен"
+
+#: app/utils/validators.py:35
+msgid "Only http:// and https:// URLs are supported"
+msgstr "Поддерживаются только URL с http:// и https://"
+
+#: app/utils/validators.py:43
+#, fuzzy, python-format
+msgid "We currently support: %(supported)s"
+msgstr "Мы поддерживаем: %(supported)s"
+
+#: app/utils/validators.py:46
+#, python-format
+msgid "Invalid URL format: %(error)s"
+msgstr "Неверный формат URL: %(error)s"
+
+#: app/utils/validators.py:55
+msgid "Please use a different email address."
+msgstr "Пожалуйста, используйте другой адрес электронной почты."
+
+#: app/utils/validators.py:67
+msgid "Password must contain at least one uppercase letter."
+msgstr "Пароль должен содержать хотя бы одну заглавную букву."
+
+#: app/utils/validators.py:69
+msgid "Password must contain at least one lowercase letter."
+msgstr "Пароль должен содержать хотя бы одну строчную букву."
+
+#: app/utils/validators.py:71
+msgid "Password must contain at least one digit."
+msgstr "Пароль должен содержать хотя бы одну цифру."
+
+#: app/utils/validators.py:73
+msgid "Password must contain at least one special character (@$!%*?&#)."
+msgstr "Пароль должен содержать хотя бы один специальный символ (@$!%*?&#)."
+
+#~ msgid "Telegram chat ID is required"
+#~ msgstr "Требуется ID чата Telegram"
+
+#~ msgid "Chat ID must contain only numbers"
+#~ msgstr "ID чата должен содержать только цифры"
+
+#~ msgid "This product page doesn't exist or is unavailable"
+#~ msgstr "Эта страница товара не существует или недоступна"
+
+#~ msgid "Telegram Bot Token"
+#~ msgstr "Токен Telegram бота"
+
+#~ msgid "Every hour"
+#~ msgstr "Каждый час"
+
+#~ msgid "Once a day"
+#~ msgstr "Раз в день"
+
+#~ msgid "https://www.amazon.com/..."
+#~ msgstr "https://www.amazon.com/..."
+
+#~ msgid "How to get Telegram token?"
+#~ msgstr "Как получить токен Telegram?"
+
+#~ msgid "Search for @BotFather in Telegram and send"
+#~ msgstr "Найдите @BotFather в Telegram и отправьте"
+
+#~ msgid "Get Bot Token"
+#~ msgstr "Получить токен бота"
+
+#~ msgid "Copy the token you receive from @BotFather"
+#~ msgstr "Скопируйте токен, полученный от @BotFather"
+
+#~ msgid "Telegram token example"
+#~ msgstr "Пример токена Telegram"
+
+#~ msgid "Get Chat ID"
+#~ msgstr "Получить ID чата"
+
+#~ msgid "Send any message to your bot, then visit:"
+#~ msgstr "Отправьте любое сообщение вашему боту, затем посетите:"
+
+#~ msgid "Find \"chat\": {\"id\": YOUR_CHAT_ID} in the response"
+#~ msgstr "Найдите \"chat\": {\"id\": YOUR_CHAT_ID} в ответе"
+
+#~ msgid "Get instant notifications when prices drop"
+#~ msgstr "Получайте мгновенные уведомления при снижении цен"
+
+#~ msgid "Track price changes over time"
+#~ msgstr "Отслеживайте изменения цен с течением времени"
+
+#~ msgid "Multi-Platform"
+#~ msgstr "Мультиплатформенность"
+
+#~ msgid "Get alerts via email, Telegram or SMS"
+#~ msgstr "Получайте уведомления по email, Telegram или SMS"
+
+#~ msgid "Hide instructions"
+#~ msgstr "Скрыть инструкции"
+

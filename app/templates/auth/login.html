@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+<div class="auth-card">
+<div class="auth-header">
+<h2>{{ _('Welcome Back') }}</h2>
+<p>{{ _('Sign in to track your products') }}</p>
+</div>
+
+<form method="POST" class="auth-form">
+{{ form.hidden_tag() }}
+
+<div class="form-group">
+{{ form.email_or_username.label }}
+{{ form.email_or_username(class="form-control", placeholder=_("your@email.com")) }}
+{% for error in form.email_or_username.errors %}
+<div class="error">{{ error }}</div>
+{% endfor %}
+</div>
+
+<div class="form-group">
+{{ form.password.label }}
+{{ form.password(class="form-control", placeholder=_("Your password")) }}
+{% for error in form.password.errors %}
+<div class="error">{{ error }}</div>
+{% endfor %}
+</div>
+
+<div class="form-group remember-forgot">
+{{ form.remember(class="form-check-input") }}
+{{ form.remember.label(class="form-check-label") }}
+
+<a href="{{ url_for('auth.reset_password_request') }}" class="forgot-password">
+{{ _('Forgot Password?') }}
+</a>
+</div>
+
+<div class="form-group text-center">
+<small class="text-muted">
+    {{ _('Didn\'t receive a confirmation email?') }}
+    <a href="{{ url_for('auth.resend_confirmation_request') }}">{{ _('Resend it') }}</a>
+</small>
+</div>
+
+{{ form.submit(class="btn btn-primary auth-submit") }}
+</form>
+
+<div class="auth-footer">
+{{ _("Don't have an account?") }}
+<a href="{{ url_for('auth.register') }}">{{ _('Sign Up') }}</a>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+<div class="auth-card">
+<h2><i class="fas fa-envelope"></i> {{ _('Resend Verification Email') }}</h2>
+
+<form method="POST" action="{{ url_for('auth.resend_verification') }}">
+{{ form.hidden_tag() }}
+
+<div class="form-group">
+<p>{{ _('Enter your email address to resend the verification link.') }}</p>
+</div>
+
+<div class="form-actions">
+{{ form.submit(class="auth-button") }}
+</div>
+
+<div class="auth-links">
+<a href="{{ url_for('auth.login') }}">{{ _('Back to Login') }}</a>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

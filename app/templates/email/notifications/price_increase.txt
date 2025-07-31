@@ -1,0 +1,7 @@
+📈 Price Increase for "{{ product.name }}"!
+
+The price has increased from {{ old_price }}$ to {{ new_price }}$.
+Your target price is {{ product.target_price }}$.
+
+You can view the product here: {{ product.url }}
+Manage your tracked products: {{ tracking_dashboard_url }}

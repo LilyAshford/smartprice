@@ -1,0 +1,40 @@
+{% extends "email/base_email.html" %}
+
+{% block email_content %}
+
+{% set style_info = {'icon': '📈', 'color': '#ffc107'} %}
+
+<table width="100%" style="border-spacing: 0;">
+    <tr>
+        <td style="padding-bottom: 20px; text-align: center;">
+            <span style="font-size: 40px;">{{ style_info.icon }}</span>
+            <h1 style="margin: 10px 0; color: {{ style_info.color }}; font-size: 24px; font-weight: 600;">{{ _('Price Increase Alert') }}</h1>
+            <p style="margin: 0; color: #555555; font-size: 16px;">{{ _('Hi %(username)s, just a heads-up: the price has increased for a product you are tracking.', username=user.username) }}</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+            <table width="100%" style="border-spacing: 0;">
+                <tr>
+                    <td>
+                        <p style="margin: 0 0 10px 0; font-size: 18px; font-weight: 600; color: #333;">{{ product.name }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 15px;">
+                        <span style="font-size: 16px; color: #7f8c8d;">{{ _('Was:') }} {{ old_price|round(2) }}$</span>
+                        <span style="font-size: 16px; margin: 0 5px;">→</span>
+                        <span style="font-size: 22px; font-weight: bold; color: #e74c3c;">{{ new_price|round(2) }}$</span>
+                    </td>
+                </tr>
+                 <tr>
+                    <td style="padding-top: 15px; border-top: 1px solid #dee2e6;">
+                        <a href="{{ product.url }}" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #34495e; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: 600;">{{ _('Check Product') }}</a>
+                        <a href="{{ tracking_dashboard_url }}" target="_blank" style="display: inline-block; padding: 12px 25px; background-color: #e8f0fe; color: #2a7fff; text-decoration: none; border-radius: 5px; font-weight: 600; margin-left: 10px;">{{ _('My Products') }}</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% if current_user.is_authenticated and current_user.role.name == 'Administrator' %}
+    <a href="{{ url_for('admin.index') }}" class="btn btn-secondary">
+        <i class="fas fa-shield-alt"></i> {{ _('Admin Panel') }}
+    </a>
+{% endif %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="auth-header">
+            <h2><i class="fas fa-user-circle"></i> {{ _('Profile') }}</h2>
+            <p>{{ _('Welcome back, {}!').format(current_user.username) }}</p>
+        </div>
+
+        <div class="profile-summary">
+            <p><strong>{{ _('Email:') }}</strong> {{ current_user.email }}</p>
+            <p><strong>{{ _('Language:') }}</strong> {{ current_user.language.upper() }}</p>
+            <p><strong>{{ _('Total Tracked Products:') }}</strong> {{ total_products }}</p>
+            {% if products_with_price_drop > 0 %}
+                <p class="success-text"><i class="fas fa-arrow-down"></i> {{ _('Products with Price Drops:') }} {{ products_with_price_drop }}</p>
+            {% else %}
+                <p>{{ _('No price drops currently detected.') }}</p>
+            {% endif %}
+            <p><strong>{{ _('Member since:') }}</strong> {{ current_user.created_at.strftime('%Y-%m-%d') }}</p>
+        </div>
+
+        <hr>
+
+        <div class="profile-actions">
+            <h3 style="margin-right: 20px">{{ _('Quick Actions') }}</h3>
+            <a href="{{ url_for('profile.tracked_products') }}" class="btn btn-secondary"><i class="fas fa-list"></i> {{ _('View Tracked Products') }}</a>
+            <a href="{{ url_for('profile.settings') }}" class="btn btn-secondary"><i class="fas fa-cog"></i> {{ _('Account Settings') }}</a>
+            <a href="{{ url_for('products.index') }}" class="btn btn-primary">
+            <i class="fas fa-plus-circle"></i> {{ _('Add New Product') }}
+            </a>
+
+        </div>
+    </div>
+
+    {% if user_products %}
+    <div class="card" style="margin-top: 20px;">
+        <h3>{{ _('Recently Tracked Products') }}</h3>
+        <div class="product-list-compact">
+            {% for product in user_products[:5] %} {# Show top 5 recent products #}
+                <div class="product-item">
+                    <p class="product-name"><a href="{{ product.url }}" target="_blank">{{ product.name }}</a></p>
+                    <p class="product-price">
+                        {{ _('Current:') }}
+                        {% if product.current_price %}
+                            <span class="price-value">{{ product.current_price }}$</span>
+                            {% if product.current_price < product.target_price %}
+                                <i class="fas fa-caret-down price-drop-icon"></i>
+                            {% elif product.current_price > product.target_price %}
+                                <i class="fas fa-caret-up price-increase-icon"></i>
+                            {% endif %}
+                        {% else %}
+                            {{ _('N/A') }}
+                        {% endif %}
+                        | {{ _('Target:') }} <span class="price-value">{{ product.target_price }}$</span>
+                    </p>
+                    <div class="product-card-actions">
+                        <a href="{{ url_for('products.product_history', product_id=product.id) }}" class="action-link" style="margin:20px" title="{{ _('View Price History') }}"><i class="fas fa-chart-line"></i></a>
+                        <a href="{{ url_for('profile.edit_product', product_id=product.id) }}" class="action-link" title="{{ _('Edit Product') }}"><i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if total_products > 5 %}
+                <a href="{{ url_for('profile.tracked_products') }}" class="btn btn-secondary btn-sm" style="margin-top: 15px;">{{ _('View All Products') }}</a>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <div class="card" style="margin-top: 20px; text-align: center;">
+        <p>{{ _('You are not tracking any products yet.') }}</p>
+        <a href="{{ url_for('products.index') }}" class="btn btn-primary">{{ _('Start Tracking Now!') }}</a>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlInput = document.getElementById('product_url');
+    if (urlInput) {
+        const warningEl = document.createElement('div');
+        warningEl.className = 'form-hint-warning';
+        warningEl.style.display = 'none';
+        warningEl.innerHTML = `<i class="fas fa-info-circle"></i> {{ _("Note for Wildberries: The tracked price may be 5-7%% higher than displayed on the site. This is due to special discounts for specific payment methods (e.g., WB Wallet). We track the standard card price.") }}`;
+
+        urlInput.parentNode.insertBefore(warningEl, urlInput.nextSibling);
+
+        urlInput.addEventListener('input', function() {
+            if (this.value.includes('wildberries.ru')) {
+                warningEl.style.display = 'block';
+            } else {
+                warningEl.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

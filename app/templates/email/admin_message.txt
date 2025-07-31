@@ -1,0 +1,4 @@
+{{ message_body }}
+
+---
+This is a personal message from the SmartPrice admin.

@@ -1,0 +1,9 @@
+{{ _('New Feedback Received') }}
+
+{{ _('User: %(user)s', user=user_identifier) }}
+{{ _('Category: %(category)s', category=feedback_item.category.value) }}
+{{ _('Message: %(message)s', message=feedback_item.message) }}
+
+{% if feedback_url_in_admin %}
+{{ _('View in admin panel: %(url)s', url=feedback_url_in_admin) }}
+{% endif %}

@@ -1,0 +1,15 @@
+{% extends "email/base_notification.html" %}
+{% block email_content %}
+<h2>{{ _('Welcome to SmartPrice, %(username)s!', username=user.username) }}</h2>
+<p>{{ _('We are thrilled to have you on board. You are now ready to start tracking prices and saving money.') }}</p>
+<p>{{ _('Here are a few things you can do to get started:') }}</p>
+<ul>
+    <li>{{ _('Track your first product from your favorite online store.') }}</li>
+    <li>{{ _('Set up your notification preferences in your profile.') }}</li>
+    <li>{{ _('Connect your Telegram account for instant alerts.') }}</li>
+</ul>
+<div class="button-container">
+    <a href="{{ url_for('products.index', _external=True) }}" class="button">{{ _('Track Your First Product') }}</a>
+</div>
+<p>{{ _('Happy tracking!') }}<br>{{ _('The SmartPrice Team') }}</p>
+{% endblock %}

@@ -1,0 +1,2201 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-07-14 13:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/models.py:352
+msgid "Bug Report"
+msgstr ""
+
+#: app/models.py:354
+msgid "Suggestion"
+msgstr ""
+
+#: app/models.py:356
+msgid "Praise"
+msgstr ""
+
+#: app/models.py:357
+msgid "Other"
+msgstr ""
+
+#: app/models.py:408 app/models.py:410
+msgid "View Product"
+msgstr ""
+
+#: app/models.py:412 app/templates/email/notifications/price_increase.html:32
+msgid "Check Product"
+msgstr ""
+
+#: app/models.py:415
+msgid "Details"
+msgstr ""
+
+#: app/auth/forms.py:17
+msgid "Email or Username"
+msgstr ""
+
+#: app/auth/forms.py:20 app/auth/forms.py:54
+msgid "Password"
+msgstr ""
+
+#: app/auth/forms.py:23
+msgid "Remember Me"
+msgstr ""
+
+#: app/auth/forms.py:24 app/templates/auth/register.html:60
+#: app/templates/auth/unconfirmed.html:20 app/templates/main/index.html:20
+msgid "Sign In"
+msgstr ""
+
+#: app/auth/forms.py:30 app/auth/forms.py:49 app/auth/forms.py:69
+#: app/products/forms.py:53 app/templates/admin/user_details.html:10
+msgid "Email"
+msgstr ""
+
+#: app/auth/forms.py:31
+msgid "Send"
+msgstr ""
+
+#: app/auth/forms.py:37 app/profile/forms.py:12
+#: app/templates/admin/user_details.html:9
+msgid "Username"
+msgstr ""
+
+#: app/auth/forms.py:44
+msgid ""
+"Username may contain international characters, numbers, dots, underscores"
+" and hyphens"
+msgstr ""
+
+#: app/auth/forms.py:56 app/auth/forms.py:81
+msgid "Password must be at least 8 characters"
+msgstr ""
+
+#: app/auth/forms.py:59 app/auth/forms.py:84
+msgid "Repeat Password"
+msgstr ""
+
+#: app/auth/forms.py:61 app/auth/forms.py:86
+msgid "Passwords must match"
+msgstr ""
+
+#: app/auth/forms.py:63 app/auth/routes.py:174 app/templates/base.html:59
+msgid "Register"
+msgstr ""
+
+#: app/auth/forms.py:73
+msgid "Request Password Reset"
+msgstr ""
+
+#: app/auth/forms.py:79 app/templates/auth/change_password.html:31
+#: app/templates/auth/reset_password.html:16
+msgid "New Password"
+msgstr ""
+
+#: app/auth/forms.py:88 app/auth/routes.py:323 app/auth/routes.py:324
+#: app/auth/routes.py:355 app/templates/auth/email/reset_password.html:30
+#: app/templates/auth/reset_password_request.html:7
+msgid "Reset Password"
+msgstr ""
+
+#: app/auth/forms.py:94 app/templates/auth/resend_verification.html:6
+msgid "Resend Verification Email"
+msgstr ""
+
+#: app/auth/routes.py:85
+#, python-format
+msgid ""
+"Your account has not been confirmed. Please check your email or <a "
+"href=\"%(url)s\" class=\"alert-link\">resend the confirmation link</a>."
+msgstr ""
+
+#: app/auth/routes.py:89
+msgid "Your account is disabled"
+msgstr ""
+
+#: app/auth/routes.py:100
+msgid "Invalid email or password"
+msgstr ""
+
+#: app/auth/routes.py:101 app/templates/base.html:58
+msgid "Login"
+msgstr ""
+
+#: app/auth/routes.py:121
+msgid "Email already registered"
+msgstr ""
+
+#: app/auth/routes.py:141
+msgid ""
+"Registration successful! A confirmation email has been sent to you. "
+"Please check your inbox (and spam folder!) to activate your account."
+msgstr ""
+
+#: app/auth/routes.py:143 app/auth/routes.py:197 app/auth/routes.py:254
+#: app/auth/routes.py:315 app/auth/routes.py:375
+msgid "Emails can sometimes take a few minutes to arrive. Please be patient."
+msgstr ""
+
+#: app/auth/routes.py:148
+msgid "Something went wrong!"
+msgstr ""
+
+#: app/auth/routes.py:152
+msgid "User already exists!."
+msgstr ""
+
+#: app/auth/routes.py:156
+msgid "Invalid Entry"
+msgstr ""
+
+#: app/auth/routes.py:160 app/auth/routes.py:164
+msgid "Error connecting to the database"
+msgstr ""
+
+#: app/auth/routes.py:168
+msgid "An error occurred!"
+msgstr ""
+
+#: app/auth/routes.py:173
+msgid "Registration failed. Please try again."
+msgstr ""
+
+#: app/auth/routes.py:192 app/auth/routes.py:227
+msgid "This account is already confirmed. Please log in."
+msgstr ""
+
+#: app/auth/routes.py:196
+msgid "A new confirmation email has been sent to your email address."
+msgstr ""
+
+#: app/auth/routes.py:200
+msgid "No account found with that email address."
+msgstr ""
+
+#: app/auth/routes.py:201 app/templates/auth/confirmation_invalid.html:17
+#: app/templates/auth/unconfirmed.html:17
+msgid "Resend Confirmation Email"
+msgstr ""
+
+#: app/auth/routes.py:217
+msgid "Your account is already confirmed."
+msgstr ""
+
+#: app/auth/routes.py:223 app/templates/auth/confirmation_invalid.html:10
+msgid "The confirmation link is invalid or has expired."
+msgstr ""
+
+#: app/auth/routes.py:224 app/auth/routes.py:241
+msgid "Confirmation Failed"
+msgstr ""
+
+#: app/auth/routes.py:233
+msgid "You have confirmed your account. A welcome email has been sent. Thanks!"
+msgstr ""
+
+#: app/auth/routes.py:236
+msgid "You have confirmed your account. Thanks! You can now log in."
+msgstr ""
+
+#: app/auth/routes.py:240
+msgid ""
+"Failed to confirm your account. The link might be invalid or an error "
+"occurred."
+msgstr ""
+
+#: app/auth/routes.py:253
+msgid ""
+"A new confirmation email has been sent. Please check your inbox and spam "
+"folder."
+msgstr ""
+
+#: app/auth/routes.py:272
+msgid "Your password has been updated."
+msgstr ""
+
+#: app/auth/routes.py:275
+msgid "Invalid password."
+msgstr ""
+
+#: app/auth/routes.py:289
+msgid "You have been logged out."
+msgstr ""
+
+#: app/auth/routes.py:314
+msgid ""
+"An email with instructions to reset your password has been sent. Please "
+"check your inbox and spam folder."
+msgstr ""
+
+#: app/auth/routes.py:317
+msgid "Error sending email. Please try again later."
+msgstr ""
+
+#: app/auth/routes.py:322
+msgid "If this email exists in our system, you will receive a password reset link"
+msgstr ""
+
+#: app/auth/routes.py:343
+msgid ""
+"This password reset link is invalid or has expired. Please request a new "
+"one."
+msgstr ""
+
+#: app/auth/routes.py:349
+msgid "Your password has been updated! You can now log in."
+msgstr ""
+
+#: app/auth/routes.py:352 app/products/routes.py:122
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: app/auth/routes.py:371
+msgid "Confirm your email address"
+msgstr ""
+
+#: app/auth/routes.py:374
+msgid ""
+"An email with instructions to confirm your new email address has been "
+"sent to you"
+msgstr ""
+
+#: app/auth/routes.py:378
+msgid "Invalid email or password."
+msgstr ""
+
+#: app/auth/routes.py:396
+msgid "Your email address has been updated! Please log in with your new email."
+msgstr ""
+
+#: app/auth/routes.py:399
+msgid "Invalid request. Please try again"
+msgstr ""
+
+#: app/mail_services/__init__.py:47
+msgid "Verify Your SmartPrice Account"
+msgstr ""
+
+#: app/mail_services/__init__.py:61
+msgid "Welcome to SmartPrice!"
+msgstr ""
+
+#: app/mail_services/__init__.py:99
+msgid "New Feedback Received on SmartPrice"
+msgstr ""
+
+#: app/notifications/account_notifier.py:46
+#, python-format
+msgid "🎯 Price for \"%(name)s\" reached your target!"
+msgstr ""
+
+#: app/notifications/account_notifier.py:47
+#, python-format
+msgid "Current Price: %(new_price)s$. Target: %(target)s$."
+msgstr ""
+
+#: app/notifications/account_notifier.py:49
+#, python-format
+msgid "📉 Price dropped for \"%(name)s\" to %(new_price)s$!"
+msgstr ""
+
+#: app/notifications/account_notifier.py:50
+#, python-format
+msgid "Previous price was %(old_price)s$."
+msgstr ""
+
+#: app/notifications/account_notifier.py:53
+msgid "Product:"
+msgstr ""
+
+#: app/notifications/account_notifier.py:66
+msgid "Message from Admin"
+msgstr ""
+
+#: app/notifications/account_notifier.py:76
+#, python-format
+msgid "🎉 Your Savings Report for %(period)s is here!"
+msgstr ""
+
+#: app/notifications/account_notifier.py:77
+#, python-format
+msgid "You've saved approximately %(amount)s$ with SmartPrice. Keep tracking!"
+msgstr ""
+
+#: app/notifications/email_notifier.py:35
+#, python-format
+msgid "🎯 Price Alert! \"%(name)s\" reached your target price!"
+msgstr ""
+
+#: app/notifications/email_notifier.py:38
+#, python-format
+msgid "📉 Price Drop for \"%(name)s\"!"
+msgstr ""
+
+#: app/notifications/email_notifier.py:41
+#, python-format
+msgid "📈 Price Increase for \"%(name)s\"!"
+msgstr ""
+
+#: app/products/forms.py:15
+msgid "You must select at least one notification method"
+msgstr ""
+
+#: app/products/forms.py:23
+msgid "Product URL"
+msgstr ""
+
+#: app/products/forms.py:29
+msgid "Product Name (optional)"
+msgstr ""
+
+#: app/products/forms.py:33
+msgid "Target Price ($)"
+msgstr ""
+
+#: app/products/forms.py:39 app/profile/forms.py:85
+msgid "Also, notify if price just drops by ($)"
+msgstr ""
+
+#: app/products/forms.py:41 app/profile/forms.py:87
+msgid ""
+"For example, enter 5 to get a notification for any price drop of $5 or "
+"more. Leave it blank to get a notification for any, even the slightest, "
+"drop."
+msgstr ""
+
+#: app/products/forms.py:45 app/profile/forms.py:91
+msgid "And notify if price increases by ($)"
+msgstr ""
+
+#: app/products/forms.py:47 app/profile/forms.py:93
+msgid ""
+"Useful if you want to know when the price has returned to its previous "
+"level. Leave blank to not receive notifications about increases."
+msgstr ""
+
+#: app/products/forms.py:51 app/profile/forms.py:97
+msgid "Notification Methods"
+msgstr ""
+
+#: app/products/forms.py:52
+msgid "Account notifications"
+msgstr ""
+
+#: app/products/forms.py:54
+msgid "Telegram"
+msgstr ""
+
+#: app/products/forms.py:59 app/profile/forms.py:107
+msgid "Check Frequency"
+msgstr ""
+
+#: app/products/forms.py:60 app/profile/forms.py:108
+msgid "Twice a day (every 12 hours)"
+msgstr ""
+
+#: app/products/forms.py:61 app/profile/forms.py:109
+msgid "Once a day (every 24 hours)"
+msgstr ""
+
+#: app/products/forms.py:62 app/profile/forms.py:110
+msgid "Every 2 days"
+msgstr ""
+
+#: app/products/forms.py:63 app/profile/forms.py:111
+msgid "Once a week"
+msgstr ""
+
+#: app/products/forms.py:65 app/templates/main/index.html:72
+msgid "Add Product"
+msgstr ""
+
+#: app/products/routes.py:48
+msgid "Could not extract any data from the product page."
+msgstr ""
+
+#: app/products/routes.py:49 app/products/routes.py:53
+#: app/products/routes.py:62 app/products/routes.py:73
+msgid "Add a Product"
+msgstr ""
+
+#: app/products/routes.py:52
+msgid "Could not parse product page due to an internal error."
+msgstr ""
+
+#: app/products/routes.py:61
+msgid ""
+"Could not parse product page. Please check the URL and/or try one more "
+"time."
+msgstr ""
+
+#: app/products/routes.py:66
+msgid ""
+"Heads up! Note on Wildberries prices: The price in our app may differ "
+"slightly (5-7%) from Wildberries' website. This happens because "
+"Wildberries shows discounted prices (e.g., for WB Wallet or SBP "
+"payments), while we display the actual price from their system — what "
+"you’d pay without extra discounts."
+msgstr ""
+
+#: app/products/routes.py:72
+msgid "Could not determine a valid price from the product page."
+msgstr ""
+
+#: app/products/routes.py:110
+msgid ""
+"Mock product added. A test notification has been queued! Check your "
+"notifications in a minute."
+msgstr ""
+
+#: app/products/routes.py:112
+#, python-format
+msgid ""
+"Product \"%(name)s\" added for tracking! We will notify you when the "
+"price drops below %(price)s"
+msgstr ""
+
+#: app/products/routes.py:118
+msgid "Sorry, we could not save the product at this time. Please try again later."
+msgstr ""
+
+#: app/products/routes.py:126
+#, python-format
+msgid "Error adding product: %(error)s"
+msgstr ""
+
+#: app/products/routes.py:129
+msgid "Track New Product"
+msgstr ""
+
+#: app/products/routes.py:214
+msgid "Email notifications have been enabled for your account."
+msgstr ""
+
+#: app/products/routes.py:220 app/products/services.py:243
+msgid "At least one notification method is required."
+msgstr ""
+
+#: app/products/routes.py:226
+msgid ""
+"Failed to add product. Possibly it's already tracked or missing required "
+"fields."
+msgstr ""
+
+#: app/products/routes.py:230 app/products/services.py:276
+#, python-format
+msgid "Product \"%(name)s\" added for tracking!"
+msgstr ""
+
+#: app/products/routes.py:235
+msgid "Unexpected server error. Please try again later."
+msgstr ""
+
+#: app/products/services.py:41
+msgid "This product is already being tracked"
+msgstr ""
+
+#: app/products/services.py:44
+msgid "No notification method selected."
+msgstr ""
+
+#: app/products/services.py:239
+msgid "This product is already being tracked."
+msgstr ""
+
+#: app/products/services.py:273
+msgid "Target price has already been reached! A notification has been sent."
+msgstr ""
+
+#: app/products/services.py:281
+msgid "There was a database error. It seems this product is already tracked."
+msgstr ""
+
+#: app/products/services.py:286
+msgid "An unexpected error occurred while adding the product."
+msgstr ""
+
+#: app/profile/forms.py:15
+msgid "Username must be between 3 and 20 characters."
+msgstr ""
+
+#: app/profile/forms.py:19
+msgid ""
+"Usernames must start with a letter and have only letters, numbers, dots "
+"or underscores"
+msgstr ""
+
+#: app/profile/forms.py:22
+msgid "Update Username"
+msgstr ""
+
+#: app/profile/forms.py:31
+msgid "This username is already taken."
+msgstr ""
+
+#: app/profile/forms.py:34
+msgid "Enable Price Drop Notifications"
+msgstr ""
+
+#: app/profile/forms.py:35
+msgid "Enable Target Price Reached Notifications"
+msgstr ""
+
+#: app/profile/forms.py:36
+msgid "Enable Email Notifications"
+msgstr ""
+
+#: app/profile/forms.py:37
+msgid "Save Notification Settings"
+msgstr ""
+
+#: app/profile/forms.py:40
+msgid "Your Telegram Chat ID"
+msgstr ""
+
+#: app/profile/forms.py:44 app/profile/forms.py:53
+msgid "Chat ID must be a number (can be negative for groups)."
+msgstr ""
+
+#: app/profile/forms.py:46
+msgid "Save Telegram Chat ID"
+msgstr ""
+
+#: app/profile/forms.py:57
+msgid "Interface Display Language"
+msgstr ""
+
+#: app/profile/forms.py:58 app/templates/base.html:28
+msgid "English"
+msgstr ""
+
+#: app/profile/forms.py:59 app/templates/base.html:29
+msgid "Russian"
+msgstr ""
+
+#: app/profile/forms.py:60 app/templates/base.html:30
+msgid "Spanish"
+msgstr ""
+
+#: app/profile/forms.py:61 app/templates/base.html:31
+msgid "Chinese"
+msgstr ""
+
+#: app/profile/forms.py:63
+msgid "Change Interface Language"
+msgstr ""
+
+#: app/profile/forms.py:68
+msgid "Category"
+msgstr ""
+
+#: app/profile/forms.py:73
+msgid "Your Message"
+msgstr ""
+
+#: app/profile/forms.py:78
+msgid "Send Feedback"
+msgstr ""
+
+#: app/profile/forms.py:82
+msgid "Product Name"
+msgstr ""
+
+#: app/profile/forms.py:83 app/templates/admin/user_details.html:26
+#: app/templates/admin/view_all_products.html:54
+#: app/templates/products/product_history.html:41
+msgid "Target Price"
+msgstr ""
+
+#: app/profile/forms.py:114
+msgid "Update Product"
+msgstr ""
+
+#: app/profile/routes.py:30
+msgid "Please confirm your account to access full profile features."
+msgstr ""
+
+#: app/profile/routes.py:50
+msgid "Your Profile"
+msgstr ""
+
+#: app/profile/routes.py:61 app/templates/profile/tracked_products.html:9
+msgid "My Tracked Products"
+msgstr ""
+
+#: app/profile/routes.py:69
+msgid "Product not found."
+msgstr ""
+
+#: app/profile/routes.py:78
+#, python-format
+msgid "Product \"%(name)s\" has been successfully deleted."
+msgstr ""
+
+#: app/profile/routes.py:80
+msgid "Failed to delete product."
+msgstr ""
+
+#: app/profile/routes.py:83
+msgid "Could not remove the product."
+msgstr ""
+
+#: app/profile/routes.py:101
+msgid "Your username has been updated!"
+msgstr ""
+
+#: app/profile/routes.py:104
+msgid "This username is already taken. Please choose another."
+msgstr ""
+
+#: app/profile/routes.py:108
+msgid "An error occurred while updating your username."
+msgstr ""
+
+#: app/profile/routes.py:110
+msgid "Username is the same, no changes made."
+msgstr ""
+
+#: app/profile/routes.py:121
+msgid "Notification settings saved!"
+msgstr ""
+
+#: app/profile/routes.py:125
+msgid "An error occurred while saving notification settings."
+msgstr ""
+
+#: app/profile/routes.py:137
+msgid "Interface language updated and saved to your profile!"
+msgstr ""
+
+#: app/profile/routes.py:141
+msgid "Could not save language preference to profile."
+msgstr ""
+
+#: app/profile/routes.py:143
+msgid "Interface language updated for this session!"
+msgstr ""
+
+#: app/profile/routes.py:145
+msgid "Invalid language selected."
+msgstr ""
+
+#: app/profile/routes.py:158 app/templates/profile/index.html:37
+#: app/templates/profile/settings.html:10
+msgid "Account Settings"
+msgstr ""
+
+#: app/profile/routes.py:171
+msgid "Telegram Notifications Setup"
+msgstr ""
+
+#: app/profile/routes.py:190
+msgid ""
+"Thank you for your feedback! We appreciate you helping us improve "
+"SmartPrice."
+msgstr ""
+
+#: app/profile/routes.py:196
+msgid ""
+"Sorry, there was an issue submitting your feedback. Please try again "
+"later."
+msgstr ""
+
+#: app/profile/routes.py:198 app/templates/base.html:47
+#: app/templates/base.html:48
+msgid "Leave Feedback"
+msgstr ""
+
+#: app/profile/routes.py:215
+#, python-format
+msgid "Product \"%(name)s\" updated successfully!"
+msgstr ""
+
+#: app/profile/routes.py:220
+#, python-format
+msgid "Error updating product: %(error)s"
+msgstr ""
+
+#: app/profile/routes.py:228 app/templates/profile/index.html:68
+msgid "Edit Product"
+msgstr ""
+
+#: app/profile/routes.py:251
+msgid "My Notifications"
+msgstr ""
+
+#: app/profile/routes.py:264
+msgid "All notifications have been cleared."
+msgstr ""
+
+#: app/profile/routes.py:268
+msgid "An error occurred while clearing notifications."
+msgstr ""
+
+#: app/profile/routes.py:282
+msgid "Notification marked as read."
+msgstr ""
+
+#: app/profile/routes.py:286
+msgid "Could not mark notification as read."
+msgstr ""
+
+#: app/profile/routes.py:298
+#, python-format
+msgid "%(count)s notifications marked as read."
+msgstr ""
+
+#: app/profile/routes.py:300
+msgid "No unread notifications to mark."
+msgstr ""
+
+#: app/profile/routes.py:304
+msgid "Could not mark all notifications as read."
+msgstr ""
+
+#: app/templates/base.html:36 app/templates/profile/index.html:8
+msgid "Admin Panel"
+msgstr ""
+
+#: app/templates/admin/index.html:45 app/templates/base.html:41
+msgid "Notifications"
+msgstr ""
+
+#: app/templates/base.html:51 app/templates/profile/index.html:16
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:52
+msgid "Logout"
+msgstr ""
+
+#: app/templates/base.html:80
+msgid "©"
+msgstr ""
+
+#: app/templates/base.html:80
+msgid "SmartPrice. All rights reserved."
+msgstr ""
+
+#: app/templates/index.html:5
+msgid "Track prices and save money!"
+msgstr ""
+
+#: app/templates/index.html:10
+msgid "Add Product to Track"
+msgstr ""
+
+#: app/templates/index.html:21
+msgid "Error!"
+msgstr ""
+
+#: app/templates/index.html:21
+msgid "Please correct errors:"
+msgstr ""
+
+#: app/templates/index.html:36
+msgid "https://..."
+msgstr ""
+
+#: app/templates/index.html:37
+msgid "Supported: Amazon, eBay, Walmart, Wildberries, Ozon"
+msgstr ""
+
+#: app/templates/index.html:39
+msgid "How to get product URL?"
+msgstr ""
+
+#: app/templates/index.html:42
+msgid "How to Find Product URL"
+msgstr ""
+
+#: app/templates/index.html:44
+msgid "Go to the product page"
+msgstr ""
+
+#: app/templates/index.html:45
+msgid "Navigate to the product you want to track on the supported website"
+msgstr ""
+
+#: app/templates/index.html:48
+msgid "Copy the address"
+msgstr ""
+
+#: app/templates/index.html:49
+msgid "Highlight and copy the entire URL from your browser's address bar"
+msgstr ""
+
+#: app/templates/index.html:51
+msgid "URL example"
+msgstr ""
+
+#: app/templates/index.html:54
+msgid "Paste it here"
+msgstr ""
+
+#: app/templates/index.html:55
+msgid "Make sure the URL starts with https:// and contains the product details"
+msgstr ""
+
+#: app/templates/index.html:66
+msgid "e.g. iPhone 16 Pro Max"
+msgstr ""
+
+#: app/templates/index.html:76
+msgid "We'll notify when price drops below this"
+msgstr ""
+
+#: app/templates/index.html:122
+msgid "Start Tracking"
+msgstr ""
+
+#: app/templates/index.html:132
+msgid "Instant Price Alerts"
+msgstr ""
+
+#: app/templates/index.html:133
+msgid ""
+"Never miss a deal! Get real-time notifications when prices drop below "
+"your target, so you can buy at the perfect moment."
+msgstr ""
+
+#: app/templates/index.html:139
+msgid "Detailed Price History"
+msgstr ""
+
+#: app/templates/index.html:140
+msgid ""
+"Track price trends over time to make smarter purchasing decisions with "
+"confidence."
+msgstr ""
+
+#: app/templates/index.html:146
+msgid "Flexible Notifications"
+msgstr ""
+
+#: app/templates/index.html:147
+msgid ""
+"Stay informed your way—choose Email, Telegram, or Account Inbox for "
+"seamless price updates."
+msgstr ""
+
+#: app/templates/index.html:154
+msgid "Email Notifications Disabled"
+msgstr ""
+
+#: app/templates/index.html:155
+msgid ""
+"Email notifications are disabled in your account settings. Do you want to"
+" enable them for this product?"
+msgstr ""
+
+#: app/templates/index.html:156
+msgid "No"
+msgstr ""
+
+#: app/templates/index.html:157
+msgid "Yes"
+msgstr ""
+
+#: app/templates/index.html:185
+msgid ""
+"No notification methods selected. Add at least one (except email) or "
+"enable email in settings."
+msgstr ""
+
+#: app/templates/index.html:213
+msgid "Failed to add product, check error messages."
+msgstr ""
+
+#: app/templates/index.html:218
+msgid "A network error occurred. Please try again."
+msgstr ""
+
+#: app/templates/admin/edit_user.html:16
+msgid "Editing User:"
+msgstr ""
+
+#: app/templates/admin/edit_user.html:83
+msgid "Notification Settings:"
+msgstr ""
+
+#: app/templates/admin/edit_user.html:97
+#: app/templates/bootstrap4/admin/model/edit.html:27
+#: app/templates/profile/edit_product.html:94
+msgid "Cancel"
+msgstr ""
+
+#: app/templates/admin/index.html:2
+msgid "Admin Dashboard"
+msgstr ""
+
+#: app/templates/admin/index.html:5
+msgid "SmartPrice Admin Dashboard"
+msgstr ""
+
+#: app/templates/admin/index.html:7
+msgid "Go to Profile"
+msgstr ""
+
+#: app/templates/admin/index.html:23
+msgid "Users"
+msgstr ""
+
+#: app/templates/admin/index.html:27
+msgid "users registered"
+msgstr ""
+
+#: app/templates/admin/index.html:34
+msgid "Products"
+msgstr ""
+
+#: app/templates/admin/index.html:38
+msgid "products tracked"
+msgstr ""
+
+#: app/templates/admin/index.html:49
+msgid "sent in last 24 hours"
+msgstr ""
+
+#: app/templates/admin/index.html:58
+msgid "Platform Statistics"
+msgstr ""
+
+#: app/templates/admin/index.html:64
+msgid "Domain"
+msgstr ""
+
+#: app/templates/admin/index.html:65
+msgid "Product Count"
+msgstr ""
+
+#: app/templates/admin/index.html:82
+msgid "Refresh Statistics"
+msgstr ""
+
+#: app/templates/admin/testing.html:3 app/templates/admin/testing.html:26
+msgid "Testing Tools"
+msgstr ""
+
+#: app/templates/admin/testing.html:44
+msgid "Real Price Check"
+msgstr ""
+
+#: app/templates/admin/testing.html:47
+msgid ""
+"Queue a task to fetch the current price for a product from the live "
+"website."
+msgstr ""
+
+#: app/templates/admin/testing.html:49
+msgid "Enter product ID for all price checks"
+msgstr ""
+
+#: app/templates/admin/testing.html:57
+msgid "Mock Price Check"
+msgstr ""
+
+#: app/templates/admin/testing.html:60
+msgid ""
+"Simulate different pricing scenarios to test notification logic without "
+"making real requests."
+msgstr ""
+
+#: app/templates/admin/testing.html:78
+msgid "Test Notification"
+msgstr ""
+
+#: app/templates/admin/testing.html:81
+msgid ""
+"Send a pre-formatted test notification to a user to verify delivery "
+"channels."
+msgstr ""
+
+#: app/templates/admin/user_details.html:5
+#, python-format
+msgid "User Details: %(username)s"
+msgstr ""
+
+#: app/templates/admin/user_details.html:8
+#: app/templates/admin/view_all_products.html:50
+msgid "ID"
+msgstr ""
+
+#: app/templates/admin/user_details.html:11
+msgid "Telegram Chat ID"
+msgstr ""
+
+#: app/templates/admin/user_details.html:12
+msgid "Confirmed"
+msgstr ""
+
+#: app/templates/admin/user_details.html:13
+msgid "Active"
+msgstr ""
+
+#: app/templates/admin/user_details.html:14
+msgid "Administrator"
+msgstr ""
+
+#: app/templates/admin/user_details.html:15
+msgid "Last Seen"
+msgstr ""
+
+#: app/templates/admin/user_details.html:19
+msgid "Tracked Products"
+msgstr ""
+
+#: app/templates/admin/user_details.html:25
+#: app/templates/admin/view_all_products.html:55
+#: app/templates/products/product_history.html:26
+msgid "Current Price"
+msgstr ""
+
+#: app/templates/admin/user_details.html:27
+msgid "Marketplace"
+msgstr ""
+
+#: app/templates/admin/user_details.html:32
+msgid "No products tracked by this user."
+msgstr ""
+
+#: app/templates/admin/user_details.html:35
+msgid "Recent Notifications (Last 10)"
+msgstr ""
+
+#: app/templates/admin/user_details.html:52
+msgid "Mark as Read"
+msgstr ""
+
+#: app/templates/admin/user_details.html:62
+msgid "No notifications for this user."
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:15
+msgid "Search & Filter Products"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:21
+msgid "Search by Product Name or URL..."
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:25
+msgid "All Users"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:32
+msgid "Apply"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:35
+msgid "Clear Filters"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:44
+msgid "Product List"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:44
+#: app/templates/profile/view_notifications.html:27
+msgid "Total:"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:51
+msgid "Name"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:52
+msgid "URL"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:53
+msgid "User"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:56
+msgid "Last Checked"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:57
+msgid "Actions"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:70
+#: app/templates/admin/view_all_products.html:83
+#: app/templates/email/notifications/price_drop.html:29
+#: app/templates/profile/index.html:62
+#: app/templates/profile/tracked_products.html:30
+msgid "N/A"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:88
+#: app/templates/profile/tracked_products.html:48
+msgid "Edit"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:89
+msgid "Are you sure you want to delete this product?"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:90
+#: app/templates/profile/tracked_products.html:52
+msgid "Delete"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:92
+msgid "N/A for MVP"
+msgstr ""
+
+#: app/templates/admin/view_all_products.html:107
+msgid "No products found matching your criteria."
+msgstr ""
+
+#: app/templates/auth/change_email.html:3
+#: app/templates/auth/change_email.html:9
+#: app/templates/profile/settings.html:44
+msgid "Change Email Address"
+msgstr ""
+
+#: app/templates/auth/change_email.html:10
+msgid "Update your account email address."
+msgstr ""
+
+#: app/templates/auth/change_email.html:20
+msgid "New Email Address"
+msgstr ""
+
+#: app/templates/auth/change_email.html:31
+msgid "Your Current Password"
+msgstr ""
+
+#: app/templates/auth/change_email.html:38
+msgid "Update Email Address"
+msgstr ""
+
+#: app/templates/auth/change_password.html:3
+#: app/templates/auth/change_password.html:9
+#: app/templates/profile/settings.html:41
+msgid "Change Password"
+msgstr ""
+
+#: app/templates/auth/change_password.html:10
+msgid "Update your account password."
+msgstr ""
+
+#: app/templates/auth/change_password.html:20
+msgid "Current Password"
+msgstr ""
+
+#: app/templates/auth/change_password.html:33
+msgid "Minimum 8 characters"
+msgstr ""
+
+#: app/templates/auth/change_password.html:43
+msgid "Confirm New Password"
+msgstr ""
+
+#: app/templates/auth/change_password.html:50
+msgid "Update Password"
+msgstr ""
+
+#: app/templates/auth/confirmation_invalid.html:3
+#: app/templates/auth/confirmation_invalid.html:9
+msgid "Invalid Confirmation Link"
+msgstr ""
+
+#: app/templates/auth/confirmation_invalid.html:14
+msgid "Please request a new confirmation email to verify your account."
+msgstr ""
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Go back to"
+msgstr ""
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Login Page"
+msgstr ""
+
+#: app/templates/auth/login.html:7
+msgid "Welcome Back"
+msgstr ""
+
+#: app/templates/auth/login.html:8
+msgid "Sign in to track your products"
+msgstr ""
+
+#: app/templates/auth/login.html:16 app/templates/auth/register.html:24
+#: app/templates/auth/reset_password_request.html:16
+msgid "your@email.com"
+msgstr ""
+
+#: app/templates/auth/login.html:24
+msgid "Your password"
+msgstr ""
+
+#: app/templates/auth/login.html:35
+msgid "Forgot Password?"
+msgstr ""
+
+#: app/templates/auth/login.html:41
+msgid "Didn't receive a confirmation email?"
+msgstr ""
+
+#: app/templates/auth/login.html:42
+msgid "Resend it"
+msgstr ""
+
+#: app/templates/auth/login.html:50
+msgid "Don't have an account?"
+msgstr ""
+
+#: app/templates/auth/login.html:51
+msgid "Sign Up"
+msgstr ""
+
+#: app/templates/auth/register.html:7
+msgid "Create Account"
+msgstr ""
+
+#: app/templates/auth/register.html:8
+msgid "Join SmartPrice to start tracking prices"
+msgstr ""
+
+#: app/templates/auth/register.html:16
+msgid "your_user_name"
+msgstr ""
+
+#: app/templates/auth/register.html:32
+msgid "Create a password"
+msgstr ""
+
+#: app/templates/auth/register.html:34
+msgid "Minimum 8 characters. Must include uppercase, lowercase, and a digit."
+msgstr ""
+
+#: app/templates/auth/register.html:49
+msgid "Repeat your password"
+msgstr ""
+
+#: app/templates/auth/register.html:59 app/templates/main/index.html:20
+msgid "Already have an account?"
+msgstr ""
+
+#: app/templates/auth/resend_confirmation_request.html:11
+msgid "Enter your email address and we will send you a new confirmation link."
+msgstr ""
+
+#: app/templates/auth/resend_verification.html:12
+msgid "Enter your email address to resend the verification link."
+msgstr ""
+
+#: app/templates/auth/resend_verification.html:20
+msgid "Back to Login"
+msgstr ""
+
+#: app/templates/auth/reset_password.html:7
+msgid "Reset Your Password"
+msgstr ""
+
+#: app/templates/auth/reset_password.html:8
+msgid "Enter your new password below."
+msgstr ""
+
+#: app/templates/auth/reset_password.html:24
+msgid "Repeat New Password"
+msgstr ""
+
+#: app/templates/auth/reset_password.html:34
+#: app/templates/auth/reset_password_request.html:26
+msgid "Back to Sign In"
+msgstr ""
+
+#: app/templates/auth/reset_password_request.html:8
+msgid "Enter your email to receive a reset link"
+msgstr ""
+
+#: app/templates/auth/unconfirmed.html:3 app/templates/auth/unconfirmed.html:9
+msgid "Account Not Confirmed"
+msgstr ""
+
+#: app/templates/auth/unconfirmed.html:10
+msgid "Your account has not been confirmed yet."
+msgstr ""
+
+#: app/templates/auth/unconfirmed.html:14
+msgid ""
+"Please check your inbox for a confirmation email. If you have not "
+"received one, you can request another one."
+msgstr ""
+
+#: app/templates/auth/unconfirmed.html:20
+msgid "Already confirmed?"
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:5
+msgid "Password Reset"
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:24
+msgid "SmartPrice Password Reset"
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:26
+#, python-format
+msgid "Hello %(username)s,"
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:28
+msgid ""
+"You recently requested to reset your password for your SmartPrice "
+"account. Click the button below to reset it."
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:32
+#, python-format
+msgid "This password reset link will expire in %(hours)d hours."
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:34
+msgid ""
+"If you didn't request a password reset, please ignore this email or "
+"contact support if you have questions."
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:37
+msgid "Thanks,"
+msgstr ""
+
+#: app/templates/auth/email/reset_password.html:38
+#: app/templates/email/admin_message.html:22
+#: app/templates/email/welcome.html:14
+msgid "The SmartPrice Team"
+msgstr ""
+
+#: app/templates/bootstrap4/admin/model/edit.html:10
+#, python-format
+msgid "%(name)s Edit"
+msgstr ""
+
+#: app/templates/bootstrap4/admin/model/edit.html:26
+msgid "Save"
+msgstr ""
+
+#: app/templates/email/admin_message.html:22
+msgid "Sincerely,"
+msgstr ""
+
+#: app/templates/email/base_email.html:42
+msgid "You received this email because you are tracking products on SmartPrice."
+msgstr ""
+
+#: app/templates/email/base_notification.html:30
+msgid "Manage your notification settings"
+msgstr ""
+
+#: app/templates/email/change_email.html:3
+msgid "Confirm Your New Email Address"
+msgstr ""
+
+#: app/templates/email/change_email.html:4 app/templates/email/confirm.html:4
+#, python-format
+msgid "Hi %(username)s,"
+msgstr ""
+
+#: app/templates/email/change_email.html:6
+msgid ""
+"You requested to change the email address for your SmartPrice account. To"
+" confirm this change, please click the button below."
+msgstr ""
+
+#: app/templates/email/change_email.html:9
+msgid "Confirm New Email"
+msgstr ""
+
+#: app/templates/email/change_email.html:12
+msgid ""
+"If you did not request this change, please ignore this email or contact "
+"our support."
+msgstr ""
+
+#: app/templates/email/confirm.html:3
+msgid "Confirm Your Account"
+msgstr ""
+
+#: app/templates/email/confirm.html:6
+msgid ""
+"Thanks for signing up for SmartPrice! To complete your registration, "
+"please click the button below to verify your email address."
+msgstr ""
+
+#: app/templates/email/confirm.html:9
+msgid "Verify My Email"
+msgstr ""
+
+#: app/templates/email/confirm.html:12
+#, python-format
+msgid "This link will expire in %(hours)s hours."
+msgstr ""
+
+#: app/templates/email/confirm.html:15
+msgid "If you did not sign up for an account, you can safely ignore this email."
+msgstr ""
+
+#: app/templates/email/welcome.html:3
+#, python-format
+msgid "Welcome to SmartPrice, %(username)s!"
+msgstr ""
+
+#: app/templates/email/welcome.html:4
+msgid ""
+"We are thrilled to have you on board. You are now ready to start tracking"
+" prices and saving money."
+msgstr ""
+
+#: app/templates/email/welcome.html:5
+msgid "Here are a few things you can do to get started:"
+msgstr ""
+
+#: app/templates/email/welcome.html:7
+msgid "Track your first product from your favorite online store."
+msgstr ""
+
+#: app/templates/email/welcome.html:8
+msgid "Set up your notification preferences in your profile."
+msgstr ""
+
+#: app/templates/email/welcome.html:9
+msgid "Connect your Telegram account for instant alerts."
+msgstr ""
+
+#: app/templates/email/welcome.html:12
+msgid "Track Your First Product"
+msgstr ""
+
+#: app/templates/email/welcome.html:14
+msgid "Happy tracking!"
+msgstr ""
+
+#: app/templates/email/notifications/price_drop.html:11
+msgid "Price Drop!"
+msgstr ""
+
+#: app/templates/email/notifications/price_drop.html:12
+#, python-format
+msgid ""
+"Good news, %(username)s! The price has dropped for a product you are "
+"tracking."
+msgstr ""
+
+#: app/templates/email/notifications/price_drop.html:38
+msgid "View on Store"
+msgstr ""
+
+#: app/templates/email/notifications/price_drop.html:39
+#: app/templates/email/notifications/price_increase.html:33
+#: app/templates/email/notifications/target_price_reached.html:33
+msgid "My Products"
+msgstr ""
+
+#: app/templates/email/notifications/price_increase.html:11
+msgid "Price Increase Alert"
+msgstr ""
+
+#: app/templates/email/notifications/price_increase.html:12
+#, python-format
+msgid ""
+"Hi %(username)s, just a heads-up: the price has increased for a product "
+"you are tracking."
+msgstr ""
+
+#: app/templates/email/notifications/price_increase.html:25
+msgid "Was:"
+msgstr ""
+
+#: app/templates/email/notifications/target_price_reached.html:11
+msgid "Target Price Reached!"
+msgstr ""
+
+#: app/templates/email/notifications/target_price_reached.html:12
+#, python-format
+msgid ""
+"Amazing news, %(username)s! A product you are tracking has reached your "
+"target price."
+msgstr ""
+
+#: app/templates/email/notifications/target_price_reached.html:25
+#: app/templates/profile/index.html:64
+msgid "Target:"
+msgstr ""
+
+#: app/templates/email/notifications/target_price_reached.html:32
+msgid "Buy Now"
+msgstr ""
+
+#: app/templates/errors/403.html:16
+msgid "403 - Access Denied"
+msgstr ""
+
+#: app/templates/errors/403.html:17
+msgid "You shall not pass!"
+msgstr ""
+
+#: app/templates/errors/403.html:20
+msgid ""
+"Our digital bouncers have determined you don't have the proper "
+"credentials."
+msgstr ""
+
+#: app/templates/errors/403.html:21
+msgid "If you believe this is a mistake, please contact support."
+msgstr ""
+
+#: app/templates/errors/403.html:26
+msgid "Return Home"
+msgstr ""
+
+#: app/templates/errors/403.html:29
+msgid "Contact Support"
+msgstr ""
+
+#: app/templates/errors/403.html:34
+msgid ""
+"Fun fact: The average developer spends 403 minutes per week debugging "
+"permission issues."
+msgstr ""
+
+#: app/templates/errors/404.html:19
+msgid "404 - Mission Control, We Have a Problem"
+msgstr ""
+
+#: app/templates/errors/404.html:20
+msgid "Houston, this page has left the atmosphere!"
+msgstr ""
+
+#: app/templates/errors/404.html:23
+msgid "Our team of highly trained monkeys (and developers) can't find this page."
+msgstr ""
+
+#: app/templates/errors/404.html:24
+msgid "Maybe it was abducted by aliens, or you mistyped the URL?"
+msgstr ""
+
+#: app/templates/errors/404.html:29
+msgid "Beam Me Home"
+msgstr ""
+
+#: app/templates/errors/404.html:32
+msgid "Call for Backup"
+msgstr ""
+
+#: app/templates/errors/404.html:37
+msgid ""
+"Fun fact: The number 404 is actually how many cups of coffee our "
+"developers drink daily."
+msgstr ""
+
+#: app/templates/errors/500.html:9
+msgid "500 - Our Robots Have Rebelled"
+msgstr ""
+
+#: app/templates/errors/500.html:10
+msgid "The machines have taken over... temporarily"
+msgstr ""
+
+#: app/templates/errors/500.html:13
+msgid "Our server is currently experiencing an existential crisis."
+msgstr ""
+
+#: app/templates/errors/500.html:14
+msgid "While we negotiate with our AI overlords, why don't you:"
+msgstr ""
+
+#: app/templates/errors/500.html:20
+msgid "Refresh the page (the classic IT solution)"
+msgstr ""
+
+#: app/templates/errors/500.html:24
+msgid "Pet a dog/cat for emotional support"
+msgstr ""
+
+#: app/templates/errors/500.html:28
+msgid "Try again in a few minutes"
+msgstr ""
+
+#: app/templates/errors/500.html:35
+msgid "Return to Safety"
+msgstr ""
+
+#: app/templates/errors/500.html:38
+msgid "Emergency Distraction"
+msgstr ""
+
+#: app/templates/errors/500.html:43
+msgid ""
+"Meanwhile, our developers are frantically googling \"how to appease robot"
+" overlords\"."
+msgstr ""
+
+#: app/templates/main/index.html:13
+msgid "SmartPrice: Never Miss a Deal Again!"
+msgstr ""
+
+#: app/templates/main/index.html:14
+msgid ""
+"Track product prices effortlessly and save money on your online shopping."
+" We watch, you save!"
+msgstr ""
+
+#: app/templates/main/index.html:16
+msgid "Get Started for Free"
+msgstr ""
+
+#: app/templates/main/index.html:18
+msgid "Go to My Products"
+msgstr ""
+
+#: app/templates/main/index.html:26
+msgid "What is SmartPrice?"
+msgstr ""
+
+#: app/templates/main/index.html:28
+msgid ""
+"Tired of manually checking if that wishlist item finally dropped in "
+"price? SmartPrice is your personal shopping assistant that automates "
+"price tracking across your favorite online stores. Set your desired "
+"price, and we’ll notify you the moment it hits your target or drops "
+"significantly. Shop smarter, not harder!"
+msgstr ""
+
+#: app/templates/main/index.html:33
+msgid "Effortless Tracking"
+msgstr ""
+
+#: app/templates/main/index.html:34
+msgid ""
+"Just paste the product URL, set your target price, and let us do the "
+"heavy lifting. Supports a growing list of popular stores."
+msgstr ""
+
+#: app/templates/main/index.html:38
+msgid "Instant Notifications"
+msgstr ""
+
+#: app/templates/main/index.html:39
+msgid ""
+"Receive alerts via email, Telegram, or directly in your account dashboard"
+" when a price meets your criteria."
+msgstr ""
+
+#: app/templates/main/index.html:43
+#: app/templates/profile/tracked_products.html:45
+msgid "Price History"
+msgstr ""
+
+#: app/templates/main/index.html:44
+msgid ""
+"Visualize price trends over time to make even more informed purchasing "
+"decisions. Know the best time to buy!"
+msgstr ""
+
+#: app/templates/main/index.html:48
+msgid "Multi-Language Support"
+msgstr ""
+
+#: app/templates/main/index.html:49
+msgid ""
+"Use SmartPrice in your preferred language. We currently support English, "
+"Russian, Spanish, and Chinese."
+msgstr ""
+
+#: app/templates/main/index.html:53
+msgid "Accessible Anywhere"
+msgstr ""
+
+#: app/templates/main/index.html:54
+msgid ""
+"Our web application is designed to work seamlessly on your desktop, "
+"tablet, or smartphone."
+msgstr ""
+
+#: app/templates/main/index.html:58
+msgid "Secure & Private"
+msgstr ""
+
+#: app/templates/main/index.html:59
+msgid ""
+"Your data privacy is important to us. We only track what you ask us to "
+"and keep your information secure."
+msgstr ""
+
+#: app/templates/main/index.html:67
+msgid "Simple Steps to Savings"
+msgstr ""
+
+#: app/templates/main/index.html:73
+msgid ""
+"Copy the URL of the product you want to track from an online store and "
+"paste it into SmartPrice."
+msgstr ""
+
+#: app/templates/main/index.html:78
+msgid "Set Target Price"
+msgstr ""
+
+#: app/templates/main/index.html:79
+msgid ""
+"Tell us the price you’re willing to pay. You can also opt for general "
+"price drop notifications."
+msgstr ""
+
+#: app/templates/main/index.html:84
+msgid "Get Notified & Save"
+msgstr ""
+
+#: app/templates/main/index.html:85
+msgid ""
+"Relax! We’ll monitor the price and send you an alert when it’s time to "
+"buy and save money."
+msgstr ""
+
+#: app/templates/main/index.html:93
+msgid "Stores We Track"
+msgstr ""
+
+#: app/templates/main/index.html:95
+msgid ""
+"We are constantly expanding our list of supported online retailers. "
+"Currently, you can track prices on:"
+msgstr ""
+
+#: app/templates/main/index.html:99
+msgid "Amazon"
+msgstr ""
+
+#: app/templates/main/index.html:102
+msgid "Wildberries"
+msgstr ""
+
+#: app/templates/main/index.html:105
+msgid "eBay"
+msgstr ""
+
+#: app/templates/main/index.html:108
+msgid "AliExpress"
+msgstr ""
+
+#: app/templates/main/index.html:111
+msgid "Ozon"
+msgstr ""
+
+#: app/templates/main/index.html:114
+msgid "Many more coming soon!"
+msgstr ""
+
+#: app/templates/main/index.html:122
+msgid "What Our Users Say"
+msgstr ""
+
+#: app/templates/main/index.html:128
+msgid ""
+"SmartPrice saved me $50 on a new laptop! I set my target price and got an"
+" email as soon as it dropped. So easy!"
+msgstr ""
+
+#: app/templates/main/index.html:129
+msgid "Alex P., Tech Enthusiast"
+msgstr ""
+
+#: app/templates/main/index.html:134
+msgid ""
+"I love that I can track items from multiple stores all in one place. The "
+"Telegram notifications are super convenient too!"
+msgstr ""
+
+#: app/templates/main/index.html:135
+msgid "Maria G., Savvy Shopper"
+msgstr ""
+
+#: app/templates/main/index.html:140
+msgid ""
+"Finally, a price tracker that just works. Simple interface, reliable "
+"notifications. Highly recommend SmartPrice!"
+msgstr ""
+
+#: app/templates/main/index.html:141
+msgid "David K., Online Bargain Hunter"
+msgstr ""
+
+#: app/templates/main/index.html:155
+msgid "Ready to Start Saving?"
+msgstr ""
+
+#: app/templates/main/index.html:156
+msgid ""
+"Join thousands of smart shoppers who use SmartPrice to get the best "
+"deals. It's free to get started!"
+msgstr ""
+
+#: app/templates/main/index.html:158
+msgid "Sign Up Now - It's Free!"
+msgstr ""
+
+#: app/templates/main/index.html:160
+msgid "Manage My Tracked Products"
+msgstr ""
+
+#: app/templates/products/product_history.html:49
+msgid "Difference"
+msgstr ""
+
+#: app/templates/products/product_history.html:59
+msgid "Min Price Ever"
+msgstr ""
+
+#: app/templates/products/product_history.html:70
+msgid "Price Chart"
+msgstr ""
+
+#: app/templates/products/product_history.html:80
+msgid "Check Schedule"
+msgstr ""
+
+#: app/templates/products/product_history.html:83
+msgid "Interval:"
+msgstr ""
+
+#: app/templates/products/product_history.html:83
+#, python-format
+msgid "Every %(num)s hours"
+msgstr ""
+
+#: app/templates/products/product_history.html:84
+msgid "Last Check:"
+msgstr ""
+
+#: app/templates/products/product_history.html:85
+msgid "Next Check:"
+msgstr ""
+
+#: app/templates/products/product_history.html:93
+msgid "Price History Details"
+msgstr ""
+
+#: app/templates/products/product_history.html:99
+msgid "Date"
+msgstr ""
+
+#: app/templates/products/product_history.html:100
+msgid "Price"
+msgstr ""
+
+#: app/templates/products/product_history.html:101
+msgid "Change"
+msgstr ""
+
+#: app/templates/products/product_history.html:142
+msgid "Price ($)"
+msgstr ""
+
+#: app/templates/profile/edit_product.html:10
+msgid "Edit Product Tracking"
+msgstr ""
+
+#: app/templates/profile/edit_product.html:11
+#, python-format
+msgid "Update the details for \"%(name)s\""
+msgstr ""
+
+#: app/templates/profile/edit_product.html:22
+msgid "e.g., My Awesome Gadget"
+msgstr ""
+
+#: app/templates/profile/edit_product.html:29
+msgid "Original URL (not editable):"
+msgstr ""
+
+#: app/templates/profile/index.html:17
+#, python-brace-format
+msgid "Welcome back, {}!"
+msgstr ""
+
+#: app/templates/profile/index.html:21
+msgid "Email:"
+msgstr ""
+
+#: app/templates/profile/index.html:22
+msgid "Language:"
+msgstr ""
+
+#: app/templates/profile/index.html:23
+msgid "Total Tracked Products:"
+msgstr ""
+
+#: app/templates/profile/index.html:25
+msgid "Products with Price Drops:"
+msgstr ""
+
+#: app/templates/profile/index.html:27
+msgid "No price drops currently detected."
+msgstr ""
+
+#: app/templates/profile/index.html:29
+msgid "Member since:"
+msgstr ""
+
+#: app/templates/profile/index.html:35
+msgid "Quick Actions"
+msgstr ""
+
+#: app/templates/profile/index.html:36
+msgid "View Tracked Products"
+msgstr ""
+
+#: app/templates/profile/index.html:39
+#: app/templates/profile/tracked_products.html:65
+msgid "Add New Product"
+msgstr ""
+
+#: app/templates/profile/index.html:47
+msgid "Recently Tracked Products"
+msgstr ""
+
+#: app/templates/profile/index.html:53
+msgid "Current:"
+msgstr ""
+
+#: app/templates/profile/index.html:67
+msgid "View Price History"
+msgstr ""
+
+#: app/templates/profile/index.html:73
+msgid "View All Products"
+msgstr ""
+
+#: app/templates/profile/index.html:79
+msgid "You are not tracking any products yet."
+msgstr ""
+
+#: app/templates/profile/index.html:80
+msgid "Start Tracking Now!"
+msgstr ""
+
+#: app/templates/profile/index.html:96
+#, python-format
+msgid ""
+"Note for Wildberries: The tracked price may be 5-7%% higher than "
+"displayed on the site. This is due to special discounts for specific "
+"payment methods (e.g., WB Wallet). We track the standard card price."
+msgstr ""
+
+#: app/templates/profile/leave_feedback.html:9
+msgid "Share Your Feedback"
+msgstr ""
+
+#: app/templates/profile/leave_feedback.html:10
+msgid ""
+"Help us make SmartPrice better! Your thoughts and suggestions are "
+"valuable to us."
+msgstr ""
+
+#: app/templates/profile/leave_feedback.html:44
+msgid "Back"
+msgstr ""
+
+#: app/templates/profile/settings.html:11
+msgid "Manage your personal and notification settings."
+msgstr ""
+
+#: app/templates/profile/settings.html:15
+msgid "Account Information"
+msgstr ""
+
+#: app/templates/profile/settings.html:39
+msgid "Security"
+msgstr ""
+
+#: app/templates/profile/settings.html:52
+msgid "Notification Preferences"
+msgstr ""
+
+#: app/templates/profile/settings.html:92
+msgid "Setup Telegram Notifications"
+msgstr ""
+
+#: app/templates/profile/settings.html:99
+msgid "Interface Language"
+msgstr ""
+
+#: app/templates/profile/settings.html:100
+msgid "This setting changes the language of the website interface."
+msgstr ""
+
+#: app/templates/profile/telegram_setup.html:9
+msgid ""
+"To connect your Telegram account, simply click the button below and press"
+" \"Start\" in the Telegram app."
+msgstr ""
+
+#: app/templates/profile/telegram_setup.html:14
+msgid "Your Telegram account is already connected!"
+msgstr ""
+
+#: app/templates/profile/telegram_setup.html:19
+msgid "Connect with Telegram"
+msgstr ""
+
+#: app/templates/profile/telegram_setup.html:26
+msgid "Back to Settings"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:10
+msgid "Here are all the products you are currently tracking."
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:20
+msgid "URL:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:21
+msgid "Current Price:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:35
+#, python-format
+msgid "Note: Price may differ by 5-7%% due to payment method discounts."
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:38
+msgid "Target Price:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Last Checked:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Never"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:40
+msgid "Check Frequency:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:40
+msgid "hours"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:41
+msgid "Notification Methods:"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:50
+msgid "Are you sure you want to delete this product tracking?"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:60
+msgid "You are not tracking any products yet"
+msgstr ""
+
+#: app/templates/profile/tracked_products.html:61
+msgid "Add First Product"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:28
+msgid "Unread:"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:34
+msgid "Mark All as Read"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:35
+msgid "Clear All"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:56
+#: app/templates/profile/view_notifications.html:95
+msgid "Read"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:93
+msgid "View"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:106
+msgid "All Quiet Here"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:107
+msgid ""
+"You have no unread notifications. We will let you know when there is news"
+" about your products!"
+msgstr ""
+
+#: app/templates/profile/view_notifications.html:108
+msgid "View My Tracked Products"
+msgstr ""
+
+#: app/utils/validators.py:14
+msgid "Telegram token is required"
+msgstr ""
+
+#: app/utils/validators.py:16
+msgid "Invalid Telegram bot token format"
+msgstr ""
+
+#: app/utils/validators.py:24
+msgid "URL is required."
+msgstr ""
+
+#: app/utils/validators.py:32
+msgid "Invalid URL: missing scheme (e.g., https://) or domain"
+msgstr ""
+
+#: app/utils/validators.py:35
+msgid "Only http:// and https:// URLs are supported"
+msgstr ""
+
+#: app/utils/validators.py:43
+#, python-format
+msgid "We currently support: %(supported)s"
+msgstr ""
+
+#: app/utils/validators.py:46
+#, python-format
+msgid "Invalid URL format: %(error)s"
+msgstr ""
+
+#: app/utils/validators.py:55
+msgid "Please use a different email address."
+msgstr ""
+
+#: app/utils/validators.py:67
+msgid "Password must contain at least one uppercase letter."
+msgstr ""
+
+#: app/utils/validators.py:69
+msgid "Password must contain at least one lowercase letter."
+msgstr ""
+
+#: app/utils/validators.py:71
+msgid "Password must contain at least one digit."
+msgstr ""
+
+#: app/utils/validators.py:73
+msgid "Password must contain at least one special character (@$!%*?&#)."
+msgstr ""
+

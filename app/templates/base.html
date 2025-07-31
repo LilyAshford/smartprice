@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ title }}{% endblock %}</title>
+    {% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicons/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicons/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicons/favicon-16x16.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicons/apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='images/favicons/site.webmanifest') }}">
+<meta name="theme-color" content="#ffffff"></head>
+<body>
+<button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+
+<div class="container app-container"> <header class="header">
+<div class="logo-container">
+    <h1><a href="{{ url_for('main.index') if request.endpoint != 'main.index' else url_for('products.index') }}"><span class="logo-smart">Smart</span><span class="logo-price">Price</span></a></h1>
+</div>
+
+<div class="language-switcher">
+<a href="{{ url_for('utils.set_language', lang='en') }}" class="{{ 'active' if current_lang == 'en' }}" onclick="event.stopPropagation(); event.preventDefault(); window.location.href = this.href;">{{ _('English') }}</a>
+<a href="{{ url_for('utils.set_language', lang='ru') }}" class="{{ 'active' if current_lang == 'ru' }}" onclick="event.stopPropagation(); event.preventDefault(); window.location.href = this.href;">{{ _('Russian') }}</a>
+<a href="{{ url_for('utils.set_language', lang='es') }}" class="{{ 'active' if current_lang == 'es' }}" onclick="event.stopPropagation(); event.preventDefault(); window.location.href = this.href;">{{ _('Spanish') }}</a>
+<a href="{{ url_for('utils.set_language', lang='zh') }}" class="{{ 'active' if current_lang == 'zh' }}" onclick="event.stopPropagation(); event.preventDefault(); window.location.href = this.href;">{{ _('Chinese') }}</a>
+</div>
+
+    {% if current_user.is_authenticated %}
+        {% if current_user.is_administrator %}
+        <a href="{{ url_for('admin.index') }}" class="nav-link admin-link" title="{{ _('Admin Panel') }}">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+    {% endif %}
+<div class="user-actions">
+    <a href="{{ url_for('profile.view_notifications') }}" class="nav-link nav-link-icon {% if unread_notifications_count > 0 %}has-notifications{% endif %}" title="{{ _('Notifications') }} ">
+        <i class="fas fa-bell"></i>
+        {% if unread_notifications_count > 0 %}
+            <span class="notification-dot"></span>
+        {% endif %}
+    </a>
+        <a href="{{ url_for('profile.leave_feedback', next=request.url) }}" class="nav-link nav-link-icon" title="{{ _('Leave Feedback') }}">
+        <i class="fas fa-comment-alt"></i> {{ _('Leave Feedback') }}
+    </a>
+    <div class="user-nav">
+        <a href="{{ url_for('profile.index') }}" class="nav-link"><i class="fas fa-user-circle"></i> {{ _('Profile') }}</a>
+        <a href="{{ url_for('auth.logout') }}" class="nav-link"><i class="fas fa-sign-out-alt"></i> {{ _('Logout') }}</a>
+    </div>
+</div>
+{% else %}
+<div class="user-actions">
+    <div class="user-nav">
+        <a href="{{ url_for('auth.login') }}" class="nav-link btn btn-outline-primary btn-sm">{{ _('Login') }}</a>
+        <a href="{{ url_for('auth.register') }}" class="nav-link btn btn-primary btn-sm">{{ _('Register') }}</a>
+    </div>
+</div>
+{% endif %}
+</header>
+
+<main class="main-content">
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+  <div class="flash-messages-container">
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+<p>{{ _('©') }} <span id="current-year"></span> {{ _('SmartPrice. All rights reserved.') }}</p>
+<div class="social-links">
+<a href="https://t.me/smart_price_alerts_bot" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="https://github.com/LilyAshford/smartprice.git" aria-label="Github"><i class="fab fa-github"></i></a>
+</div>
+</footer>
+</div>
+<script>
+// Theme Toggle Script (existing)
+const toggleBtn = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+htmlEl.setAttribute('data-theme', savedTheme);
+}
+toggleBtn.addEventListener('click', () => {
+const current = htmlEl.getAttribute('data-theme') || 'light';
+const next = current === 'light' ? 'dark' : 'light';
+htmlEl.setAttribute('data-theme', next);
+localStorage.setItem('theme', next);
+});
+
+// Current Year for Footer
+document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %} </body>
+</html>

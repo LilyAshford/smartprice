@@ -1,0 +1,93 @@
+{% extends 'admin/custom_base.html' %}
+{% from 'bootstrap4/form.html' import render_form, render_field %}
+{% block title %}{{ _('Testing Tools') }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        .card-header {
+            background: linear-gradient(45deg, #007bff, #00d4ff);
+            color: white;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+        }
+        .alert-dismissible .btn-close {
+            padding: 0.75rem 1.25rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+    </style>
+{% endblock %}
+
+{% block admin_content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{{ _('Testing Tools') }}</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('testing.index') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5><i class="fas fa-search-dollar mr-2"></i>{{ _('Real Price Check') }}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-muted">{{ _('Queue a task to fetch the current price for a product from the live website.') }}</p>
+                <div class="form-group">
+                    {{ render_field(form.product_id, class="form-control", placeholder=_('Enter product ID for all price checks')) }}
+                </div>
+                {{ form.submit_price_check(class="btn btn-primary") }}
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5><i class="fas fa-vial mr-2"></i>{{ _('Mock Price Check') }}</h5>
+            </div>
+            <div class="card-body">
+                 <p class="card-text text-muted">{{ _('Simulate different pricing scenarios to test notification logic without making real requests.') }}</p>
+                <div class="form-group">
+                    {{ render_field(form.mock_scenario, class="form-control") }}
+                </div>
+                <div class="form-group">
+                        {{ render_field(form.product_id, class="form-control", placeholder=_('Enter Product ID')) }}
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        {{ render_field(form.mock_target_price, class="form-control") }}
+                    </div>
+                    <div class="col-md-6 form-group">
+                        {{ render_field(form.mock_current_price, class="form-control") }}
+                    </div>
+                </div>
+                {{ form.submit_mock_check(class="btn btn-secondary") }}
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h5><i class="fas fa-paper-plane mr-2"></i>{{ _('Test Notification') }}</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-muted">{{ _('Send a pre-formatted test notification to a user to verify delivery channels.') }}</p>
+                <div class="form-group">
+                    {{ render_field(form.email, class="form-control") }}
+                </div>
+                {{ form.submit_test_notification(class="btn btn-info") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

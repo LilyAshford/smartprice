@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card product-form-card">
+        <div class="auth-header">
+            <h2><i class="fas fa-edit"></i> {{ _('Edit Product Tracking') }}</h2>
+            <p>{{ _('Update the details for "%(name)s"', name=product.name) }}</p>
+        </div>
+
+
+        <form method="POST" novalidate class="auth-form">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.product_name.label(class="form-label") }}
+                <div class="input-with-icon">
+                    <i class="fas fa-tag"></i>
+                    {{ form.product_name(class="form-control" + (" is-invalid" if form.product_name.errors else ""), placeholder=_('e.g., My Awesome Gadget')) }}
+                </div>
+                {% if form.product_name.errors %}
+                    <div class="error-feedback">
+                        {% for error in form.product_name.errors %}<span>{{ error }}</span><br>{% endfor %}
+                    </div>
+                {% endif %}
+                <small class="form-text text-muted">{{ _('Original URL (not editable):') }} <a href="{{ product.url }}" target="_blank">{{ product.url|truncate(50) }}</a></small>
+            </div>
+
+            <div class="form-group">
+                {{ form.target_price.label(class="form-label") }}
+                <div class="input-with-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                    {{ form.target_price(class="form-control" + (" is-invalid" if form.target_price.errors else ""), placeholder='0.00') }}
+                </div>
+                {% if form.target_price.errors %}
+                    <div class="error-feedback">
+                        {% for error in form.target_price.errors %}<span>{{ error }}</span><br>{% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.price_drop_alert_threshold.label }}
+                {{ form.price_drop_alert_threshold(class="form-control", placeholder='0.00') }}
+                {% for error in form.price_drop_alert_threshold.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.price_increase_alert_threshold.label }}
+                {{ form.price_increase_alert_threshold(class="form-control", placeholder='0.00') }}
+                {% for error in form.price_increase_alert_threshold.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.notification_methods.label(class="form-label") }}
+                <div class="checkbox-group">
+                {% for subfield in form.notification_methods %}
+                    <label class="checkbox-container">
+                        {{ subfield(class="form-check-input") }}
+                        {{ subfield.label.text }}
+                        <span class="checkmark"></span>
+                    </label>
+                {% endfor %}
+                </div>
+                {% if form.notification_methods.errors %}
+                    <div class="error-feedback">
+                        {% for error in form.notification_methods.errors %}<span>{{ error }}</span><br>{% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.check_frequency.label(class="form-label") }}
+                {{ form.check_frequency(class="form-control") }}
+                {% if form.check_frequency.errors %}
+                    <div class="error-feedback">
+                        {% for error in form.check_frequency.errors %}
+                            <span>{{ error }}</span><br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <hr class="form-divider">
+
+            <div class="form-group button-group">
+                {{ form.submit(class="btn btn-primary auth-submit") }}
+                <a href="{{ url_for('profile.tracked_products') }}" class="btn btn-secondary">{{ _('Cancel') }}</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .product-form-card .auth-header h2 {
+        color: #5a9;
+    }
+    .error-feedback {
+        color: #dc3545;
+        font-size: 0.875em;
+        margin-top: .25rem;
+    }
+    .form-divider {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+    .checkbox-group label.checkbox-container {
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+{% endblock %}

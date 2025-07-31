@@ -1,0 +1,229 @@
+ {% extends "base.html" %}
+
+{% block styles %}
+{{ super() }} <link rel="stylesheet" href="{{ url_for('static', filename='css/landing_page.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block content %}
+<div class="landing-page-content">
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>{{ _('SmartPrice: Never Miss a Deal Again!') }}</h1>
+            <p class="subtitle">{{ _('Track product prices effortlessly and save money on your online shopping. We watch, you save!') }}</p>
+            {% if show_auth_links %}
+                <a href="{{ url_for('auth.register') }}" class="cta-button">{{ _('Get Started for Free') }}</a>
+            {% else %}
+                <a href="{{ url_for('profile.tracked_products') }}" class="cta-button">{{ _('Go to My Products') }}</a>
+            {% endif %}
+             <p style="margin-top: 30px; font-size: 0.9rem;">{{ _('Already have an account?') }} <a href="{{ url_for('auth.login') }}" style="color: white; text-decoration: underline;">{{ _('Sign In') }}</a></p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">{{ _('What is SmartPrice?') }}</h2>
+            <p style="max-width: 800px; margin: 0 auto 50px auto; color: #555; font-size: 1.1rem;">
+                {{ _('Tired of manually checking if that wishlist item finally dropped in price? SmartPrice is your personal shopping assistant that automates price tracking across your favorite online stores. Set your desired price, and we’ll notify you the moment it hits your target or drops significantly. Shop smarter, not harder!') }}
+            </p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-tags"></i></div>
+                    <h3>{{ _('Effortless Tracking') }}</h3>
+                    <p>{{ _('Just paste the product URL, set your target price, and let us do the heavy lifting. Supports a growing list of popular stores.') }}</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-bell"></i></div>
+                    <h3>{{ _('Instant Notifications') }}</h3>
+                    <p>{{ _('Receive alerts via email, Telegram, or directly in your account dashboard when a price meets your criteria.') }}</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon"><i class="fas fa-history"></i></div>
+                    <h3>{{ _('Price History') }}</h3>
+                    <p>{{ _('Visualize price trends over time to make even more informed purchasing decisions. Know the best time to buy!') }}</p>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>{{ _('Multi-Language Support') }}</h3>
+                    <p>{{ _('Use SmartPrice in your preferred language. We currently support English, Russian, Spanish, and Chinese.') }}</p>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>{{ _('Accessible Anywhere') }}</h3>
+                    <p>{{ _('Our web application is designed to work seamlessly on your desktop, tablet, or smartphone.') }}</p>
+                </div>
+                 <div class="feature-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>{{ _('Secure & Private') }}</h3>
+                    <p>{{ _('Your data privacy is important to us. We only track what you ask us to and keep your information secure.') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">{{ _('Simple Steps to Savings') }}</h2>
+            <div class="how-it-works-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="icon"><i class="fas fa-paste"></i></div>
+                    <h4>{{ _('Add Product') }}</h4>
+                    <p>{{ _('Copy the URL of the product you want to track from an online store and paste it into SmartPrice.') }}</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>{{ _('Set Target Price') }}</h4>
+                    <p>{{ _('Tell us the price you’re willing to pay. You can also opt for general price drop notifications.') }}</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="icon"><i class="fas fa-paper-plane"></i></div>
+                    <h4>{{ _('Get Notified & Save') }}</h4>
+                    <p>{{ _('Relax! We’ll monitor the price and send you an alert when it’s time to buy and save money.') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="supported-stores" class="section">
+        <div class="container">
+            <h2 class="section-title">{{ _('Stores We Track') }}</h2>
+            <p style="max-width: 800px; margin: 0 auto 50px auto; color: #555; font-size: 1.1rem;">
+                {{ _('We are constantly expanding our list of supported online retailers. Currently, you can track prices on:') }}
+            </p>
+            <div class="stores-grid">
+                <div class="store-logo-container">
+                    <img src="{{ url_for('static', filename='images/store_logos/amazon_logo.svg') }}" alt="{{ _('Amazon') }}" title="{{ _('Amazon') }}">
+                </div>
+                <div class="store-logo-container">
+                    <img src="{{ url_for('static', filename='images/store_logos/wildberries_logo.svg') }}" alt="{{ _('Wildberries') }}" title="{{ _('Wildberries') }}">
+                </div>
+                <div class="store-logo-container">
+                    <img src="{{ url_for('static', filename='images/store_logos/ebay_logo.svg') }}" alt="{{ _('eBay') }}" title="{{ _('eBay') }}">
+                </div>
+                <div class="store-logo-container">
+                    <img src="{{ url_for('static', filename='images/store_logos/walmart_logo.svg') }}" alt="{{ _('AliExpress') }}" title="{{ _('AliExpress') }}">
+                </div>
+<!--                <div class="store-logo-container">-->
+<!--                    <img src="{{ url_for('static', filename='images/store_logos/ozon_logo.svg') }}" alt="{{ _('Ozon') }}" title="{{ _('Ozon') }}">-->
+<!--                </div>-->
+                <div class="store-logo-container coming-soon">
+                    <p>{{ _('Many more coming soon!') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonial-section">
+    <div class="container">
+        <h2 class="section-title">{{ _('What Our Users Say') }}</h2>
+
+        <div class="swiper-container testimonial-carousel-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-quote">
+                        <p>"{{ _('SmartPrice saved me $50 on a new laptop! I set my target price and got an email as soon as it dropped. So easy!') }}"</p>
+                        <p class="testimonial-author">- {{ _('Alex P., Tech Enthusiast') }}</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-quote">
+                        <p>"{{ _('I love that I can track items from multiple stores all in one place. The Telegram notifications are super convenient too!') }}"</p>
+                        <p class="testimonial-author">- {{ _('Maria G., Savvy Shopper') }}</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-quote">
+                        <p>"{{ _('Finally, a price tracker that just works. Simple interface, reliable notifications. Highly recommend SmartPrice!') }}"</p>
+                        <p class="testimonial-author">- {{ _('David K., Online Bargain Hunter') }}</p>
+                    </div>
+                </div>
+                </div>
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</section>
+
+    <section id="get-started" class="section final-cta-section">
+        <div class="container">
+            <h2 class="section-title" style="color:white;">{{ _('Ready to Start Saving?') }}</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">{{ _("Join thousands of smart shoppers who use SmartPrice to get the best deals. It's free to get started!") }}</p>
+            {% if show_auth_links %}
+                <a href="{{ url_for('auth.register') }}" class="cta-button" style="background-color: #6e8efb; color: white;">{{ _("Sign Up Now - It's Free!") }}</a>
+            {% else %}
+                 <a href="{{ url_for('profile.tracked_products') }}" class="cta-button" style="background-color: #6e8efb; color: white;">{{ _("Manage My Tracked Products") }}</a>
+            {% endif %}
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const animatedItems = document.querySelectorAll('.feature-item, .step, .testimonial-quote');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            animatedItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var testimonialSwiper = new Swiper('.testimonial-carousel-container', {
+
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 7000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                breakpoints: {
+
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

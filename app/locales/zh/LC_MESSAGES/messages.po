@@ -1,0 +1,2353 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-07-14 13:13+0300\n"
+"PO-Revision-Date: 2025-07-13 13:04+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: app/models.py:352
+msgid "Bug Report"
+msgstr "错误报告"
+
+#: app/models.py:354
+msgid "Suggestion"
+msgstr "建议"
+
+#: app/models.py:356
+msgid "Praise"
+msgstr "赞美"
+
+#: app/models.py:357
+msgid "Other"
+msgstr "其他"
+
+#: app/models.py:408 app/models.py:410
+msgid "View Product"
+msgstr "查看商品"
+
+#: app/models.py:412 app/templates/email/notifications/price_increase.html:32
+msgid "Check Product"
+msgstr "检查商品"
+
+#: app/models.py:415
+msgid "Details"
+msgstr "详情"
+
+#: app/auth/forms.py:17
+msgid "Email or Username"
+msgstr "电子邮件或用户名"
+
+#: app/auth/forms.py:20 app/auth/forms.py:54
+msgid "Password"
+msgstr "密码"
+
+#: app/auth/forms.py:23
+msgid "Remember Me"
+msgstr "记住我"
+
+#: app/auth/forms.py:24 app/templates/auth/register.html:60
+#: app/templates/auth/unconfirmed.html:20 app/templates/main/index.html:20
+msgid "Sign In"
+msgstr "登录"
+
+#: app/auth/forms.py:30 app/auth/forms.py:49 app/auth/forms.py:69
+#: app/products/forms.py:53 app/templates/admin/user_details.html:10
+msgid "Email"
+msgstr "电子邮件"
+
+#: app/auth/forms.py:31
+msgid "Send"
+msgstr "发送"
+
+#: app/auth/forms.py:37 app/profile/forms.py:12
+#: app/templates/admin/user_details.html:9
+msgid "Username"
+msgstr "用户名"
+
+#: app/auth/forms.py:44
+msgid ""
+"Username may contain international characters, numbers, dots, underscores"
+" and hyphens"
+msgstr "用户名可以包含国际字符、数字、点、下划线和连字符"
+
+#: app/auth/forms.py:56 app/auth/forms.py:81
+msgid "Password must be at least 8 characters"
+msgstr "密码必须至少8个字符"
+
+#: app/auth/forms.py:59 app/auth/forms.py:84
+msgid "Repeat Password"
+msgstr "重复密码"
+
+#: app/auth/forms.py:61 app/auth/forms.py:86
+msgid "Passwords must match"
+msgstr "密码必须匹配"
+
+#: app/auth/forms.py:63 app/auth/routes.py:174 app/templates/base.html:59
+msgid "Register"
+msgstr "注册"
+
+#: app/auth/forms.py:73
+msgid "Request Password Reset"
+msgstr "请求重置密码"
+
+#: app/auth/forms.py:79 app/templates/auth/change_password.html:31
+#: app/templates/auth/reset_password.html:16
+msgid "New Password"
+msgstr "新密码"
+
+#: app/auth/forms.py:88 app/auth/routes.py:323 app/auth/routes.py:324
+#: app/auth/routes.py:355 app/templates/auth/email/reset_password.html:30
+#: app/templates/auth/reset_password_request.html:7
+msgid "Reset Password"
+msgstr "重置密码"
+
+#: app/auth/forms.py:94 app/templates/auth/resend_verification.html:6
+msgid "Resend Verification Email"
+msgstr "重新发送验证电子邮件"
+
+#: app/auth/routes.py:85
+#, python-format
+msgid ""
+"Your account has not been confirmed. Please check your email or <a "
+"href=\"%(url)s\" class=\"alert-link\">resend the confirmation link</a>."
+msgstr "您的账户尚未确认。请检查您的电子邮件或<a href=\"%(url)s\" class=\"alert-link\">重新发送确认链接</a>。"
+
+#: app/auth/routes.py:89
+msgid "Your account is disabled"
+msgstr "您的账户已被禁用"
+
+#: app/auth/routes.py:100
+msgid "Invalid email or password"
+msgstr "电子邮件或密码无效"
+
+#: app/auth/routes.py:101 app/templates/base.html:58
+msgid "Login"
+msgstr "登录"
+
+#: app/auth/routes.py:121
+msgid "Email already registered"
+msgstr "电子邮件已被注册"
+
+#: app/auth/routes.py:141
+msgid ""
+"Registration successful! A confirmation email has been sent to you. "
+"Please check your inbox (and spam folder!) to activate your account."
+msgstr "注册成功！已向您发送了一封确认电子邮件。请检查您的收件箱（以及垃圾邮件文件夹！）以激活您的账户。"
+
+#: app/auth/routes.py:143 app/auth/routes.py:197 app/auth/routes.py:254
+#: app/auth/routes.py:315 app/auth/routes.py:375
+msgid "Emails can sometimes take a few minutes to arrive. Please be patient."
+msgstr "电子邮件有时可能需要几分钟才能到达。请耐心等待。"
+
+#: app/auth/routes.py:148
+msgid "Something went wrong!"
+msgstr "出了点问题！"
+
+#: app/auth/routes.py:152
+msgid "User already exists!."
+msgstr "用户已存在！"
+
+#: app/auth/routes.py:156
+msgid "Invalid Entry"
+msgstr "无效输入"
+
+#: app/auth/routes.py:160 app/auth/routes.py:164
+msgid "Error connecting to the database"
+msgstr "连接数据库时出错"
+
+#: app/auth/routes.py:168
+msgid "An error occurred!"
+msgstr "发生了一个错误！"
+
+#: app/auth/routes.py:173
+msgid "Registration failed. Please try again."
+msgstr "注册失败。请重试。"
+
+#: app/auth/routes.py:192 app/auth/routes.py:227
+msgid "This account is already confirmed. Please log in."
+msgstr "此账户已确认。请登录。"
+
+#: app/auth/routes.py:196
+msgid "A new confirmation email has been sent to your email address."
+msgstr "已向您的电子邮件地址发送了一封新的确认电子邮件。"
+
+#: app/auth/routes.py:200
+msgid "No account found with that email address."
+msgstr "未找到与该电子邮件地址关联的账户。"
+
+#: app/auth/routes.py:201 app/templates/auth/confirmation_invalid.html:17
+#: app/templates/auth/unconfirmed.html:17
+msgid "Resend Confirmation Email"
+msgstr "重新发送确认电子邮件"
+
+#: app/auth/routes.py:217
+msgid "Your account is already confirmed."
+msgstr "您的账户已确认。"
+
+#: app/auth/routes.py:223 app/templates/auth/confirmation_invalid.html:10
+msgid "The confirmation link is invalid or has expired."
+msgstr "确认链接无效或已过期。"
+
+#: app/auth/routes.py:224 app/auth/routes.py:241
+msgid "Confirmation Failed"
+msgstr "确认失败"
+
+#: app/auth/routes.py:233
+msgid "You have confirmed your account. A welcome email has been sent. Thanks!"
+msgstr "您已确认您的账户。已发送欢迎电子邮件。谢谢！"
+
+#: app/auth/routes.py:236
+msgid "You have confirmed your account. Thanks! You can now log in."
+msgstr "您已确认您的账户。谢谢！您现在可以登录。"
+
+#: app/auth/routes.py:240
+msgid ""
+"Failed to confirm your account. The link might be invalid or an error "
+"occurred."
+msgstr "无法确认您的账户。链接可能无效或发生了错误。"
+
+#: app/auth/routes.py:253
+msgid ""
+"A new confirmation email has been sent. Please check your inbox and spam "
+"folder."
+msgstr "已发送一封新的确认电子邮件。请检查您的收件箱和垃圾邮件文件夹。"
+
+#: app/auth/routes.py:272
+msgid "Your password has been updated."
+msgstr "您的密码已更新。"
+
+#: app/auth/routes.py:275
+msgid "Invalid password."
+msgstr "密码无效。"
+
+#: app/auth/routes.py:289
+msgid "You have been logged out."
+msgstr "您已登出。"
+
+#: app/auth/routes.py:314
+msgid ""
+"An email with instructions to reset your password has been sent. Please "
+"check your inbox and spam folder."
+msgstr "已发送一封包含重置密码说明的电子邮件。请检查您的收件箱和垃圾邮件文件夹。"
+
+#: app/auth/routes.py:317
+msgid "Error sending email. Please try again later."
+msgstr "发送电子邮件时出错。请稍后再试。"
+
+#: app/auth/routes.py:322
+msgid "If this email exists in our system, you will receive a password reset link"
+msgstr "如果系统中存在此电子邮件，您将收到一个密码重置链接"
+
+#: app/auth/routes.py:343
+msgid ""
+"This password reset link is invalid or has expired. Please request a new "
+"one."
+msgstr "此密码重置链接无效或已过期。请请求一个新的链接。"
+
+#: app/auth/routes.py:349
+msgid "Your password has been updated! You can now log in."
+msgstr "您的密码已更新！您现在可以登录。"
+
+#: app/auth/routes.py:352 app/products/routes.py:122
+msgid "An unexpected error occurred. Please try again."
+msgstr "发生了意外错误。请重试。"
+
+#: app/auth/routes.py:371
+msgid "Confirm your email address"
+msgstr "确认您的电子邮件地址"
+
+#: app/auth/routes.py:374
+msgid ""
+"An email with instructions to confirm your new email address has been "
+"sent to you"
+msgstr "已向您发送了一封包含确认新电子邮件地址说明的电子邮件"
+
+#: app/auth/routes.py:378
+msgid "Invalid email or password."
+msgstr "电子邮件或密码无效。"
+
+#: app/auth/routes.py:396
+msgid "Your email address has been updated! Please log in with your new email."
+msgstr "您的电子邮件地址已更新！请使用您的新电子邮件登录。"
+
+#: app/auth/routes.py:399
+msgid "Invalid request. Please try again"
+msgstr "无效请求。请重试"
+
+#: app/mail_services/__init__.py:47
+msgid "Verify Your SmartPrice Account"
+msgstr "验证您的SmartPrice账户"
+
+#: app/mail_services/__init__.py:61
+#, fuzzy
+msgid "Welcome to SmartPrice!"
+msgstr "欢迎使用SmartPrice！"
+
+#: app/mail_services/__init__.py:99
+msgid "New Feedback Received on SmartPrice"
+msgstr "SmartPrice收到新反馈"
+
+#: app/notifications/account_notifier.py:46
+#, python-format
+msgid "🎯 Price for \"%(name)s\" reached your target!"
+msgstr "🎯 \"%(name)s\"的价格已达到您的目标！"
+
+#: app/notifications/account_notifier.py:47
+#, python-format
+msgid "Current Price: %(new_price)s$. Target: %(target)s$."
+msgstr "当前价格：%(new_price)s美元。目标：%(target)s美元。"
+
+#: app/notifications/account_notifier.py:49
+#, python-format
+msgid "📉 Price dropped for \"%(name)s\" to %(new_price)s$!"
+msgstr "📉 \"%(name)s\"的价格降至%(new_price)s美元！"
+
+#: app/notifications/account_notifier.py:50
+#, python-format
+msgid "Previous price was %(old_price)s$."
+msgstr "之前的价格是%(old_price)s美元。"
+
+#: app/notifications/account_notifier.py:53
+#, fuzzy
+msgid "Product:"
+msgstr "商品"
+
+#: app/notifications/account_notifier.py:66
+msgid "Message from Admin"
+msgstr "来自管理员的消息"
+
+#: app/notifications/account_notifier.py:76
+#, python-format
+msgid "🎉 Your Savings Report for %(period)s is here!"
+msgstr "🎉 您的%(period)s节省报告已到！"
+
+#: app/notifications/account_notifier.py:77
+#, python-format
+msgid "You've saved approximately %(amount)s$ with SmartPrice. Keep tracking!"
+msgstr "您通过SmartPrice大约节省了%(amount)s美元。继续跟踪！"
+
+#: app/notifications/email_notifier.py:35
+#, python-format
+msgid "🎯 Price Alert! \"%(name)s\" reached your target price!"
+msgstr "🎯 价格提醒！\"%(name)s\"已达到您的目标价格！"
+
+#: app/notifications/email_notifier.py:38
+#, python-format
+msgid "📉 Price Drop for \"%(name)s\"!"
+msgstr "📉 \"%(name)s\"价格下降！"
+
+#: app/notifications/email_notifier.py:41
+#, python-format
+msgid "📈 Price Increase for \"%(name)s\"!"
+msgstr "📈 \"%(name)s\"价格上涨！"
+
+#: app/products/forms.py:15
+msgid "You must select at least one notification method"
+msgstr "您必须选择至少一种通知方式"
+
+#: app/products/forms.py:23
+msgid "Product URL"
+msgstr "商品链接"
+
+#: app/products/forms.py:29
+msgid "Product Name (optional)"
+msgstr "商品名称（可选）"
+
+#: app/products/forms.py:33
+msgid "Target Price ($)"
+msgstr "目标价格（美元）"
+
+#: app/products/forms.py:39 app/profile/forms.py:85
+msgid "Also, notify if price just drops by ($)"
+msgstr "另外，如果价格下降（美元）也通知"
+
+#: app/products/forms.py:41 app/profile/forms.py:87
+msgid ""
+"For example, enter 5 to get a notification for any price drop of $5 or "
+"more. Leave it blank to get a notification for any, even the slightest, "
+"drop."
+msgstr "例如，输入5以获取价格下降5美元或更多的通知。留空以获取任何价格下降的通知，即使是最小的下降。"
+
+#: app/products/forms.py:45 app/profile/forms.py:91
+msgid "And notify if price increases by ($)"
+msgstr "如果价格上涨（美元）也通知"
+
+#: app/products/forms.py:47 app/profile/forms.py:93
+msgid ""
+"Useful if you want to know when the price has returned to its previous "
+"level. Leave blank to not receive notifications about increases."
+msgstr "如果您想知道价格何时恢复到之前的水平，这很有用。留空以不接收有关价格上涨的通知。"
+
+#: app/products/forms.py:51 app/profile/forms.py:97
+msgid "Notification Methods"
+msgstr "通知方式"
+
+#: app/products/forms.py:52
+msgid "Account notifications"
+msgstr "账户通知"
+
+#: app/products/forms.py:54
+msgid "Telegram"
+msgstr "Telegram"
+
+#: app/products/forms.py:59 app/profile/forms.py:107
+msgid "Check Frequency"
+msgstr "检查频率"
+
+#: app/products/forms.py:60 app/profile/forms.py:108
+msgid "Twice a day (every 12 hours)"
+msgstr "每天两次（每12小时）"
+
+#: app/products/forms.py:61 app/profile/forms.py:109
+msgid "Once a day (every 24 hours)"
+msgstr "每天一次（每24小时）"
+
+#: app/products/forms.py:62 app/profile/forms.py:110
+msgid "Every 2 days"
+msgstr "每2天"
+
+#: app/products/forms.py:63 app/profile/forms.py:111
+msgid "Once a week"
+msgstr "每周一次"
+
+#: app/products/forms.py:65 app/templates/main/index.html:72
+msgid "Add Product"
+msgstr "添加商品"
+
+#: app/products/routes.py:48
+msgid "Could not extract any data from the product page."
+msgstr "无法从商品页面提取任何数据。"
+
+#: app/products/routes.py:49 app/products/routes.py:53
+#: app/products/routes.py:62 app/products/routes.py:73
+#, fuzzy
+msgid "Add a Product"
+msgstr "添加商品"
+
+#: app/products/routes.py:52
+#, fuzzy
+msgid "Could not parse product page due to an internal error."
+msgstr "由于内部错误无法解析商品页面。"
+
+#: app/products/routes.py:61
+msgid ""
+"Could not parse product page. Please check the URL and/or try one more "
+"time."
+msgstr "无法解析商品页面。请检查URL并/或再次尝试。"
+
+#: app/products/routes.py:66
+#, fuzzy
+msgid ""
+"Heads up! Note on Wildberries prices: The price in our app may differ "
+"slightly (5-7%) from Wildberries' website. This happens because "
+"Wildberries shows discounted prices (e.g., for WB Wallet or SBP "
+"payments), while we display the actual price from their system — what "
+"you’d pay without extra discounts."
+msgstr ""
+"注意！关于Wildberries价格的说明：我们应用中的价格可能与Wildberries网站上的价格略有不同（5-7%）。这是因为Wildberries显示折扣价格（例如，使用WB"
+" Wallet或SBP支付），而我们显示的是其系统中的实际价格——您在没有额外折扣的情况下支付的价格。"
+
+#: app/products/routes.py:72
+msgid "Could not determine a valid price from the product page."
+msgstr "无法从商品页面确定有效价格。"
+
+#: app/products/routes.py:110
+msgid ""
+"Mock product added. A test notification has been queued! Check your "
+"notifications in a minute."
+msgstr "已添加模拟商品。测试通知已排队！请在一分钟后检查您的通知。"
+
+#: app/products/routes.py:112
+#, python-format
+msgid ""
+"Product \"%(name)s\" added for tracking! We will notify you when the "
+"price drops below %(price)s"
+msgstr "商品\"%(name)s\"已添加跟踪！当价格低于%(price)s美元时，我们将通知您"
+
+#: app/products/routes.py:118
+msgid "Sorry, we could not save the product at this time. Please try again later."
+msgstr "抱歉，我们目前无法保存该商品。请稍后再试。"
+
+#: app/products/routes.py:126
+#, python-format
+msgid "Error adding product: %(error)s"
+msgstr "添加商品时出错：%(error)s"
+
+#: app/products/routes.py:129
+msgid "Track New Product"
+msgstr "跟踪新商品"
+
+#: app/products/routes.py:214
+msgid "Email notifications have been enabled for your account."
+msgstr "已为您的账户启用电子邮件通知。"
+
+#: app/products/routes.py:220 app/products/services.py:243
+#, fuzzy
+msgid "At least one notification method is required."
+msgstr "必须选择至少一种通知方式。"
+
+#: app/products/routes.py:226
+msgid ""
+"Failed to add product. Possibly it's already tracked or missing required "
+"fields."
+msgstr "添加商品失败。可能是因为商品已被跟踪或缺少必填字段。"
+
+#: app/products/routes.py:230 app/products/services.py:276
+#, python-format
+msgid "Product \"%(name)s\" added for tracking!"
+msgstr "商品\"%(name)s\"已添加跟踪！"
+
+#: app/products/routes.py:235
+msgid "Unexpected server error. Please try again later."
+msgstr "意外的服务器错误。请稍后再试。"
+
+#: app/products/services.py:41
+msgid "This product is already being tracked"
+msgstr "此商品已被跟踪"
+
+#: app/products/services.py:44
+#, fuzzy
+msgid "No notification method selected."
+msgstr "未选择通知方式。"
+
+#: app/products/services.py:239
+msgid "This product is already being tracked."
+msgstr "此商品已被跟踪。"
+
+#: app/products/services.py:273
+msgid "Target price has already been reached! A notification has been sent."
+msgstr "目标价格已达到！已发送通知。"
+
+#: app/products/services.py:281
+msgid "There was a database error. It seems this product is already tracked."
+msgstr "数据库发生错误。看起来此商品已被跟踪。"
+
+#: app/products/services.py:286
+msgid "An unexpected error occurred while adding the product."
+msgstr "添加商品时发生了意外错误。"
+
+#: app/profile/forms.py:15
+msgid "Username must be between 3 and 20 characters."
+msgstr "用户名必须介于3到20个字符之间。"
+
+#: app/profile/forms.py:19
+msgid ""
+"Usernames must start with a letter and have only letters, numbers, dots "
+"or underscores"
+msgstr "用户名必须以字母开头，只能包含字母、数字、点或下划线"
+
+#: app/profile/forms.py:22
+msgid "Update Username"
+msgstr "更新用户名"
+
+#: app/profile/forms.py:31
+msgid "This username is already taken."
+msgstr "此用户名已被占用。"
+
+#: app/profile/forms.py:34
+#, fuzzy
+msgid "Enable Price Drop Notifications"
+msgstr "启用价格下降通知"
+
+#: app/profile/forms.py:35
+msgid "Enable Target Price Reached Notifications"
+msgstr "启用目标价格达到通知"
+
+#: app/profile/forms.py:36
+#, fuzzy
+msgid "Enable Email Notifications"
+msgstr "启用电子邮件通知"
+
+#: app/profile/forms.py:37
+#, fuzzy
+msgid "Save Notification Settings"
+msgstr "保存通知设置"
+
+#: app/profile/forms.py:40
+#, fuzzy
+msgid "Your Telegram Chat ID"
+msgstr "您的Telegram聊天ID"
+
+#: app/profile/forms.py:44 app/profile/forms.py:53
+msgid "Chat ID must be a number (can be negative for groups)."
+msgstr "聊天ID必须是数字（对于群组可以是负数）。"
+
+#: app/profile/forms.py:46
+#, fuzzy
+msgid "Save Telegram Chat ID"
+msgstr "保存Telegram聊天ID"
+
+#: app/profile/forms.py:57
+msgid "Interface Display Language"
+msgstr "界面显示语言"
+
+#: app/profile/forms.py:58 app/templates/base.html:28
+msgid "English"
+msgstr "英语"
+
+#: app/profile/forms.py:59 app/templates/base.html:29
+msgid "Russian"
+msgstr "俄语"
+
+#: app/profile/forms.py:60 app/templates/base.html:30
+msgid "Spanish"
+msgstr "西班牙语"
+
+#: app/profile/forms.py:61 app/templates/base.html:31
+msgid "Chinese"
+msgstr "中文"
+
+#: app/profile/forms.py:63
+msgid "Change Interface Language"
+msgstr "更改界面语言"
+
+#: app/profile/forms.py:68
+msgid "Category"
+msgstr "类别"
+
+#: app/profile/forms.py:73
+msgid "Your Message"
+msgstr "您的消息"
+
+#: app/profile/forms.py:78
+msgid "Send Feedback"
+msgstr "发送反馈"
+
+#: app/profile/forms.py:82
+#, fuzzy
+msgid "Product Name"
+msgstr "商品名称"
+
+#: app/profile/forms.py:83 app/templates/admin/user_details.html:26
+#: app/templates/admin/view_all_products.html:54
+#: app/templates/products/product_history.html:41
+#, fuzzy
+msgid "Target Price"
+msgstr "目标价格"
+
+#: app/profile/forms.py:114
+msgid "Update Product"
+msgstr "更新商品"
+
+#: app/profile/routes.py:30
+msgid "Please confirm your account to access full profile features."
+msgstr "请确认您的账户以访问完整的个人资料功能。"
+
+#: app/profile/routes.py:50
+msgid "Your Profile"
+msgstr "您的个人资料"
+
+#: app/profile/routes.py:61 app/templates/profile/tracked_products.html:9
+#, fuzzy
+msgid "My Tracked Products"
+msgstr "我的跟踪商品"
+
+#: app/profile/routes.py:69
+#, fuzzy
+msgid "Product not found."
+msgstr "未找到商品。"
+
+#: app/profile/routes.py:78
+#, python-format
+msgid "Product \"%(name)s\" has been successfully deleted."
+msgstr "商品\"%(name)s\"已成功删除。"
+
+#: app/profile/routes.py:80
+msgid "Failed to delete product."
+msgstr "删除商品失败。"
+
+#: app/profile/routes.py:83
+#, fuzzy
+msgid "Could not remove the product."
+msgstr "无法删除商品。"
+
+#: app/profile/routes.py:101
+msgid "Your username has been updated!"
+msgstr "您的用户名已更新！"
+
+#: app/profile/routes.py:104
+msgid "This username is already taken. Please choose another."
+msgstr "此用户名已被占用。请选择另一个。"
+
+#: app/profile/routes.py:108
+msgid "An error occurred while updating your username."
+msgstr "更新您的用户名时发生错误。"
+
+#: app/profile/routes.py:110
+msgid "Username is the same, no changes made."
+msgstr "用户名相同，未作更改。"
+
+#: app/profile/routes.py:121
+#, fuzzy
+msgid "Notification settings saved!"
+msgstr "通知设置已保存！"
+
+#: app/profile/routes.py:125
+msgid "An error occurred while saving notification settings."
+msgstr "保存通知设置时发生错误。"
+
+#: app/profile/routes.py:137
+msgid "Interface language updated and saved to your profile!"
+msgstr "界面语言已更新并保存到您的个人资料！"
+
+#: app/profile/routes.py:141
+msgid "Could not save language preference to profile."
+msgstr "无法将语言偏好保存到个人资料。"
+
+#: app/profile/routes.py:143
+msgid "Interface language updated for this session!"
+msgstr "此会话的界面语言已更新！"
+
+#: app/profile/routes.py:145
+msgid "Invalid language selected."
+msgstr "选择了无效的语言。"
+
+#: app/profile/routes.py:158 app/templates/profile/index.html:37
+#: app/templates/profile/settings.html:10
+#, fuzzy
+msgid "Account Settings"
+msgstr "账户设置"
+
+#: app/profile/routes.py:171
+#, fuzzy
+msgid "Telegram Notifications Setup"
+msgstr "Telegram通知设置"
+
+#: app/profile/routes.py:190
+msgid ""
+"Thank you for your feedback! We appreciate you helping us improve "
+"SmartPrice."
+msgstr "感谢您的反馈！我们感谢您帮助我们改进SmartPrice。"
+
+#: app/profile/routes.py:196
+msgid ""
+"Sorry, there was an issue submitting your feedback. Please try again "
+"later."
+msgstr "抱歉，提交您的反馈时出现问题。请稍后再试。"
+
+#: app/profile/routes.py:198 app/templates/base.html:47
+#: app/templates/base.html:48
+msgid "Leave Feedback"
+msgstr "留下反馈"
+
+#: app/profile/routes.py:215
+#, python-format
+msgid "Product \"%(name)s\" updated successfully!"
+msgstr "商品\"%(name)s\"已成功更新！"
+
+#: app/profile/routes.py:220
+#, fuzzy, python-format
+msgid "Error updating product: %(error)s"
+msgstr "更新商品时出错：%(error)s"
+
+#: app/profile/routes.py:228 app/templates/profile/index.html:68
+#, fuzzy
+msgid "Edit Product"
+msgstr "编辑商品"
+
+#: app/profile/routes.py:251
+#, fuzzy
+msgid "My Notifications"
+msgstr "我的通知"
+
+#: app/profile/routes.py:264
+msgid "All notifications have been cleared."
+msgstr "所有通知已清除。"
+
+#: app/profile/routes.py:268
+msgid "An error occurred while clearing notifications."
+msgstr "清除通知时发生错误。"
+
+#: app/profile/routes.py:282
+#, fuzzy
+msgid "Notification marked as read."
+msgstr "通知已标记为已读。"
+
+#: app/profile/routes.py:286
+#, fuzzy
+msgid "Could not mark notification as read."
+msgstr "无法将通知标记为已读。"
+
+#: app/profile/routes.py:298
+#, fuzzy, python-format
+msgid "%(count)s notifications marked as read."
+msgstr "%(count)s条通知已标记为已读。"
+
+#: app/profile/routes.py:300
+#, fuzzy
+msgid "No unread notifications to mark."
+msgstr "没有未读通知可标记。"
+
+#: app/profile/routes.py:304
+#, fuzzy
+msgid "Could not mark all notifications as read."
+msgstr "无法将所有通知标记为已读。"
+
+#: app/templates/base.html:36 app/templates/profile/index.html:8
+msgid "Admin Panel"
+msgstr "管理面板"
+
+#: app/templates/admin/index.html:45 app/templates/base.html:41
+#, fuzzy
+msgid "Notifications"
+msgstr "通知"
+
+#: app/templates/base.html:51 app/templates/profile/index.html:16
+msgid "Profile"
+msgstr "个人资料"
+
+#: app/templates/base.html:52
+msgid "Logout"
+msgstr "登出"
+
+#: app/templates/base.html:80
+msgid "©"
+msgstr "©"
+
+#: app/templates/base.html:80
+#, fuzzy
+msgid "SmartPrice. All rights reserved."
+msgstr "SmartPrice。保留所有权利。"
+
+#: app/templates/index.html:5
+msgid "Track prices and save money!"
+msgstr "跟踪价格，节省金钱！"
+
+#: app/templates/index.html:10
+msgid "Add Product to Track"
+msgstr "添加跟踪商品"
+
+#: app/templates/index.html:21
+msgid "Error!"
+msgstr "错误！"
+
+#: app/templates/index.html:21
+#, fuzzy
+msgid "Please correct errors:"
+msgstr "请更正以下错误："
+
+#: app/templates/index.html:36
+msgid "https://..."
+msgstr "https://..."
+
+#: app/templates/index.html:37
+#, fuzzy
+msgid "Supported: Amazon, eBay, Walmart, Wildberries, Ozon"
+msgstr "支持：Amazon、eBay、Walmart、Wildberries、Ozon"
+
+#: app/templates/index.html:39
+#, fuzzy
+msgid "How to get product URL?"
+msgstr "如何获取商品URL？"
+
+#: app/templates/index.html:42
+#, fuzzy
+msgid "How to Find Product URL"
+msgstr "如何查找商品URL"
+
+#: app/templates/index.html:44
+msgid "Go to the product page"
+msgstr "前往商品页面"
+
+#: app/templates/index.html:45
+msgid "Navigate to the product you want to track on the supported website"
+msgstr "导航到您想在支持的网站上跟踪的商品"
+
+#: app/templates/index.html:48
+msgid "Copy the address"
+msgstr "复制地址"
+
+#: app/templates/index.html:49
+msgid "Highlight and copy the entire URL from your browser's address bar"
+msgstr "高亮并复制浏览器地址栏中的完整URL"
+
+#: app/templates/index.html:51
+msgid "URL example"
+msgstr "URL示例"
+
+#: app/templates/index.html:54
+msgid "Paste it here"
+msgstr "在此处粘贴"
+
+#: app/templates/index.html:55
+msgid "Make sure the URL starts with https:// and contains the product details"
+msgstr "确保URL以https://开头并包含商品详情"
+
+#: app/templates/index.html:66
+#, fuzzy
+msgid "e.g. iPhone 16 Pro Max"
+msgstr "例如：iPhone 16 Pro Max"
+
+#: app/templates/index.html:76
+#, fuzzy
+msgid "We'll notify when price drops below this"
+msgstr "当价格低于此值时我们将通知您"
+
+#: app/templates/index.html:122
+msgid "Start Tracking"
+msgstr "开始跟踪"
+
+#: app/templates/index.html:132
+#, fuzzy
+msgid "Instant Price Alerts"
+msgstr "即时价格提醒"
+
+#: app/templates/index.html:133
+msgid ""
+"Never miss a deal! Get real-time notifications when prices drop below "
+"your target, so you can buy at the perfect moment."
+msgstr "绝不错过优惠！当价格低于您的目标时，获取实时通知，以便在最佳时机购买。"
+
+#: app/templates/index.html:139
+#, fuzzy
+msgid "Detailed Price History"
+msgstr "详细价格历史"
+
+#: app/templates/index.html:140
+msgid ""
+"Track price trends over time to make smarter purchasing decisions with "
+"confidence."
+msgstr "跟踪价格随时间的变化趋势，以更自信地做出购买决定。"
+
+#: app/templates/index.html:146
+#, fuzzy
+msgid "Flexible Notifications"
+msgstr "灵活的通知"
+
+#: app/templates/index.html:147
+msgid ""
+"Stay informed your way—choose Email, Telegram, or Account Inbox for "
+"seamless price updates."
+msgstr "以您的方式保持消息灵通——选择电子邮件、Telegram或账户收件箱以获取无缝的价格更新。"
+
+#: app/templates/index.html:154
+#, fuzzy
+msgid "Email Notifications Disabled"
+msgstr "电子邮件通知已禁用"
+
+#: app/templates/index.html:155
+msgid ""
+"Email notifications are disabled in your account settings. Do you want to"
+" enable them for this product?"
+msgstr "您的账户设置中已禁用电子邮件通知。您想为此商品启用它们吗？"
+
+#: app/templates/index.html:156
+msgid "No"
+msgstr "否"
+
+#: app/templates/index.html:157
+msgid "Yes"
+msgstr "是"
+
+#: app/templates/index.html:185
+msgid ""
+"No notification methods selected. Add at least one (except email) or "
+"enable email in settings."
+msgstr "未选择通知方式。请至少添加一种（除了电子邮件）或在设置中启用电子邮件。"
+
+#: app/templates/index.html:213
+msgid "Failed to add product, check error messages."
+msgstr "添加商品失败，请检查错误消息。"
+
+#: app/templates/index.html:218
+msgid "A network error occurred. Please try again."
+msgstr "发生网络错误。请重试。"
+
+#: app/templates/admin/edit_user.html:16
+msgid "Editing User:"
+msgstr "编辑用户："
+
+#: app/templates/admin/edit_user.html:83
+#, fuzzy
+msgid "Notification Settings:"
+msgstr "通知设置："
+
+#: app/templates/admin/edit_user.html:97
+#: app/templates/bootstrap4/admin/model/edit.html:27
+#: app/templates/profile/edit_product.html:94
+msgid "Cancel"
+msgstr "取消"
+
+#: app/templates/admin/index.html:2
+msgid "Admin Dashboard"
+msgstr "管理仪表板"
+
+#: app/templates/admin/index.html:5
+msgid "SmartPrice Admin Dashboard"
+msgstr "SmartPrice管理仪表板"
+
+#: app/templates/admin/index.html:7
+msgid "Go to Profile"
+msgstr "前往个人资料"
+
+#: app/templates/admin/index.html:23
+msgid "Users"
+msgstr "用户"
+
+#: app/templates/admin/index.html:27
+msgid "users registered"
+msgstr "注册用户"
+
+#: app/templates/admin/index.html:34
+#, fuzzy
+msgid "Products"
+msgstr "商品"
+
+#: app/templates/admin/index.html:38
+#, fuzzy
+msgid "products tracked"
+msgstr "跟踪的商品"
+
+#: app/templates/admin/index.html:49
+msgid "sent in last 24 hours"
+msgstr "过去24小时发送"
+
+#: app/templates/admin/index.html:58
+msgid "Platform Statistics"
+msgstr "平台统计"
+
+#: app/templates/admin/index.html:64
+msgid "Domain"
+msgstr "域名"
+
+#: app/templates/admin/index.html:65
+#, fuzzy
+msgid "Product Count"
+msgstr "商品数量"
+
+#: app/templates/admin/index.html:82
+msgid "Refresh Statistics"
+msgstr "刷新统计"
+
+#: app/templates/admin/testing.html:3 app/templates/admin/testing.html:26
+msgid "Testing Tools"
+msgstr "测试工具"
+
+#: app/templates/admin/testing.html:44
+msgid "Real Price Check"
+msgstr "实时价格检查"
+
+#: app/templates/admin/testing.html:47
+msgid ""
+"Queue a task to fetch the current price for a product from the live "
+"website."
+msgstr "排队任务以从实时网站获取商品的当前价格。"
+
+#: app/templates/admin/testing.html:49
+msgid "Enter product ID for all price checks"
+msgstr "输入所有价格检查的商品ID"
+
+#: app/templates/admin/testing.html:57
+msgid "Mock Price Check"
+msgstr "模拟价格检查"
+
+#: app/templates/admin/testing.html:60
+msgid ""
+"Simulate different pricing scenarios to test notification logic without "
+"making real requests."
+msgstr "模拟不同的定价场景以测试通知逻辑，而无需发出真实请求。"
+
+#: app/templates/admin/testing.html:78
+#, fuzzy
+msgid "Test Notification"
+msgstr "测试通知"
+
+#: app/templates/admin/testing.html:81
+msgid ""
+"Send a pre-formatted test notification to a user to verify delivery "
+"channels."
+msgstr "向用户发送预格式化的测试通知以验证传递渠道。"
+
+#: app/templates/admin/user_details.html:5
+#, python-format
+msgid "User Details: %(username)s"
+msgstr "用户详情：%(username)s"
+
+#: app/templates/admin/user_details.html:8
+#: app/templates/admin/view_all_products.html:50
+msgid "ID"
+msgstr "ID"
+
+#: app/templates/admin/user_details.html:11
+msgid "Telegram Chat ID"
+msgstr "Telegram聊天ID"
+
+#: app/templates/admin/user_details.html:12
+msgid "Confirmed"
+msgstr "已确认"
+
+#: app/templates/admin/user_details.html:13
+msgid "Active"
+msgstr "活跃"
+
+#: app/templates/admin/user_details.html:14
+msgid "Administrator"
+msgstr "管理员"
+
+#: app/templates/admin/user_details.html:15
+msgid "Last Seen"
+msgstr "最后登录"
+
+#: app/templates/admin/user_details.html:19
+msgid "Tracked Products"
+msgstr "跟踪的商品"
+
+#: app/templates/admin/user_details.html:25
+#: app/templates/admin/view_all_products.html:55
+#: app/templates/products/product_history.html:26
+#, fuzzy
+msgid "Current Price"
+msgstr "当前价格"
+
+#: app/templates/admin/user_details.html:27
+#, fuzzy
+msgid "Marketplace"
+msgstr "市场"
+
+#: app/templates/admin/user_details.html:32
+msgid "No products tracked by this user."
+msgstr "此用户未跟踪任何商品。"
+
+#: app/templates/admin/user_details.html:35
+#, fuzzy
+msgid "Recent Notifications (Last 10)"
+msgstr "最近通知（最后10条）"
+
+#: app/templates/admin/user_details.html:52
+msgid "Mark as Read"
+msgstr "标记为已读"
+
+#: app/templates/admin/user_details.html:62
+#, fuzzy
+msgid "No notifications for this user."
+msgstr "此用户没有通知。"
+
+#: app/templates/admin/view_all_products.html:15
+msgid "Search & Filter Products"
+msgstr "搜索和筛选商品"
+
+#: app/templates/admin/view_all_products.html:21
+msgid "Search by Product Name or URL..."
+msgstr "按商品名称或URL搜索..."
+
+#: app/templates/admin/view_all_products.html:25
+msgid "All Users"
+msgstr "所有用户"
+
+#: app/templates/admin/view_all_products.html:32
+msgid "Apply"
+msgstr "应用"
+
+#: app/templates/admin/view_all_products.html:35
+msgid "Clear Filters"
+msgstr "清除筛选"
+
+#: app/templates/admin/view_all_products.html:44
+#, fuzzy
+msgid "Product List"
+msgstr "商品列表"
+
+#: app/templates/admin/view_all_products.html:44
+#: app/templates/profile/view_notifications.html:27
+msgid "Total:"
+msgstr "总数："
+
+#: app/templates/admin/view_all_products.html:51
+msgid "Name"
+msgstr "名称"
+
+#: app/templates/admin/view_all_products.html:52
+msgid "URL"
+msgstr "URL"
+
+#: app/templates/admin/view_all_products.html:53
+msgid "User"
+msgstr "用户"
+
+#: app/templates/admin/view_all_products.html:56
+msgid "Last Checked"
+msgstr "最后检查"
+
+#: app/templates/admin/view_all_products.html:57
+msgid "Actions"
+msgstr "操作"
+
+#: app/templates/admin/view_all_products.html:70
+#: app/templates/admin/view_all_products.html:83
+#: app/templates/email/notifications/price_drop.html:29
+#: app/templates/profile/index.html:62
+#: app/templates/profile/tracked_products.html:30
+msgid "N/A"
+msgstr "不可用"
+
+#: app/templates/admin/view_all_products.html:88
+#: app/templates/profile/tracked_products.html:48
+msgid "Edit"
+msgstr "编辑"
+
+#: app/templates/admin/view_all_products.html:89
+msgid "Are you sure you want to delete this product?"
+msgstr "您确定要删除此商品吗？"
+
+#: app/templates/admin/view_all_products.html:90
+#: app/templates/profile/tracked_products.html:52
+msgid "Delete"
+msgstr "删除"
+
+#: app/templates/admin/view_all_products.html:92
+msgid "N/A for MVP"
+msgstr "MVP不可用"
+
+#: app/templates/admin/view_all_products.html:107
+msgid "No products found matching your criteria."
+msgstr "未找到符合您条件的商品。"
+
+#: app/templates/auth/change_email.html:3
+#: app/templates/auth/change_email.html:9
+#: app/templates/profile/settings.html:44
+msgid "Change Email Address"
+msgstr "更改电子邮件地址"
+
+#: app/templates/auth/change_email.html:10
+msgid "Update your account email address."
+msgstr "更新您的账户电子邮件地址。"
+
+#: app/templates/auth/change_email.html:20
+msgid "New Email Address"
+msgstr "新电子邮件地址"
+
+#: app/templates/auth/change_email.html:31
+msgid "Your Current Password"
+msgstr "您的当前密码"
+
+#: app/templates/auth/change_email.html:38
+msgid "Update Email Address"
+msgstr "更新电子邮件地址"
+
+#: app/templates/auth/change_password.html:3
+#: app/templates/auth/change_password.html:9
+#: app/templates/profile/settings.html:41
+msgid "Change Password"
+msgstr "更改密码"
+
+#: app/templates/auth/change_password.html:10
+msgid "Update your account password."
+msgstr "更新您的账户密码。"
+
+#: app/templates/auth/change_password.html:20
+msgid "Current Password"
+msgstr "当前密码"
+
+#: app/templates/auth/change_password.html:33
+msgid "Minimum 8 characters"
+msgstr "最少8个字符"
+
+#: app/templates/auth/change_password.html:43
+msgid "Confirm New Password"
+msgstr "确认新密码"
+
+#: app/templates/auth/change_password.html:50
+msgid "Update Password"
+msgstr "更新密码"
+
+#: app/templates/auth/confirmation_invalid.html:3
+#: app/templates/auth/confirmation_invalid.html:9
+msgid "Invalid Confirmation Link"
+msgstr "无效的确认链接"
+
+#: app/templates/auth/confirmation_invalid.html:14
+msgid "Please request a new confirmation email to verify your account."
+msgstr "请请求一封新的确认电子邮件以验证您的账户。"
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Go back to"
+msgstr "返回"
+
+#: app/templates/auth/confirmation_invalid.html:20
+msgid "Login Page"
+msgstr "登录页面"
+
+#: app/templates/auth/login.html:7
+msgid "Welcome Back"
+msgstr "欢迎回来"
+
+#: app/templates/auth/login.html:8
+msgid "Sign in to track your products"
+msgstr "登录以跟踪您的商品"
+
+#: app/templates/auth/login.html:16 app/templates/auth/register.html:24
+#: app/templates/auth/reset_password_request.html:16
+msgid "your@email.com"
+msgstr "your@email.com"
+
+#: app/templates/auth/login.html:24
+msgid "Your password"
+msgstr "您的密码"
+
+#: app/templates/auth/login.html:35
+msgid "Forgot Password?"
+msgstr "忘记密码？"
+
+#: app/templates/auth/login.html:41
+msgid "Didn't receive a confirmation email?"
+msgstr "未收到确认电子邮件？"
+
+#: app/templates/auth/login.html:42
+msgid "Resend it"
+msgstr "重新发送"
+
+#: app/templates/auth/login.html:50
+msgid "Don't have an account?"
+msgstr "没有账户？"
+
+#: app/templates/auth/login.html:51
+msgid "Sign Up"
+msgstr "注册"
+
+#: app/templates/auth/register.html:7
+#, fuzzy
+msgid "Create Account"
+msgstr "创建账户"
+
+#: app/templates/auth/register.html:8
+#, fuzzy
+msgid "Join SmartPrice to start tracking prices"
+msgstr "加入SmartPrice开始跟踪价格"
+
+#: app/templates/auth/register.html:16
+msgid "your_user_name"
+msgstr "your_user_name"
+
+#: app/templates/auth/register.html:32
+#, fuzzy
+msgid "Create a password"
+msgstr "创建密码"
+
+#: app/templates/auth/register.html:34
+msgid "Minimum 8 characters. Must include uppercase, lowercase, and a digit."
+msgstr "最少8个字符。必须包含大写字母、小写字母和数字。"
+
+#: app/templates/auth/register.html:49
+msgid "Repeat your password"
+msgstr "重复您的密码"
+
+#: app/templates/auth/register.html:59 app/templates/main/index.html:20
+msgid "Already have an account?"
+msgstr "已有账户？"
+
+#: app/templates/auth/resend_confirmation_request.html:11
+msgid "Enter your email address and we will send you a new confirmation link."
+msgstr "输入您的电子邮件地址，我们将向您发送一个新的确认链接。"
+
+#: app/templates/auth/resend_verification.html:12
+msgid "Enter your email address to resend the verification link."
+msgstr "输入您的电子邮件地址以重新发送验证链接。"
+
+#: app/templates/auth/resend_verification.html:20
+msgid "Back to Login"
+msgstr "返回登录"
+
+#: app/templates/auth/reset_password.html:7
+msgid "Reset Your Password"
+msgstr "重置您的密码"
+
+#: app/templates/auth/reset_password.html:8
+msgid "Enter your new password below."
+msgstr "在下面输入您的新密码。"
+
+#: app/templates/auth/reset_password.html:24
+msgid "Repeat New Password"
+msgstr "重复新密码"
+
+#: app/templates/auth/reset_password.html:34
+#: app/templates/auth/reset_password_request.html:26
+msgid "Back to Sign In"
+msgstr "返回登录"
+
+#: app/templates/auth/reset_password_request.html:8
+msgid "Enter your email to receive a reset link"
+msgstr "输入您的电子邮件以接收重置链接"
+
+#: app/templates/auth/unconfirmed.html:3 app/templates/auth/unconfirmed.html:9
+#, fuzzy
+msgid "Account Not Confirmed"
+msgstr "账户未确认"
+
+#: app/templates/auth/unconfirmed.html:10
+msgid "Your account has not been confirmed yet."
+msgstr "您的账户尚未确认。"
+
+#: app/templates/auth/unconfirmed.html:14
+msgid ""
+"Please check your inbox for a confirmation email. If you have not "
+"received one, you can request another one."
+msgstr "请检查您的收件箱以获取确认电子邮件。如果您未收到，可以请求重新发送一封。"
+
+#: app/templates/auth/unconfirmed.html:20
+msgid "Already confirmed?"
+msgstr "已确认？"
+
+#: app/templates/auth/email/reset_password.html:5
+msgid "Password Reset"
+msgstr "密码重置"
+
+#: app/templates/auth/email/reset_password.html:24
+msgid "SmartPrice Password Reset"
+msgstr "SmartPrice密码重置"
+
+#: app/templates/auth/email/reset_password.html:26
+#, python-format
+msgid "Hello %(username)s,"
+msgstr "您好 %(username)s，"
+
+#: app/templates/auth/email/reset_password.html:28
+msgid ""
+"You recently requested to reset your password for your SmartPrice "
+"account. Click the button below to reset it."
+msgstr "您最近请求重置您的SmartPrice账户密码。请点击下面的按钮重置。"
+
+#: app/templates/auth/email/reset_password.html:32
+#, python-format
+msgid "This password reset link will expire in %(hours)d hours."
+msgstr "此密码重置链接将在%(hours)d小时后过期。"
+
+#: app/templates/auth/email/reset_password.html:34
+msgid ""
+"If you didn't request a password reset, please ignore this email or "
+"contact support if you have questions."
+msgstr "如果您没有请求重置密码，请忽略此电子邮件或联系支持团队以获取帮助。"
+
+#: app/templates/auth/email/reset_password.html:37
+msgid "Thanks,"
+msgstr "谢谢，"
+
+#: app/templates/auth/email/reset_password.html:38
+#: app/templates/email/admin_message.html:22
+#: app/templates/email/welcome.html:14
+#, fuzzy
+msgid "The SmartPrice Team"
+msgstr "SmartPrice团队"
+
+#: app/templates/bootstrap4/admin/model/edit.html:10
+#, python-format
+msgid "%(name)s Edit"
+msgstr "%(name)s 编辑"
+
+#: app/templates/bootstrap4/admin/model/edit.html:26
+msgid "Save"
+msgstr "保存"
+
+#: app/templates/email/admin_message.html:22
+msgid "Sincerely,"
+msgstr "此致，"
+
+#: app/templates/email/base_email.html:42
+msgid "You received this email because you are tracking products on SmartPrice."
+msgstr "您收到此电子邮件是因为您在SmartPrice上跟踪商品。"
+
+#: app/templates/email/base_notification.html:30
+#, fuzzy
+msgid "Manage your notification settings"
+msgstr "管理您的通知设置"
+
+#: app/templates/email/change_email.html:3
+msgid "Confirm Your New Email Address"
+msgstr "确认您的新电子邮件地址"
+
+#: app/templates/email/change_email.html:4 app/templates/email/confirm.html:4
+#, python-format
+msgid "Hi %(username)s,"
+msgstr "您好 %(username)s，"
+
+#: app/templates/email/change_email.html:6
+msgid ""
+"You requested to change the email address for your SmartPrice account. To"
+" confirm this change, please click the button below."
+msgstr "您请求更改您的SmartPrice账户的电子邮件地址。请点击下面的按钮确认更改。"
+
+#: app/templates/email/change_email.html:9
+msgid "Confirm New Email"
+msgstr "确认新电子邮件"
+
+#: app/templates/email/change_email.html:12
+msgid ""
+"If you did not request this change, please ignore this email or contact "
+"our support."
+msgstr "如果您没有请求此更改，请忽略此电子邮件或联系我们的支持团队。"
+
+#: app/templates/email/confirm.html:3
+msgid "Confirm Your Account"
+msgstr "确认您的账户"
+
+#: app/templates/email/confirm.html:6
+msgid ""
+"Thanks for signing up for SmartPrice! To complete your registration, "
+"please click the button below to verify your email address."
+msgstr "感谢您注册SmartPrice！要完成注册，请点击下面的按钮验证您的电子邮件地址。"
+
+#: app/templates/email/confirm.html:9
+msgid "Verify My Email"
+msgstr "验证我的电子邮件"
+
+#: app/templates/email/confirm.html:12
+#, python-format
+msgid "This link will expire in %(hours)s hours."
+msgstr "此链接将在%(hours)s小时后过期。"
+
+#: app/templates/email/confirm.html:15
+msgid "If you did not sign up for an account, you can safely ignore this email."
+msgstr "如果您没有注册账户，可以安全忽略此电子邮件。"
+
+#: app/templates/email/welcome.html:3
+#, python-format
+msgid "Welcome to SmartPrice, %(username)s!"
+msgstr "欢迎使用SmartPrice，%(username)s！"
+
+#: app/templates/email/welcome.html:4
+msgid ""
+"We are thrilled to have you on board. You are now ready to start tracking"
+" prices and saving money."
+msgstr "我们很高兴您加入我们。您现在可以开始跟踪价格并节省金钱。"
+
+#: app/templates/email/welcome.html:5
+msgid "Here are a few things you can do to get started:"
+msgstr "以下是您可以开始做的一些事情："
+
+#: app/templates/email/welcome.html:7
+msgid "Track your first product from your favorite online store."
+msgstr "从您喜爱的在线商店跟踪您的第一个商品。"
+
+#: app/templates/email/welcome.html:8
+msgid "Set up your notification preferences in your profile."
+msgstr "在您的个人资料中设置通知偏好。"
+
+#: app/templates/email/welcome.html:9
+msgid "Connect your Telegram account for instant alerts."
+msgstr "连接您的Telegram账户以获取即时提醒。"
+
+#: app/templates/email/welcome.html:12
+msgid "Track Your First Product"
+msgstr "跟踪您的第一个商品"
+
+#: app/templates/email/welcome.html:14
+#, fuzzy
+msgid "Happy tracking!"
+msgstr "愉快地跟踪！"
+
+#: app/templates/email/notifications/price_drop.html:11
+#, fuzzy
+msgid "Price Drop!"
+msgstr "价格下降！"
+
+#: app/templates/email/notifications/price_drop.html:12
+#, python-format
+msgid ""
+"Good news, %(username)s! The price has dropped for a product you are "
+"tracking."
+msgstr "好消息，%(username)s！您正在跟踪的商品价格下降了。"
+
+#: app/templates/email/notifications/price_drop.html:38
+msgid "View on Store"
+msgstr "在商店查看"
+
+#: app/templates/email/notifications/price_drop.html:39
+#: app/templates/email/notifications/price_increase.html:33
+#: app/templates/email/notifications/target_price_reached.html:33
+#, fuzzy
+msgid "My Products"
+msgstr "我的商品"
+
+#: app/templates/email/notifications/price_increase.html:11
+#, fuzzy
+msgid "Price Increase Alert"
+msgstr "价格上涨提醒"
+
+#: app/templates/email/notifications/price_increase.html:12
+#, python-format
+msgid ""
+"Hi %(username)s, just a heads-up: the price has increased for a product "
+"you are tracking."
+msgstr "您好 %(username)s，提醒一下：您正在跟踪的商品价格上涨了。"
+
+#: app/templates/email/notifications/price_increase.html:25
+msgid "Was:"
+msgstr "之前是："
+
+#: app/templates/email/notifications/target_price_reached.html:11
+#, fuzzy
+msgid "Target Price Reached!"
+msgstr "目标价格达到！"
+
+#: app/templates/email/notifications/target_price_reached.html:12
+#, python-format
+msgid ""
+"Amazing news, %(username)s! A product you are tracking has reached your "
+"target price."
+msgstr "惊人消息，%(username)s！您正在跟踪的商品已达到您的目标价格。"
+
+#: app/templates/email/notifications/target_price_reached.html:25
+#: app/templates/profile/index.html:64
+msgid "Target:"
+msgstr "目标："
+
+#: app/templates/email/notifications/target_price_reached.html:32
+msgid "Buy Now"
+msgstr "立即购买"
+
+#: app/templates/errors/403.html:16
+msgid "403 - Access Denied"
+msgstr "403 - 访问被拒绝"
+
+#: app/templates/errors/403.html:17
+msgid "You shall not pass!"
+msgstr "您不得通过！"
+
+#: app/templates/errors/403.html:20
+msgid ""
+"Our digital bouncers have determined you don't have the proper "
+"credentials."
+msgstr "我们的数字保安已确定您没有适当的凭证。"
+
+#: app/templates/errors/403.html:21
+msgid "If you believe this is a mistake, please contact support."
+msgstr "如果您认为这是一个错误，请联系支持团队。"
+
+#: app/templates/errors/403.html:26
+msgid "Return Home"
+msgstr "返回主页"
+
+#: app/templates/errors/403.html:29
+msgid "Contact Support"
+msgstr "联系支持"
+
+#: app/templates/errors/403.html:34
+msgid ""
+"Fun fact: The average developer spends 403 minutes per week debugging "
+"permission issues."
+msgstr "有趣的事实：平均每个开发者每周花费403分钟调试权限问题。"
+
+#: app/templates/errors/404.html:19
+msgid "404 - Mission Control, We Have a Problem"
+msgstr "404 - 任务控制中心，我们有问题"
+
+#: app/templates/errors/404.html:20
+msgid "Houston, this page has left the atmosphere!"
+msgstr "休斯顿，这个页面已离开大气层！"
+
+#: app/templates/errors/404.html:23
+msgid "Our team of highly trained monkeys (and developers) can't find this page."
+msgstr "我们训练有素的猴子（和开发者）团队找不到这个页面。"
+
+#: app/templates/errors/404.html:24
+msgid "Maybe it was abducted by aliens, or you mistyped the URL?"
+msgstr "也许它被外星人绑架了，或者您输入了错误的URL？"
+
+#: app/templates/errors/404.html:29
+msgid "Beam Me Home"
+msgstr "传送我回家"
+
+#: app/templates/errors/404.html:32
+msgid "Call for Backup"
+msgstr "请求支援"
+
+#: app/templates/errors/404.html:37
+msgid ""
+"Fun fact: The number 404 is actually how many cups of coffee our "
+"developers drink daily."
+msgstr "有趣的事实：404实际上是我们开发者每天喝的咖啡杯数。"
+
+#: app/templates/errors/500.html:9
+msgid "500 - Our Robots Have Rebelled"
+msgstr "500 - 我们的机器人叛变了"
+
+#: app/templates/errors/500.html:10
+msgid "The machines have taken over... temporarily"
+msgstr "机器暂时接管了..."
+
+#: app/templates/errors/500.html:13
+msgid "Our server is currently experiencing an existential crisis."
+msgstr "我们的服务器目前正在经历存在危机。"
+
+#: app/templates/errors/500.html:14
+msgid "While we negotiate with our AI overlords, why don't you:"
+msgstr "在我们与AI霸主谈判时，您为何不："
+
+#: app/templates/errors/500.html:20
+msgid "Refresh the page (the classic IT solution)"
+msgstr "刷新页面（经典的IT解决方案）"
+
+#: app/templates/errors/500.html:24
+msgid "Pet a dog/cat for emotional support"
+msgstr "抚摸狗/猫以获得情感支持"
+
+#: app/templates/errors/500.html:28
+msgid "Try again in a few minutes"
+msgstr "几分钟后再试"
+
+#: app/templates/errors/500.html:35
+msgid "Return to Safety"
+msgstr "返回安全"
+
+#: app/templates/errors/500.html:38
+msgid "Emergency Distraction"
+msgstr "紧急分心"
+
+#: app/templates/errors/500.html:43
+msgid ""
+"Meanwhile, our developers are frantically googling \"how to appease robot"
+" overlords\"."
+msgstr "与此同时，我们的开发者正在疯狂地谷歌“如何安抚机器人霸主”。"
+
+#: app/templates/main/index.html:13
+msgid "SmartPrice: Never Miss a Deal Again!"
+msgstr "SmartPrice：再也不会错过优惠！"
+
+#: app/templates/main/index.html:14
+msgid ""
+"Track product prices effortlessly and save money on your online shopping."
+" We watch, you save!"
+msgstr "轻松跟踪商品价格，在网上购物中省钱。我们监控，您节省！"
+
+#: app/templates/main/index.html:16
+msgid "Get Started for Free"
+msgstr "免费开始"
+
+#: app/templates/main/index.html:18
+msgid "Go to My Products"
+msgstr "前往我的商品"
+
+#: app/templates/main/index.html:26
+#, fuzzy
+msgid "What is SmartPrice?"
+msgstr "什么是SmartPrice？"
+
+#: app/templates/main/index.html:28
+msgid ""
+"Tired of manually checking if that wishlist item finally dropped in "
+"price? SmartPrice is your personal shopping assistant that automates "
+"price tracking across your favorite online stores. Set your desired "
+"price, and we’ll notify you the moment it hits your target or drops "
+"significantly. Shop smarter, not harder!"
+msgstr "厌倦了手动检查心愿清单上的商品是否降价？SmartPrice是您的个人购物助手，自动跟踪您喜爱的在线商店的商品价格。设定您想要的价格，我们会在价格达到您的目标或显著下降时立即通知您。聪明购物，无需费力！"
+
+#: app/templates/main/index.html:33
+#, fuzzy
+msgid "Effortless Tracking"
+msgstr "轻松跟踪"
+
+#: app/templates/main/index.html:34
+msgid ""
+"Just paste the product URL, set your target price, and let us do the "
+"heavy lifting. Supports a growing list of popular stores."
+msgstr "只需粘贴商品URL，设定目标价格，让我们来做繁重的工作。支持越来越多的热门商店。"
+
+#: app/templates/main/index.html:38
+#, fuzzy
+msgid "Instant Notifications"
+msgstr "即时通知"
+
+#: app/templates/main/index.html:39
+msgid ""
+"Receive alerts via email, Telegram, or directly in your account dashboard"
+" when a price meets your criteria."
+msgstr "当价格符合您的标准时，通过电子邮件、Telegram或直接在您的账户仪表板中接收提醒。"
+
+#: app/templates/main/index.html:43
+#: app/templates/profile/tracked_products.html:45
+msgid "Price History"
+msgstr "价格历史"
+
+#: app/templates/main/index.html:44
+msgid ""
+"Visualize price trends over time to make even more informed purchasing "
+"decisions. Know the best time to buy!"
+msgstr "可视化价格随时间的变化趋势，以做出更明智的购买决定。了解最佳购买时机！"
+
+#: app/templates/main/index.html:48
+msgid "Multi-Language Support"
+msgstr "多语言支持"
+
+#: app/templates/main/index.html:49
+msgid ""
+"Use SmartPrice in your preferred language. We currently support English, "
+"Russian, Spanish, and Chinese."
+msgstr "以您喜欢的语言使用SmartPrice。我们目前支持英语、俄语、西班牙语和中文。"
+
+#: app/templates/main/index.html:53
+msgid "Accessible Anywhere"
+msgstr "随时随地访问"
+
+#: app/templates/main/index.html:54
+msgid ""
+"Our web application is designed to work seamlessly on your desktop, "
+"tablet, or smartphone."
+msgstr "我们的网络应用程序设计为在您的桌面、平板或智能手机上无缝工作。"
+
+#: app/templates/main/index.html:58
+msgid "Secure & Private"
+msgstr "安全与隐私"
+
+#: app/templates/main/index.html:59
+msgid ""
+"Your data privacy is important to us. We only track what you ask us to "
+"and keep your information secure."
+msgstr "您的数据隐私对我们很重要。我们只跟踪您要求我们跟踪的内容，并确保您的信息安全。"
+
+#: app/templates/main/index.html:67
+msgid "Simple Steps to Savings"
+msgstr "省钱的简单步骤"
+
+#: app/templates/main/index.html:73
+msgid ""
+"Copy the URL of the product you want to track from an online store and "
+"paste it into SmartPrice."
+msgstr "从在线商店复制您想跟踪的商品URL并粘贴到SmartPrice中。"
+
+#: app/templates/main/index.html:78
+#, fuzzy
+msgid "Set Target Price"
+msgstr "设定目标价格"
+
+#: app/templates/main/index.html:79
+msgid ""
+"Tell us the price you’re willing to pay. You can also opt for general "
+"price drop notifications."
+msgstr "告诉我们您愿意支付的价格。您也可以选择接收一般价格下降通知。"
+
+#: app/templates/main/index.html:84
+msgid "Get Notified & Save"
+msgstr "接收通知并节省"
+
+#: app/templates/main/index.html:85
+msgid ""
+"Relax! We’ll monitor the price and send you an alert when it’s time to "
+"buy and save money."
+msgstr "放松！我们会监控价格，并在购买和省钱的时机到来时向您发送提醒。"
+
+#: app/templates/main/index.html:93
+#, fuzzy
+msgid "Stores We Track"
+msgstr "我们跟踪的商店"
+
+#: app/templates/main/index.html:95
+msgid ""
+"We are constantly expanding our list of supported online retailers. "
+"Currently, you can track prices on:"
+msgstr "我们不断扩展支持的在线零售商列表。目前，您可以跟踪以下商店的价格："
+
+#: app/templates/main/index.html:99
+msgid "Amazon"
+msgstr "亚马逊"
+
+#: app/templates/main/index.html:102
+msgid "Wildberries"
+msgstr "Wildberries"
+
+#: app/templates/main/index.html:105
+msgid "eBay"
+msgstr "eBay"
+
+#: app/templates/main/index.html:108
+msgid "AliExpress"
+msgstr "阿里快递"
+
+#: app/templates/main/index.html:111
+msgid "Ozon"
+msgstr "Ozon"
+
+#: app/templates/main/index.html:114
+msgid "Many more coming soon!"
+msgstr "更多即将推出！"
+
+#: app/templates/main/index.html:122
+msgid "What Our Users Say"
+msgstr "我们的用户说"
+
+#: app/templates/main/index.html:128
+msgid ""
+"SmartPrice saved me $50 on a new laptop! I set my target price and got an"
+" email as soon as it dropped. So easy!"
+msgstr "SmartPrice为我在一台新笔记本电脑上节省了50美元！我设定了目标价格，一旦价格下降就收到了电子邮件。太简单了！"
+
+#: app/templates/main/index.html:129
+msgid "Alex P., Tech Enthusiast"
+msgstr "Alex P.，技术爱好者"
+
+#: app/templates/main/index.html:134
+msgid ""
+"I love that I can track items from multiple stores all in one place. The "
+"Telegram notifications are super convenient too!"
+msgstr "我爱可以在一个地方跟踪多个商店的商品。Telegram通知也超级方便！"
+
+#: app/templates/main/index.html:135
+msgid "Maria G., Savvy Shopper"
+msgstr "Maria G.，精明购物者"
+
+#: app/templates/main/index.html:140
+msgid ""
+"Finally, a price tracker that just works. Simple interface, reliable "
+"notifications. Highly recommend SmartPrice!"
+msgstr "终于有了一个真正好用的价格跟踪器。简单界面，可靠通知。强烈推荐SmartPrice！"
+
+#: app/templates/main/index.html:141
+msgid "David K., Online Bargain Hunter"
+msgstr "David K.，在线优惠猎人"
+
+#: app/templates/main/index.html:155
+msgid "Ready to Start Saving?"
+msgstr "准备开始节省了吗？"
+
+#: app/templates/main/index.html:156
+msgid ""
+"Join thousands of smart shoppers who use SmartPrice to get the best "
+"deals. It's free to get started!"
+msgstr "加入数千名使用SmartPrice获得最佳优惠的精明购物者。开始是免费的！"
+
+#: app/templates/main/index.html:158
+msgid "Sign Up Now - It's Free!"
+msgstr "现在注册 - 免费！"
+
+#: app/templates/main/index.html:160
+#, fuzzy
+msgid "Manage My Tracked Products"
+msgstr "管理我的跟踪商品"
+
+#: app/templates/products/product_history.html:49
+msgid "Difference"
+msgstr "差异"
+
+#: app/templates/products/product_history.html:59
+#, fuzzy
+msgid "Min Price Ever"
+msgstr "最低价格"
+
+#: app/templates/products/product_history.html:70
+#, fuzzy
+msgid "Price Chart"
+msgstr "价格图表"
+
+#: app/templates/products/product_history.html:80
+#, fuzzy
+msgid "Check Schedule"
+msgstr "检查计划"
+
+#: app/templates/products/product_history.html:83
+msgid "Interval:"
+msgstr "间隔："
+
+#: app/templates/products/product_history.html:83
+#, fuzzy, python-format
+msgid "Every %(num)s hours"
+msgstr "每%(num)s小时"
+
+#: app/templates/products/product_history.html:84
+msgid "Last Check:"
+msgstr "最后检查："
+
+#: app/templates/products/product_history.html:85
+msgid "Next Check:"
+msgstr "下次检查："
+
+#: app/templates/products/product_history.html:93
+#, fuzzy
+msgid "Price History Details"
+msgstr "价格历史详情"
+
+#: app/templates/products/product_history.html:99
+msgid "Date"
+msgstr "日期"
+
+#: app/templates/products/product_history.html:100
+#, fuzzy
+msgid "Price"
+msgstr "价格"
+
+#: app/templates/products/product_history.html:101
+#, fuzzy
+msgid "Change"
+msgstr "变化"
+
+#: app/templates/products/product_history.html:142
+#, fuzzy
+msgid "Price ($)"
+msgstr "价格（美元）"
+
+#: app/templates/profile/edit_product.html:10
+#, fuzzy
+msgid "Edit Product Tracking"
+msgstr "编辑商品跟踪"
+
+#: app/templates/profile/edit_product.html:11
+#, python-format
+msgid "Update the details for \"%(name)s\""
+msgstr "更新\"%(name)s\"的详情"
+
+#: app/templates/profile/edit_product.html:22
+msgid "e.g., My Awesome Gadget"
+msgstr "例如，我的超棒小工具"
+
+#: app/templates/profile/edit_product.html:29
+msgid "Original URL (not editable):"
+msgstr "原始URL（不可编辑）："
+
+#: app/templates/profile/index.html:17
+#, python-brace-format
+msgid "Welcome back, {}!"
+msgstr "欢迎回来，{}！"
+
+#: app/templates/profile/index.html:21
+#, fuzzy
+msgid "Email:"
+msgstr "电子邮件："
+
+#: app/templates/profile/index.html:22
+msgid "Language:"
+msgstr "语言："
+
+#: app/templates/profile/index.html:23
+msgid "Total Tracked Products:"
+msgstr "总跟踪商品："
+
+#: app/templates/profile/index.html:25
+msgid "Products with Price Drops:"
+msgstr "价格下降的商品："
+
+#: app/templates/profile/index.html:27
+msgid "No price drops currently detected."
+msgstr "目前未检测到价格下降。"
+
+#: app/templates/profile/index.html:29
+msgid "Member since:"
+msgstr "会员自："
+
+#: app/templates/profile/index.html:35
+msgid "Quick Actions"
+msgstr "快速操作"
+
+#: app/templates/profile/index.html:36
+#, fuzzy
+msgid "View Tracked Products"
+msgstr "查看跟踪商品"
+
+#: app/templates/profile/index.html:39
+#: app/templates/profile/tracked_products.html:65
+#, fuzzy
+msgid "Add New Product"
+msgstr "添加新商品"
+
+#: app/templates/profile/index.html:47
+#, fuzzy
+msgid "Recently Tracked Products"
+msgstr "最近跟踪的商品"
+
+#: app/templates/profile/index.html:53
+msgid "Current:"
+msgstr "当前："
+
+#: app/templates/profile/index.html:67
+#, fuzzy
+msgid "View Price History"
+msgstr "查看价格历史"
+
+#: app/templates/profile/index.html:73
+msgid "View All Products"
+msgstr "查看所有商品"
+
+#: app/templates/profile/index.html:79
+msgid "You are not tracking any products yet."
+msgstr "您尚未跟踪任何商品。"
+
+#: app/templates/profile/index.html:80
+#, fuzzy
+msgid "Start Tracking Now!"
+msgstr "现在开始跟踪！"
+
+#: app/templates/profile/index.html:96
+#, fuzzy, python-format
+msgid ""
+"Note for Wildberries: The tracked price may be 5-7%% higher than "
+"displayed on the site. This is due to special discounts for specific "
+"payment methods (e.g., WB Wallet). We track the standard card price."
+msgstr ""
+"关于Wildberries的说明：跟踪的价格可能比网站显示的价格高5-7%。这是由于特定支付方式（例如WB "
+"Wallet）的特别折扣。我们跟踪的是标准卡价格。"
+
+#: app/templates/profile/leave_feedback.html:9
+msgid "Share Your Feedback"
+msgstr "分享您的反馈"
+
+#: app/templates/profile/leave_feedback.html:10
+msgid ""
+"Help us make SmartPrice better! Your thoughts and suggestions are "
+"valuable to us."
+msgstr "帮助我们改进SmartPrice！您的想法和建议对我们非常宝贵。"
+
+#: app/templates/profile/leave_feedback.html:44
+msgid "Back"
+msgstr "返回"
+
+#: app/templates/profile/settings.html:11
+msgid "Manage your personal and notification settings."
+msgstr "管理您的个人和通知设置。"
+
+#: app/templates/profile/settings.html:15
+#, fuzzy
+msgid "Account Information"
+msgstr "账户信息"
+
+#: app/templates/profile/settings.html:39
+msgid "Security"
+msgstr "安全"
+
+#: app/templates/profile/settings.html:52
+#, fuzzy
+msgid "Notification Preferences"
+msgstr "通知偏好"
+
+#: app/templates/profile/settings.html:92
+#, fuzzy
+msgid "Setup Telegram Notifications"
+msgstr "设置Telegram通知"
+
+#: app/templates/profile/settings.html:99
+msgid "Interface Language"
+msgstr "界面语言"
+
+#: app/templates/profile/settings.html:100
+msgid "This setting changes the language of the website interface."
+msgstr "此设置更改网站界面的语言。"
+
+#: app/templates/profile/telegram_setup.html:9
+msgid ""
+"To connect your Telegram account, simply click the button below and press"
+" \"Start\" in the Telegram app."
+msgstr "要连接您的Telegram账户，只需点击下面的按钮并在Telegram应用中按“开始”。"
+
+#: app/templates/profile/telegram_setup.html:14
+msgid "Your Telegram account is already connected!"
+msgstr "您的Telegram账户已连接！"
+
+#: app/templates/profile/telegram_setup.html:19
+msgid "Connect with Telegram"
+msgstr "通过Telegram连接"
+
+#: app/templates/profile/telegram_setup.html:26
+msgid "Back to Settings"
+msgstr "返回设置"
+
+#: app/templates/profile/tracked_products.html:10
+msgid "Here are all the products you are currently tracking."
+msgstr "这是您目前正在跟踪的所有商品。"
+
+#: app/templates/profile/tracked_products.html:20
+msgid "URL:"
+msgstr "URL："
+
+#: app/templates/profile/tracked_products.html:21
+#, fuzzy
+msgid "Current Price:"
+msgstr "当前价格："
+
+#: app/templates/profile/tracked_products.html:35
+#, python-format
+msgid "Note: Price may differ by 5-7%% due to payment method discounts."
+msgstr "注意：由于支付方式折扣，价格可能会有5-7%的差异。"
+
+#: app/templates/profile/tracked_products.html:38
+#, fuzzy
+msgid "Target Price:"
+msgstr "目标价格："
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Last Checked:"
+msgstr "最后检查："
+
+#: app/templates/profile/tracked_products.html:39
+msgid "Never"
+msgstr "从未"
+
+#: app/templates/profile/tracked_products.html:40
+#, fuzzy
+msgid "Check Frequency:"
+msgstr "检查频率："
+
+#: app/templates/profile/tracked_products.html:40
+msgid "hours"
+msgstr "小时"
+
+#: app/templates/profile/tracked_products.html:41
+#, fuzzy
+msgid "Notification Methods:"
+msgstr "通知方式："
+
+#: app/templates/profile/tracked_products.html:50
+msgid "Are you sure you want to delete this product tracking?"
+msgstr "您确定要删除此商品跟踪吗？"
+
+#: app/templates/profile/tracked_products.html:60
+msgid "You are not tracking any products yet"
+msgstr "您尚未跟踪任何商品"
+
+#: app/templates/profile/tracked_products.html:61
+msgid "Add First Product"
+msgstr "添加第一个商品"
+
+#: app/templates/profile/view_notifications.html:28
+msgid "Unread:"
+msgstr "未读："
+
+#: app/templates/profile/view_notifications.html:34
+msgid "Mark All as Read"
+msgstr "全部标记为已读"
+
+#: app/templates/profile/view_notifications.html:35
+msgid "Clear All"
+msgstr "全部清除"
+
+#: app/templates/profile/view_notifications.html:56
+#: app/templates/profile/view_notifications.html:95
+msgid "Read"
+msgstr "已读"
+
+#: app/templates/profile/view_notifications.html:93
+msgid "View"
+msgstr "查看"
+
+#: app/templates/profile/view_notifications.html:106
+msgid "All Quiet Here"
+msgstr "这里一切平静"
+
+#: app/templates/profile/view_notifications.html:107
+msgid ""
+"You have no unread notifications. We will let you know when there is news"
+" about your products!"
+msgstr "您没有未读通知。我们会在有您的商品消息时通知您！"
+
+#: app/templates/profile/view_notifications.html:108
+msgid "View My Tracked Products"
+msgstr "查看我的跟踪商品"
+
+#: app/utils/validators.py:14
+msgid "Telegram token is required"
+msgstr "需要Telegram令牌"
+
+#: app/utils/validators.py:16
+msgid "Invalid Telegram bot token format"
+msgstr "Telegram机器人令牌格式无效"
+
+#: app/utils/validators.py:24
+#, fuzzy
+msgid "URL is required."
+msgstr "需要URL。"
+
+#: app/utils/validators.py:32
+msgid "Invalid URL: missing scheme (e.g., https://) or domain"
+msgstr "无效的URL：缺少协议（例如，https://）或域名"
+
+#: app/utils/validators.py:35
+msgid "Only http:// and https:// URLs are supported"
+msgstr "仅支持http://和https://的URL"
+
+#: app/utils/validators.py:43
+#, fuzzy, python-format
+msgid "We currently support: %(supported)s"
+msgstr "我们目前支持：%(supported)s"
+
+#: app/utils/validators.py:46
+#, python-format
+msgid "Invalid URL format: %(error)s"
+msgstr "无效的URL格式：%(error)s"
+
+#: app/utils/validators.py:55
+msgid "Please use a different email address."
+msgstr "请使用不同的电子邮件地址。"
+
+#: app/utils/validators.py:67
+msgid "Password must contain at least one uppercase letter."
+msgstr "密码必须包含至少一个大写字母。"
+
+#: app/utils/validators.py:69
+msgid "Password must contain at least one lowercase letter."
+msgstr "密码必须包含至少一个小写字母。"
+
+#: app/utils/validators.py:71
+msgid "Password must contain at least one digit."
+msgstr "密码必须包含至少一个数字。"
+
+#: app/utils/validators.py:73
+msgid "Password must contain at least one special character (@$!%*?&#)."
+msgstr "密码必须包含至少一个特殊字符（@$!%*?&#）。"
+
+#~ msgid "Telegram chat ID is required"
+#~ msgstr "需要Telegram聊天ID"
+
+#~ msgid "Chat ID must contain only numbers"
+#~ msgstr "聊天ID必须仅包含数字"
+
+#~ msgid "This product page doesn't exist or is unavailable"
+#~ msgstr "此商品页面不存在或不可用"
+
+#~ msgid "Telegram Bot Token"
+#~ msgstr "Telegram机器人令牌"
+
+#~ msgid "Every hour"
+#~ msgstr "每小时"
+
+#~ msgid "Once a day"
+#~ msgstr "每天一次"
+
+#~ msgid "https://www.amazon.com/..."
+#~ msgstr "https://www.amazon.com/..."
+
+#~ msgid "How to get Telegram token?"
+#~ msgstr "如何获取Telegram令牌？"
+
+#~ msgid "Search for @BotFather in Telegram and send"
+#~ msgstr "在Telegram中搜索@BotFather并发送"
+
+#~ msgid "Get Bot Token"
+#~ msgstr "获取机器人令牌"
+
+#~ msgid "Copy the token you receive from @BotFather"
+#~ msgstr "复制您从@BotFather收到的令牌"
+
+#~ msgid "Telegram token example"
+#~ msgstr "Telegram令牌示例"
+
+#~ msgid "Get Chat ID"
+#~ msgstr "获取聊天ID"
+
+#~ msgid "Send any message to your bot, then visit:"
+#~ msgstr "向您的机器人发送任何消息，然后访问："
+
+#~ msgid "Find \"chat\": {\"id\": YOUR_CHAT_ID} in the response"
+#~ msgstr "在响应中查找\"chat\": {\"id\": YOUR_CHAT_ID}"
+
+#~ msgid "Get instant notifications when prices drop"
+#~ msgstr "价格下降时获取即时通知"
+
+#~ msgid "Track price changes over time"
+#~ msgstr "跟踪价格随时间的变化"
+
+#~ msgid "Multi-Platform"
+#~ msgstr "多平台"
+
+#~ msgid "Get alerts via email, Telegram or SMS"
+#~ msgstr "通过电子邮件、Telegram或短信获取提醒"
+
+#~ msgid "Hide instructions"
+#~ msgstr "隐藏说明"
+

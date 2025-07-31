@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+<div class="error-card">
+<div class="error-illustration">
+<!--<img src="{{ url_for('static', filename='images/astronaut.svg') }}" alt="Lost astronaut" width="200">-->
+
+    <lottie-player
+src="{{ url_for('static', filename='images/Animation - 1748093762765.json') }}"
+background="transparent"
+speed="1"
+style="width: 300px; height: 300px;"
+loop
+autoplay>
+</lottie-player>
+
+</div>
+<h1>{{ _('404 - Mission Control, We Have a Problem') }}</h1>
+<p class="lead">{{ _('Houston, this page has left the atmosphere!') }}</p>
+
+<div class="error-message">
+<p>{{ _("Our team of highly trained monkeys (and developers) can't find this page.") }}</p>
+<p>{{ _('Maybe it was abducted by aliens, or you mistyped the URL?') }}</p>
+</div>
+
+<div class="error-actions">
+<a href="{{ url_for('profile.index') }}" class="btn btn-primary">
+<i class="fas fa-rocket"></i> {{ _('Beam Me Home') }}
+</a>
+<a href="{{ url_for('profile.leave_feedback') }}" class="btn btn-secondary">
+<i class="fas fa-life-ring"></i> {{ _('Call for Backup') }}
+</a>
+</div>
+
+<div class="error-fun-fact" style="margin-top: 20px">
+<p><small>{{ _('Fun fact: The number 404 is actually how many cups of coffee our developers drink daily.') }}</small></p>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'bootstrap4/admin/model/list.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <style>
+        .table-primary {
+            background-color: #b8daff !important;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+{% block list_header %}
+    {{ super() }}
+{% endblock %}
+{% macro table_row(row_class, row) %}
+    <tr class="{% if not row.is_read %}table-primary{% endif %}">
+        {% for c, name in list_columns %}
+            <td>{{ get_value(row, c) }}</td>
+        {% endfor %}
+        {% if actions %}
+            <td>{{ lib.list_row_actions(row) }}</td>
+        {% endif %}
+    </tr>
+{% endmacro %}

@@ -1,0 +1,16 @@
+.git
+.gitignore
+*.pyc
+__pycache__
+.env
+venv/
+*.log
+postgres_data/
+redis_data/
+celerybeat-schedule
+playwright_cache/
+playwright_report/
+.idea/
+.vscode/
+*.db
+Dockerfile.dev
