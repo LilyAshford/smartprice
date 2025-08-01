@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 import logging
 from logging.handlers import RotatingFileHandler
 from .logging_config import SQLAlchemyLogHandler, NoDbLogDuplicatesFilter
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from app.utils import bp as utils_bp
 from app.api import bp as api_bp
@@ -107,6 +108,9 @@ def register_context_processors(app):
 
 def create_app(config_name=None):
     app = Flask(__name__)
+    app.wsgi_app = ProxyFix(
+        app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+    )
     cfg = config.get(config_name) or config['default']
     app.config.from_object(cfg)
     cfg.init_app(app)
@@ -141,7 +145,7 @@ def create_app(config_name=None):
     Bootstrap4(app)
     babel.init_app(app, locale_selector=get_locale)
     mail.init_app(app)
-    init_limiter(app)
+    #init_limiter(app)
     migrate = Migrate(app, db)
 
     app.register_blueprint(main_bp)

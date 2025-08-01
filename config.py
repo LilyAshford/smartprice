@@ -39,6 +39,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    PREFERRED_URL_SCHEME = 'https'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
     REDIS_URL = f"redis://:{os.environ.get('REDIS_PASSWORD')}@{os.environ.get('REDIS_HOST', '127.0.0.1')}:{os.environ.get('REDIS_PORT', '6379')}/0"

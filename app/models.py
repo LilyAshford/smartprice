@@ -442,5 +442,10 @@ class AdminLog(db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    from datetime import time
+    current_app.logger.info(f"Loading user {user_id}")
+    start = time.time()
+    user = User.query.get(int(user_id))
+    current_app.logger.info(f"User {user_id} loaded in {time.time() - start} seconds")
+    return user
 

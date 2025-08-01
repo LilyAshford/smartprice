@@ -8,6 +8,12 @@ services:
       - POSTGRES_DB=smartprice
     ports:
       - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: '2G'
+    command: postgres -c 'max_connections=200' -c 'shared_buffers=512MB' -c 'work_mem=16MB' -c 'effective_cache_size=1GB'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
