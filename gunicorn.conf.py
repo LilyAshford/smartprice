@@ -5,10 +5,9 @@ import os
 # Bind to all interfaces on port 5000 to match Nginx upstream
 bind = "0.0.0.0:5000"
 
-workers = 4
-
-# Timeout to match Nginx proxy timeouts (130s in nginx.conf)
-timeout = 130
+workers = 1
+timeout = 300
+loglevel = 'debug'
 
 # Logging configuration
 accesslog = "/app/logs/gunicorn_access.log"
