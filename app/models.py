@@ -442,7 +442,7 @@ class AdminLog(db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    from datetime import time
+    import time
     current_app.logger.info(f"Loading user {user_id}")
     start = time.time()
     user = User.query.get(int(user_id))

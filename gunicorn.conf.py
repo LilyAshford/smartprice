@@ -6,7 +6,7 @@ import os
 bind = "0.0.0.0:5000"
 
 workers = 1
-timeout = 300
+timeout = 120
 loglevel = 'debug'
 
 # Logging configuration
@@ -18,6 +18,11 @@ def post_fork(server, worker):
     log_dir = '/app/logs'
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
+    for log_file in ['gunicorn_access.log', 'gunicorn_error.log', 'smartprice.log']:
+        log_path = os.path.join(log_dir, log_file)
+        if not os.path.exists(log_path):
+            open(log_path, 'a').close()
+            os.chmod(log_path, 0o666)
 
     file_handler = RotatingFileHandler(
         os.path.join(log_dir, 'smartprice.log'),
@@ -25,7 +30,7 @@ def post_fork(server, worker):
         backupCount=10,
         encoding='utf-8'
     )
-    file_handler.setLevel(logging.INFO)
+    file_handler.setLevel(logging.DEBUG)
     formatter = logging.Formatter(
         '%(asctime)s [%(levelname)s] in %(module)s.%(funcName)s: %(message)s [in %(pathname)s:%(lineno)d]'
     )
