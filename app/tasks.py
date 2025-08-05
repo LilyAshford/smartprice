@@ -114,15 +114,14 @@ def check_price_for_product(self, product_id, mock_scenario=None, mock_target_pr
             alert_types = []
             target_price = mock_product.target_price if is_mock else product.target_price
 
-            if old_price and new_price < old_price and user.enable_price_drop_notifications:
-                drop_amount = old_price - new_price
-                if not product.price_drop_alert_threshold or drop_amount >= product.price_drop_alert_threshold:
-                    alert_types.append('price_drop')
-
             if new_price <= target_price and user.enable_target_price_reached_notifications:
                 alert_types.append('target_reached')
                 if not is_mock:
                     product.target_price_notified = True
+            elif old_price and new_price < old_price and user.enable_price_drop_notifications:
+                drop_amount = old_price - new_price
+                if not product.price_drop_alert_threshold or drop_amount >= product.price_drop_alert_threshold:
+                    alert_types.append('price_drop')
 
             if old_price and new_price > old_price:
                 increase_amount = new_price - old_price
@@ -215,11 +214,9 @@ def schedule_price_checks():
         current_app.logger.info(f"Found {len(products)} products to check.")
         for product in products:
             check_price_for_product.delay(product.id)
-            product.last_checked = datetime.utcnow()
-        db.session.commit()
+
     except Exception as e:
         current_app.logger.error(f"Error scheduling price checks: {e}", exc_info=True)
-        db.session.rollback()
 
 
 @shared_task

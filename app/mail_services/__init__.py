@@ -69,7 +69,7 @@ def send_welcome_email(user):
 def send_admin_feedback_notification(feedback_item):
     """Sends a notification email to admin about new feedback."""
     app = current_app._get_current_object()
-    admin_email = app.config.get('ADMIN_EMAIL')
+    admin_email = app.config.get('MAIL_SENDER')
 
     if not admin_email:
         app.logger.warning("ADMIN_EMAIL not set in config. Cannot send feedback notification.")

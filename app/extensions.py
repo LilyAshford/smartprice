@@ -15,15 +15,15 @@ db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.login_message_category = 'info'
-celery = Celery(__name__, include=['app.tasks'])
 
 limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["200 per day", "50 per hour"]
 )
+celery = Celery(__name__, include=['app.tasks'])
 
 def init_limiter(app):
-    redis_url = f"redis://:{app.config.get('REDIS_PASSWORD', 'Lillian2030')}@{app.config.get('REDIS_HOST', 'redis')}:{app.config.get('REDIS_PORT', '6379')}/0"
+    redis_url = f"redis://:{app.config['REDIS_PASSWORD']}@{app.config.get('REDIS_HOST', 'redis')}:{app.config.get('REDIS_PORT', '6379')}/0"
     limiter.init_app(app)
     limiter.storage_uri = redis_url
 

@@ -119,8 +119,9 @@ def create_app(config_name=None):
     admin_templates_path = os.path.join(os.path.dirname(flask_admin.__file__), 'templates')
     app.jinja_loader.searchpath.append(admin_templates_path)
 
-    from app.extensions import celery
-    celery.conf.update(app.config)
+    from app.celery_worker import make_celery
+    celery = make_celery(app)
+    app.extensions['celery'] = celery
 
     admin = Admin(
         app,
