@@ -425,7 +425,7 @@ def run_async_in_sync(coro):
 if __name__ == "__main__":
     test_urls = [
         #"https://www.wildberries.ru/catalog/6583985/detail.aspx",
-        "https://www.ebay.com/itm/355161594742?_skw=raspberry+pi+5&itmmeta=01K1C0FPE7XAW2P2CP0P7BD6BS&hash=item52b147db76:g:oK0AAOSwo~RoGR9l&itmprp=enc%3AAQAKAAAA8FkggFvd1GGDu0w3yXCmi1fXVGHNXTiyyGLW3mMr%2F3LHU4VdHYcAWaaOp%2BXCL2BqHR9urCK3PZuPisAtQSrYQTfitbgvpO6XYWxAvyKvBlC9sPhQLAFzJIkdbADdFvvBHYqvQy%2Fs%2BYQoXELoUOwwIj%2FYrNRMCm7I%2B6iA9RHv%2BsSRZot38MMevuTDPNKJET1rUUw32aEPMD25ltwgZtlkwgTmy%2F3Z3Hs43qd1B4p1Pxn1GwDcdpre7PPUqtCf%2BrcBwuGyYW8TBCz8ul4fNJH%2B2knDfXlMMFUWXRoIynb7jQ0BKtgR82S4yaQJVI%2BGRbIB0Q%3D%3D%7Ctkp%3ABFBMque-gItm",
+        "https://www.ebay.com/itm/127281867013?_skw=Jetson+nano&itmmeta=01K1XBK557CBVM89JM8RASV1J5&hash=item1da2972905:g:eR4AAeSwvuVojNuO&itmprp=enc%3AAQAKAAAA8FkggFvd1GGDu0w3yXCmi1ciRQsNXLuhg1Z0eIshN3zHBs%2FTpJ%2FMomtNTxJtOs5s6PHuQyygTyuUpR5fiq78mOQKOYEbcaS%2Bm6qjxEBpxcCUEb0WOeYi3TNqDSlxnLPAJMA5VdlNtIJfvWhOYKmVHRJj9M0eE2%2FQWiNqsGH5k%2FRkT7stEncG4%2FwcvEvQlhrQndB%2F82LwIsOHTO7zUgYaSQeumjPrqAS%2B4qNOHVp%2Fw%2FGXn36g9evQ6BwOAc9BSsRuU5dpD%2Bnx0Yw6BcCxZCe7tN%2BbpHiAz1zC013gXSYuVn9Vg3Vj1IlgdvvRscBMmONJnQ%3D%3D%7Ctkp%3ABFBM4NLMq49m",
         #"https://www.walmart.com/ip/Lvelia-Robot-Toy-Kids-Intelligent-Electronic-Walking-Dancing-Robot-Toys-Flashing-Lights-Music-Age-3-12-Year-Old-Boys-Girls-Birthday-Gift-Present-Oran/943196113?classType=VARIANT&athbdg=L1800&from=/search",
     ]
 
