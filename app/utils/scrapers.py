@@ -25,8 +25,6 @@ load_dotenv()
 RAINFOREST_API_KEY = os.getenv("RAINFOREST_API_KEY")
 SCRAPERAPI_KEY = os.getenv("SCRAPERAPI_KEY")
 SCRAPEOPS_KEY = os.getenv("SCRAPEOPS_KEY")
-EBAY_APP_ID = os.getenv("EBAY_APP_ID")
-EBAY_CERT_ID = os.getenv("EBAY_CERT_ID")
 USER_AGENTS = [
         # Chrome (Windows)
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -146,36 +144,37 @@ class BaseParser:
     def __init__(self, url):
         self.url = url
 
-async def get_ebay_oauth_token():
-    """Get and cache OAuth token for eBay API."""
-    token_key = "ebay_oauth_token"
-    if redis_client:
-        cached_token = await redis_client.get(token_key)
-        if cached_token:
-            logger.info("Retrieved eBay token from cache")
-            return cached_token
 
-    url = "https://api.ebay.com/identity/v1/oauth2/token"
+async def get_ebay_oauth_token():
+    client_id = os.getenv("EBAY_CLIENT_ID")
+    client_secret = os.getenv("EBAY_CLIENT_SECRET")
+
+    if not client_id or not client_secret:
+        raise ValueError("Missing EBAY_CLIENT_ID or EBAY_CLIENT_SECRET")
+
+    basic_auth = base64.b64encode(f"{client_id}:{client_secret}".encode()).decode()
+
     headers = {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Authorization": "Basic " + base64.b64encode(f"{EBAY_APP_ID}:{EBAY_CERT_ID}".encode()).decode()
+        "Authorization": f"Basic {basic_auth}",
+        "Content-Type": "application/x-www-form-urlencoded"
     }
-    body = "grant_type=client_credentials&scope=https://api.ebay.com/oauth/api_scope"
+
+    data = {
+        "grant_type": "client_credentials",
+        "scope": "https://api.ebay.com/oauth/api_scope"
+    }
 
     async with aiohttp.ClientSession() as session:
-        async with session.post(url, headers=headers, data=body) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                token = data["access_token"]
-                ttl = data.get("expires_in", 7200) - 300 # Cache with 5 minute buffer
-                if redis_client:
-                    await redis_client.setex(token_key, ttl, token)
-                logger.info("Retrieved new eBay API token")
-                return token
-            else:
-                logger.error(f"Error getting eBay token: {resp.status} {await resp.text()}")
-                return None
-
+        async with session.post(
+            "https://api.ebay.com/identity/v1/oauth2/token",
+            headers=headers,
+            data=data
+        ) as resp:
+            body = await resp.json()
+            if resp.status != 200:
+                print("FAILED", resp.status, body)
+                raise Exception(f"eBay token request failed: {body}")
+            return body["access_token"]
 
 class AmazonParser(BaseParser):
     async def parse(self, session):
@@ -197,49 +196,130 @@ class AmazonParser(BaseParser):
         except Exception as e:
             return {"error": "amazon_parse_error", "details": str(e)}, True
 
+
 class EbayParser(BaseParser):
-    async def parse(self, session):
-        match = re.search(r"/itm/(\d+)", self.url)
-        if not match:
-            return {"error": "ebay_item_id_not_found"}, True
-        item_id = match.group(1)
+    async def parse(self, session: aiohttp.ClientSession):
+        api_result, has_error = await self._parse_with_api(session)
 
-        token = await get_ebay_oauth_token()
-        if not token:
-            return {"error": "ebay_auth_failed"}, True
+        if not has_error:
+            logger.info(f"Successfully parsed via API for URL: {self.url}")
+            return api_result, False
 
-        domain = urlparse(self.url).netloc.lower()
-        marketplace_map = {
-            'ebay.com': 'EBAY_US',
-            'ebay.co.uk': 'EBAY_GB',
-            'ebay.de': 'EBAY_DE',
-            'ebay.ca': 'EBAY_CA',
-            'ebay.com.au': 'EBAY_AU',
-        }
-        marketplace_id = marketplace_map.get(domain, 'EBAY_US')
+        logger.warning(
+            f"API parsing failed for {self.url}. Error: {api_result.get('details', 'Unknown API error')}. "
+            f"Falling back to Playwright scraping."
+        )
 
-        api_url = f"https://api.ebay.com/buy/browse/v1/item/{item_id}"
-        headers = {
-            "Authorization": f"Bearer {token}",
-            "X-EBAY-C-MARKETPLACE-ID": marketplace_id
-        }
+        return await self._parse_with_playwright()
 
-        logger.info(f"eBay API Request: URL={api_url}")
-        logger.info(f"eBay API Request: Headers={headers}")
+    async def _parse_with_api(self, session: aiohttp.ClientSession):
+        try:
+            match = re.search(r"/itm/(\d+)", self.url)
+            if not match:
+                return {"error": "ebay_item_id_not_found", "details": "Could not extract item ID from URL"}, True
+            item_id = match.group(1)
 
-        async with session.get(api_url, headers=headers) as resp:
-            response_text = await resp.text()
-            logger.info(f"eBay API Response: Status={resp.status}")
-            logger.info(f"eBay API Response: Body={response_text}")
-            if resp.status == 200:
-                data = json.loads(response_text)
-                return {"name": data.get("title"), "price": data.get("price", {}).get("value")}, False
-            else:
+            try:
+                token = await get_ebay_oauth_token()
+                if not token:
+                    return {"error": "ebay_auth_failed"}, True
+            except Exception as e:
+                return {"error": "ebay_auth_exception", "details": str(e)}, True
+
+            domain = urlparse(self.url).netloc.lower().replace('www.', '')
+            marketplace_map = {'ebay.com': 'EBAY_US', 'ebay.co.uk': 'EBAY_GB', 'ebay.de': 'EBAY_DE',
+                               'ebay.ca': 'EBAY_CA',
+                               'ebay.com.au': 'EBAY_AU'}
+            marketplace_id = marketplace_map.get(domain, 'EBAY_US')
+
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "X-EBAY-C-MARKETPLACE-ID": marketplace_id,
+            }
+
+            api_url_legacy = "https://api.ebay.com/buy/browse/v1/item/get_item_by_legacy_id"
+            params_legacy = {"legacy_item_id": item_id}
+            logger.info(f"Attempting to fetch item {item_id} as a standard item.")
+
+            async with session.get(api_url_legacy, headers=headers, params=params_legacy) as resp:
                 response_text = await resp.text()
-                logger.error(
-                    f"Ebay API error for item {item_id} on market {marketplace_id}: {resp.status} - {response_text}")
-                return {"error": "ebay_api_error", "status": resp.status, "details": await resp.text()}, True
+                if resp.status == 200:
+                    logger.info(f"Successfully fetched item {item_id} as a standard item.")
+                    data = json.loads(response_text)
+                    return {"name": data.get("title"), "price": float(data.get("price", {}).get("value"))}, False
 
+                if resp.status == 400 and "get_items_by_item_group" in response_text:
+                    logger.warning(f"Item {item_id} is an item group. Switching to group API.")
+                    api_url_group = "https://api.ebay.com/buy/browse/v1/item/get_items_by_item_group"
+                    params_group = {"item_group_id": item_id}
+
+                    async with session.get(api_url_group, headers=headers, params=params_group) as group_resp:
+                        group_response_text = await group_resp.text()
+                        if group_resp.status == 200:
+                            logger.info(f"Successfully fetched item group {item_id}.")
+                            group_data = json.loads(group_response_text)
+                            if group_data.get("items"):
+                                first_item = group_data["items"][0]
+                                return {"name": first_item.get("title"),
+                                        "price": float(first_item.get("price", {}).get("value"))}, False
+                            else:
+                                return {"error": "ebay_group_empty", "details": "Item group is empty"}, True
+                        else:
+                            return {"error": "ebay_group_api_error", "status": group_resp.status,
+                                    "details": group_response_text}, True
+
+                logger.error(f"Ebay API error for item {item_id}: {resp.status} - {response_text}")
+                return {"error": "ebay_api_error", "status": resp.status, "details": response_text}, True
+
+        except Exception as e:
+            logger.error(f"Unhandled exception in API parser: {e}", exc_info=True)
+            return {"error": "ebay_api_exception", "details": str(e)}, True
+
+    async def _parse_with_playwright(self):
+        try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                page = await browser.new_page(user_agent=random.choice(USER_AGENTS))
+                await stealth_async(page)
+                await page.goto(self.url, timeout=60000, wait_until="domcontentloaded")
+
+                name_selectors = ["h1.x-item-title__mainTitle", ".x-item-title-text > .ux-textspans", "h1#itemTitle"]
+                name = ""
+                for selector in name_selectors:
+                    elements = await page.locator(selector).all()
+                    if elements:
+                        name_text = await elements[0].text_content()
+                        if name_text and name_text.strip():
+                            name = name_text.strip()
+                            break
+
+                price_selectors = ["div.x-price-primary span.ux-textspans", "span[itemprop='price']", ".display-price"]
+                price = None
+                for selector in price_selectors:
+                    elements = await page.locator(selector).all()
+                    for element in elements:
+                        price_text = await element.text_content()
+                        if price_text:
+                            cleaned_price = re.sub(r'[^\d.,]', '', price_text).replace(',', '.')
+                            if cleaned_price:
+                                try:
+                                    price = float(cleaned_price)
+                                    break
+                                except ValueError:
+                                    continue
+                    if price is not None:
+                        break
+
+                await browser.close()
+                if name and price is not None:
+                    return {"name": name, "price": price}, False
+
+                details = f"Could not extract name ({'found' if name else 'not found'}) or price ({'found' if price is not None else 'not found'})"
+                return {"error": "ebay_scrape_failure", "details": details}, True
+
+        except Exception as e:
+            logger.error(f"eBay Playwright scraping failed: {str(e)}", exc_info=True)
+            return {"error": "ebay_scrape_exception", "details": str(e)}, True
 
 class WildberriesParser(BaseParser):
     async def parse(self, session: aiohttp.ClientSession):
@@ -300,7 +380,6 @@ class WalmartParser(BaseParser):
             return {"name": name, "price": float(price)}, False
         except Exception as e:
             return {"error": "walmart_parse_error", "details": str(e)}, True
-
 
 
 class MockParser:
@@ -425,7 +504,9 @@ def run_async_in_sync(coro):
 if __name__ == "__main__":
     test_urls = [
         #"https://www.wildberries.ru/catalog/6583985/detail.aspx",
-        "https://www.ebay.com/itm/127281867013?_skw=Jetson+nano&itmmeta=01K1XBK557CBVM89JM8RASV1J5&hash=item1da2972905:g:eR4AAeSwvuVojNuO&itmprp=enc%3AAQAKAAAA8FkggFvd1GGDu0w3yXCmi1ciRQsNXLuhg1Z0eIshN3zHBs%2FTpJ%2FMomtNTxJtOs5s6PHuQyygTyuUpR5fiq78mOQKOYEbcaS%2Bm6qjxEBpxcCUEb0WOeYi3TNqDSlxnLPAJMA5VdlNtIJfvWhOYKmVHRJj9M0eE2%2FQWiNqsGH5k%2FRkT7stEncG4%2FwcvEvQlhrQndB%2F82LwIsOHTO7zUgYaSQeumjPrqAS%2B4qNOHVp%2Fw%2FGXn36g9evQ6BwOAc9BSsRuU5dpD%2Bnx0Yw6BcCxZCe7tN%2BbpHiAz1zC013gXSYuVn9Vg3Vj1IlgdvvRscBMmONJnQ%3D%3D%7Ctkp%3ABFBM4NLMq49m",
+        "https://www.ebay.com/itm/256966053660?_trkparms=amclksrc%3DITM%26aid%3D1110018%26algo%3DHOMESPLICE.COMPLISTINGS%26ao%3D1%26asc%3D290501%2C290149%26meid%3D24d7519045dd4a49b234c0c13e48021a%26pid%3D101196%26rk%3D1%26rkt%3D12%26sd%3D127281867013%26itm%3D256966053660%26pmt%3D1%26noa%3D0%26pg%3D2332490%26algv%3DCompVIDesktopATF2V6ReplaceKnnV4WithVectorDbNsOptHotPlRecallCpcRecalls%26brand%3DNVIDIA&_trksid=p2332490.c101196.m2219&itmprp=cksum%3A25696605366024d7519045dd4a49b234c0c13e48021a%7Cenc%3AAQAKAAABMGd6yosUmY78X3sBQZlOPAfbcYMN1eLzdk%252BXueF57J0tezKI5wedZ2En3T%252FWoyn53ibvN%252Bdh17CwHRc8pDF4DOUBbvuDeZOvDDGGVfT9ZdusoN513hCl%252Bt1ZwXGS5YV73hYXWdmeMTqufWNC5JFAsI%252FMNyIULhUQs5qJtPO2WvnwH9dibUR9vFBatRArdCnnn0JXmPc5RLsiVoR7VRxf3kgkYW3yBuF526umSpIC2%252FUgP66x38LsSK2JVHAqlEZ4eKJ7hSCAUkjJv3zaTb%252Fy19mRWHe7dASzdeltSyed8%252FBBrO4KhrJ6r4woR0Wb8xejF7opt9Nz0QPHmc2nYgJS6ja3i%252FCbVhxUiuj9P13TkDRD8KQ769d93X3N8gAA8G%252FtzIZ6Oq62Xz39Fy7%252BIdSAbE8%253D%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01K20C62QJEVF8YH6RHHH3C57M",
+        "https://www.ebay.com/itm/226154271181",
+        "https://www.ebay.com/itm/267336611145?_skw=M3GAN&itmmeta=01K20QFE35YT8GHPJNYGPKMKM7&hash=item3e3e80f549:g:ua0AAeSwovVoflcU&itmprp=enc%3AAQAKAAAA4FkggFvd1GGDu0w3yXCmi1fH8DPwut%2FnBOKUuWT6shcRIEDEXKWNIuZwxpYqd5NPWvtbUmbQn581%2F0spjajAzqRlcTkeduTQtUJOD8%2BaUmJek7nKECISwFK8OCr7414q5jtZLUfPHmJEG5KIiYJmCfu9s%2B8V2eBXQEsnPVe9bBtip2AYxRWFiRChXNuLVOhA2wTJtCZJIyif6Dwk49INulWk2KiU5zO4%2BSO75dWKxUceix5lQOuppJOeLr99s8iRlv13j9BXm9g86ALG5jgG4d%2FkazqRD1ImOuCLkbASos5Y%7Ctkp%3ABFBM0OK9l5Bm",
         #"https://www.walmart.com/ip/Lvelia-Robot-Toy-Kids-Intelligent-Electronic-Walking-Dancing-Robot-Toys-Flashing-Lights-Music-Age-3-12-Year-Old-Boys-Girls-Birthday-Gift-Present-Oran/943196113?classType=VARIANT&athbdg=L1800&from=/search",
     ]
 
