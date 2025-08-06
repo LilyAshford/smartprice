@@ -7,9 +7,4 @@ flask_app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 celery = make_celery(flask_app)
 
 # Configure Celery beat schedule
-celery.conf.beat_schedule = {
-    'schedule-price-checks-every-hour': {
-        'task': 'app.tasks.schedule_price_checks',
-        'schedule': crontab(minute=0, hour='*'),
-    },
-}
+celery.conf.update(flask_app.config['CELERY'])

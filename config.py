@@ -47,15 +47,16 @@ class DevelopmentConfig(Config):
     CELERY = {
         'broker_url': REDIS_URL,
         'result_backend': REDIS_URL,
-        'broker_pool_limit': 10,
-        'broker_connection_retry_on_startup': True,
-        'broker_connection_max_retries': 10,
-        'broker_connection_timeout': 30,
+        'timezone': 'UTC',
         'task_serializer': 'json',
         'accept_content': ['json'],
         'result_serializer': 'json',
-        'timezone': 'UTC',
-        'enable_utc': True,
+        'beat_schedule': {
+            'schedule-price-checks': {
+                'task': 'app.tasks.schedule_price_checks',
+                'schedule': 3600.0,
+            }
+        },
     }
 
 class ProductionConfig(DevelopmentConfig):
@@ -76,7 +77,7 @@ class ProductionConfig(DevelopmentConfig):
         'beat_schedule': {
             'schedule-price-checks': {
                 'task': 'app.tasks.schedule_price_checks',
-                'schedule': 1800.0,
+                'schedule': 3600.0,
             },
             'cleanup-unconfirmed-users-daily': {
                 'task': 'app.tasks.cleanup_unconfirmed_users',
@@ -87,13 +88,21 @@ class ProductionConfig(DevelopmentConfig):
 
 class DockerConfig(Config):
     RATELIMIT_STORAGE_URI = os.environ.get('CELERY_BROKER_URL')
+    REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')
+    REDIS_URL = f"redis://:{os.environ.get('REDIS_PASSWORD')}@{os.environ.get('REDIS_HOST', 'redis')}:{os.environ.get('REDIS_PORT', '6379')}/0"
     CELERY = {
-        'broker_url': os.environ.get('CELERY_BROKER_URL'),
-        'result_backend': os.environ.get('CELERY_RESULT_BACKEND'),
+        'broker_url': REDIS_URL,
+        'result_backend': REDIS_URL,
         'timezone': 'UTC',
         'task_serializer': 'json',
         'accept_content': ['json'],
         'result_serializer': 'json',
+        'beat_schedule': {
+            'schedule-price-checks': {
+                'task': 'app.tasks.schedule_price_checks',
+                'schedule': 3600.0,
+            }
+        },
     }
 
 
