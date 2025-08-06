@@ -108,6 +108,7 @@ services:
     build: .
     container_name: smartprice-flower
     command: [ "bash", "-c", "celery -A app.wsgi.celery flower --port=5555 --url-prefix=/flower" ]
+    entrypoint: [ ]
     env_file:
       - .env
     environment:

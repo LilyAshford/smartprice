@@ -644,11 +644,11 @@ def handle_state_message_in_task(user, text, chat_id):
         send_telegram_message(chat_id,
                               "Enter notification methods (e.g., Email, Telegram, Account), separated by commas. 📩")
 
-    elif user.telegram_state == 'awaiting_notification_methods':
-        methods_input = [m.strip().capitalize() for m in text.split(',') if m.strip()]
-        valid_methods = ['Email', 'Telegram', 'Account']
 
-        # Check if all entered methods are valid
+    elif user.telegram_state == 'awaiting_notification_methods':
+        methods_input = [m.strip().lower() for m in text.split(',') if m.strip()]
+        valid_methods = ['email', 'telegram', 'account']
+
         if methods_input and all(m in valid_methods for m in methods_input):
             temp_data['notification_methods'] = methods_input
             user.telegram_state = 'awaiting_check_frequency'
