@@ -17,6 +17,7 @@ class Config:
     WTF_CSRF_ENABLED = True
     SQLALCHEMY_ENGINE_OPTIONS = {'pool_recycle': 280}
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER', 'SmartPrice <smartprice68@gmail.com>')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', 587))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in ['true', '1', 't']
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')

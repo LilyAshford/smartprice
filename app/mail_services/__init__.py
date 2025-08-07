@@ -86,46 +86,24 @@ def send_admin_feedback_notification(feedback_item):
         user_id=feedback_item.user.id if feedback_item.user else None
     )
 
-# def send_email(to, subject, template, **kwargs):
-#     """Sends an email with the specified template and subject."""
-#     app = current_app._get_current_object()
-#     try:
-#         sender = app.config.get('MAIL_SENDER')
-#         prefix = app.config.get('MAIL_SUBJECT_PREFIX', '')
-#
-#         if not sender:
-#             app.logger.error("MAIL_SENDER is not configured. Cannot send email.")
-#             return None
-#
-#         msg = Message(prefix + ' ' + subject, sender=sender, recipients=[to])
-#
-#         locale = kwargs.pop('locale', 'en')
-#         with force_locale(locale):
-#             kwargs['sincerely'] = _('Sincerely,')
-#             kwargs['team_name'] = _('The SmartPrice Team')
-#             msg.body = render_template(template + '.txt', **kwargs)
-#             msg.html = render_template(template + '.html', **kwargs)
-#
-#         thr = Thread(target=send_async_email, args=[app, msg])
-#         thr.start()
-#         app.logger.info(f"Email to {to} with subject '{subject}' queued for sending.")
-#         return thr
-#
-#     except Exception as e:
-#         app.logger.error(
-#             f"Failed to prepare or queue email for {to}, subject '{subject}'. Error: {str(e)}",
-#             exc_info=True
-#         )
-#         return None
 def send_email(to, subject, template, **kwargs):
     try:
         app = current_app._get_current_object()
+        sender = app.config.get('MAIL_DEFAULT_SENDER')
+        if not sender:
+            app.logger.error("MAIL_DEFAULT_SENDER is not configured.")
+            raise ValueError("MAIL_DEFAULT_SENDER is not configured.")
+
         msg = Message(
             subject=subject,
-            sender=app.config.get('MAIL_DEFAULT_SENDER'),
+            sender=sender,
             recipients=[to]
         )
         kwargs['base_url'] = app.config.get('BASE_URL', '')
+
+        app.logger.debug(f"Attempting to send email to {to} with subject '{subject}' using sender '{sender}'")
+        app.logger.debug(
+            f"SMTP settings: server={app.config.get('MAIL_SERVER')}, port={app.config.get('MAIL_PORT')}, use_tls={app.config.get('MAIL_USE_TLS')}, username={app.config.get('MAIL_USERNAME')}")
 
         msg.body = render_template(template + '.txt', **kwargs)
         msg.html = render_template(template + '.html', **kwargs)
@@ -134,5 +112,5 @@ def send_email(to, subject, template, **kwargs):
         app.logger.info(f"Email sent successfully to {to} with subject '{subject}'")
         return True
     except Exception as e:
-        current_app.logger.error(f"Failed to send email to {to}, subject '{subject}'. Error: {e}", exc_info=True)
+        app.logger.error(f"Failed to send email to {to}, subject '{subject}'. Error: {str(e)}", exc_info=True)
         return False
