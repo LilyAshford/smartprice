@@ -5,7 +5,6 @@ from app.extensions import mail
 from threading import Thread
 import smtplib
 import socket
-from app import create_app
 
 def send_async_email(app, msg):
     """Asynchronous sending of email in a separate thread."""
@@ -119,22 +118,19 @@ def send_admin_feedback_notification(feedback_item):
 #         )
 #         return None
 def send_email(to, subject, template, **kwargs):
-    app = create_app()
-    with app.app_context():
+    try:
+        app = current_app._get_current_object()
         msg = Message(
             subject=subject,
             sender=app.config.get('MAIL_DEFAULT_SENDER'),
             recipients=[to]
         )
-
         msg.body = render_template(template + '.txt', **kwargs)
         msg.html = render_template(template + '.html', **kwargs)
 
-        try:
-            from app.extensions import mail
-            mail.send(msg)
-            app.logger.info(f"Email sent successfully to {to} with subject '{subject}'")
-            return True
-        except Exception as e:
-            app.logger.error(f"Failed to send email to {to}, subject '{subject}'. Error: {e}", exc_info=True)
-            return False
+        mail.send(msg)
+        app.logger.info(f"Email sent successfully to {to} with subject '{subject}'")
+        return True
+    except Exception as e:
+        current_app.logger.error(f"Failed to send email to {to}, subject '{subject}'. Error: {e}", exc_info=True)
+        return False

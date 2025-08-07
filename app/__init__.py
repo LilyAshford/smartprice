@@ -3,7 +3,6 @@ from config import Config, config
 from .admin_views import MyAdminIndexView, LogAdminView
 from flask_login import current_user
 from flask_migrate import Migrate
-from flask_admin.contrib.sqla import ModelView
 import flask_admin
 from .extensions import db, mail, babel, init_limiter, init_auth
 from flask_bootstrap import Bootstrap4
