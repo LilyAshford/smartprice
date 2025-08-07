@@ -11,6 +11,7 @@ class Config:
     PREFERRED_URL_SCHEME = os.environ.get('PREFERRED_URL_SCHEME') or 'http'
     SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() in ['true', '1', 't']
     SESSION_COOKIE_SAMESITE = 'Lax'
+    SESSION_COOKIE_DOMAIN = os.environ.get('PREFERRED_URL_SCHEME')
     TELEGRAM_SECRET_TOKEN = os.environ.get('TELEGRAM_SECRET_TOKEN')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
