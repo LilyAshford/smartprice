@@ -5,6 +5,7 @@ from app.extensions import mail
 from threading import Thread
 import smtplib
 import socket
+from app import create_app
 
 def send_async_email(app, msg):
     """Asynchronous sending of email in a separate thread."""
@@ -86,34 +87,54 @@ def send_admin_feedback_notification(feedback_item):
         user_id=feedback_item.user.id if feedback_item.user else None
     )
 
+# def send_email(to, subject, template, **kwargs):
+#     """Sends an email with the specified template and subject."""
+#     app = current_app._get_current_object()
+#     try:
+#         sender = app.config.get('MAIL_SENDER')
+#         prefix = app.config.get('MAIL_SUBJECT_PREFIX', '')
+#
+#         if not sender:
+#             app.logger.error("MAIL_SENDER is not configured. Cannot send email.")
+#             return None
+#
+#         msg = Message(prefix + ' ' + subject, sender=sender, recipients=[to])
+#
+#         locale = kwargs.pop('locale', 'en')
+#         with force_locale(locale):
+#             kwargs['sincerely'] = _('Sincerely,')
+#             kwargs['team_name'] = _('The SmartPrice Team')
+#             msg.body = render_template(template + '.txt', **kwargs)
+#             msg.html = render_template(template + '.html', **kwargs)
+#
+#         thr = Thread(target=send_async_email, args=[app, msg])
+#         thr.start()
+#         app.logger.info(f"Email to {to} with subject '{subject}' queued for sending.")
+#         return thr
+#
+#     except Exception as e:
+#         app.logger.error(
+#             f"Failed to prepare or queue email for {to}, subject '{subject}'. Error: {str(e)}",
+#             exc_info=True
+#         )
+#         return None
 def send_email(to, subject, template, **kwargs):
-    """Sends an email with the specified template and subject."""
-    app = current_app._get_current_object()
-    try:
-        sender = app.config.get('MAIL_SENDER')
-        prefix = app.config.get('MAIL_SUBJECT_PREFIX', '')
-
-        if not sender:
-            app.logger.error("MAIL_SENDER is not configured. Cannot send email.")
-            return None
-
-        msg = Message(prefix + ' ' + subject, sender=sender, recipients=[to])
-
-        locale = kwargs.pop('locale', 'en')
-        with force_locale(locale):
-            kwargs['sincerely'] = _('Sincerely,')
-            kwargs['team_name'] = _('The SmartPrice Team')
-            msg.body = render_template(template + '.txt', **kwargs)
-            msg.html = render_template(template + '.html', **kwargs)
-
-        thr = Thread(target=send_async_email, args=[app, msg])
-        thr.start()
-        app.logger.info(f"Email to {to} with subject '{subject}' queued for sending.")
-        return thr
-
-    except Exception as e:
-        app.logger.error(
-            f"Failed to prepare or queue email for {to}, subject '{subject}'. Error: {str(e)}",
-            exc_info=True
+    app = create_app()
+    with app.app_context():
+        msg = Message(
+            subject=subject,
+            sender=app.config.get('MAIL_DEFAULT_SENDER'),
+            recipients=[to]
         )
-        return None
+
+        msg.body = render_template(template + '.txt', **kwargs)
+        msg.html = render_template(template + '.html', **kwargs)
+
+        try:
+            from app.extensions import mail
+            mail.send(msg)
+            app.logger.info(f"Email sent successfully to {to} with subject '{subject}'")
+            return True
+        except Exception as e:
+            app.logger.error(f"Failed to send email to {to}, subject '{subject}'. Error: {e}", exc_info=True)
+            return False

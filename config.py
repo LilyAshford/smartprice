@@ -7,6 +7,7 @@ class Config:
     SECRET_KEY = os.environ['SECRET_KEY']
     SECURITY_PASSWORD_SALT = os.environ.get('SECURITY_PASSWORD_SALT')
     SERVER_NAME = os.environ.get('SERVER_NAME')
+    PREFERRED_URL_SCHEME = os.environ.get('PREFERRED_URL_SCHEME') or 'http'
     SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() in ['true', '1', 't']
     SESSION_COOKIE_SAMESITE = 'Lax'
     TELEGRAM_SECRET_TOKEN = os.environ.get('TELEGRAM_SECRET_TOKEN')
