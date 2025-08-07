@@ -388,7 +388,7 @@ class UserNotification(db.Model):
     __tablename__ = 'user_notifications'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id', ondelete='CASCADE'), nullable=True)
     type = db.Column(db.String(50), index=True) # 'price_drop', 'target_reached', 'price_increase', 'savings_report', 'system_message'
     message = db.Column(db.Text, nullable=True)
     short_message = db.Column(db.String(255))
