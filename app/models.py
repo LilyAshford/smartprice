@@ -24,6 +24,7 @@ class Product(db.Model):
     target_price = db.Column(db.Numeric(10, 2), nullable=False)
     price_drop_alert_threshold = db.Column(db.Numeric(10, 2), nullable=True)
     price_increase_alert_threshold = db.Column(db.Numeric(10, 2), nullable=True)
+    price_history = db.relationship('PriceHistory', back_populates='product', lazy='dynamic', cascade="all, delete-orphan")
     notification_methods = db.Column(db.ARRAY(db.String(20)), nullable=False)
     target_price_notified = db.Column(db.Boolean, default=False)
     check_frequency = db.Column(db.Integer, nullable=False)
@@ -379,8 +380,7 @@ class PriceHistory(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     price = db.Column(db.Numeric(10, 2), nullable=False)
     # currency = db.Column(db.String(3))
-
-    product = db.relationship('Product', backref=db.backref('price_logs', lazy='dynamic', order_by="PriceHistory.timestamp"))
+    product = db.relationship('Product', back_populates='price_history')
 
 
 

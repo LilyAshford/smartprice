@@ -15,12 +15,9 @@ from app.profile.forms import (
 )
 from app.products.services import get_user_products, delete_product, get_product_by_id
 from flask_babel import _
-from app.decorators import permission_required
 from sqlalchemy.exc import IntegrityError # DataError, InterfaceError, DatabaseError
-from itsdangerous import URLSafeTimedSerializer
 from app.mail_services import send_verification_email, send_admin_feedback_notification
 from sqlalchemy import desc
-from app.notifications.telegram_notifier import send_telegram_message
 
 
 @bp.before_request

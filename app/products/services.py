@@ -14,7 +14,7 @@ from app.models import Product, PriceHistory
 from app.utils.scrapers import extract_product_name
 from flask import current_app, flash, redirect, url_for
 from sqlalchemy.exc import IntegrityError, DataError
-from app.tasks import process_notifications
+from app.tasks import check_price_for_product
 
 def add_product(form_data):
     """
@@ -269,8 +269,7 @@ def add_product_service(product_data: dict, user):
 
         # Trigger notification if target price is reached
         if new_product.current_price is not None and new_product.current_price <= new_product.target_price:
-            process_notifications.delay(new_product.id, 'target_reached', None, new_product.current_price)
-            flash(_('Target price has already been reached! A notification has been sent.'), 'info')
+            check_price_for_product.delay(new_product.id)
 
         db.session.commit()
         flash(_('Product "%(name)s" added for tracking!', name=new_product.name), 'success')
