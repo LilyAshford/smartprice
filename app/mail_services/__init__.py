@@ -125,6 +125,8 @@ def send_email(to, subject, template, **kwargs):
             sender=app.config.get('MAIL_DEFAULT_SENDER'),
             recipients=[to]
         )
+        kwargs['base_url'] = app.config.get('BASE_URL', '')
+
         msg.body = render_template(template + '.txt', **kwargs)
         msg.html = render_template(template + '.html', **kwargs)
 

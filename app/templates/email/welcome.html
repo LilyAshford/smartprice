@@ -9,7 +9,7 @@
     <li>{{ _('Connect your Telegram account for instant alerts.') }}</li>
 </ul>
 <div class="button-container">
-    <a href="{{ url_for('products.index', _external=True) }}" class="button">{{ _('Track Your First Product') }}</a>
+    <a href="{{ base_url }}{{ url_for('products.index') }}" class="button">{{ _('Track Your First Product') }}</a>
 </div>
 <p>{{ _('Happy tracking!') }}<br>{{ _('The SmartPrice Team') }}</p>
 {% endblock %}

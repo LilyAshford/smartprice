@@ -3,7 +3,7 @@
 {{ _('We are thrilled to have you on board. You are now ready to start tracking prices and saving money.') }}
 
 {{ _('Get started by tracking your first product:') }}
-{{ url_for('products.index', _external=True) }}
+{{ base_url }}{{ url_for('products.index') }}
 
 --
 {{ _('The SmartPrice Team') }}

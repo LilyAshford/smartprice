@@ -25,7 +25,7 @@
 
             <p><strong>User:</strong> {{ user_identifier }} (ID: {{ feedback_item.user_id }})</p>
             {% if user_id %}
-                <p><a href="{{ url_for('users.edit_view', id=user_id, _external=True) }}">View User in Admin Panel</a></p>
+                <p><a href="{{ base_url }}{{ url_for('users.edit_view', id=user_id) }}">View User in Admin Panel</a></p>
             {% endif %}
             <p><strong>Category:</strong> {{ feedback_item.category }}</p>
             <p><strong>Submitted On:</strong> {{ feedback_item.timestamp.strftime('%Y-%m-%d %H:%M:%S') }} UTC</p>

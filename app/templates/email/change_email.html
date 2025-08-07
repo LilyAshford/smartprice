@@ -6,7 +6,7 @@
     {{ _('You requested to change the email address for your SmartPrice account. To confirm this change, please click the button below.') }}
 </p>
 <div class="button-container">
-    <a href="{{ url_for('auth.change_email', token=token, _external=True) }}" class="button">{{ _('Confirm New Email') }}</a>
+    <a href="{{ base_url }}{{ url_for('auth.change_email', token=token) }}" class="button">{{ _('Confirm New Email') }}</a>
 </div>
 <p>
     {{ _('If you did not request this change, please ignore this email or contact our support.') }}

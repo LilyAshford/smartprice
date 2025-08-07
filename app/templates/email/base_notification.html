@@ -27,7 +27,7 @@
         </div>
         <div class="footer">
             <p>&copy; SmartPrice. All Rights Reserved.</p>
-            <p><a href="{{ url_for('profile.settings', _external=True) }}">{{ _('Manage your notification settings') }}</a></p>
+            <p><a href="{{ base_url }}{{ url_for('profile.settings') }}">{{ _('Manage your notification settings') }}</a></p>
         </div>
     </div>
 </body>
