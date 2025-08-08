@@ -9,6 +9,7 @@ class Config:
     BASE_URL = os.environ.get('BASE_URL')
     SERVER_NAME = os.environ.get('SERVER_NAME')
     POSTHOG_API_KEY = os.environ.get('POSTHOG_API_KEY')
+    POSTHOG_HOST = os.environ.get('POSTHOG_HOST', 'https://eu.posthog.com')
     PREFERRED_URL_SCHEME = os.environ.get('PREFERRED_URL_SCHEME') or 'http'
     SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() in ['true', '1', 't']
     SESSION_COOKIE_SAMESITE = 'Lax'

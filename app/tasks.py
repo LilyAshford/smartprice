@@ -15,6 +15,7 @@ from sqlalchemy import func, text
 from app.notifications.telegram_notifier import send_telegram_price_alert, send_telegram_message
 from urllib.parse import urlparse
 import requests
+import posthog
 from flask_babel import _, force_locale
 from sqlalchemy import or_
 
@@ -134,6 +135,8 @@ def check_price_for_product(self, product_id, mock_scenario=None, mock_target_pr
             for alert_type in alert_types:
                 with force_locale(locale):
                     process_notifications(mock_product if is_mock else product, alert_type, old_price, new_price)
+                    posthog.capture(user.id, 'price_alert_triggered',
+                                    {'product_id': product.id, 'new_price': float(new_price)})
 
             if not is_mock:
                 db.session.add(product)

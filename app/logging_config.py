@@ -100,7 +100,7 @@ def configure_logging(app):
 
 def configure_admin_logging(app):
     admin_logger = logging.getLogger('admin_actions')
-    admin_logger.setLevel(logging.INFO)
+    admin_logger.setLevel(logging.WARNING)
 
     admin_logger.propagate = False
 

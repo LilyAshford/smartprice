@@ -17,7 +17,9 @@
     {% set is_highlighted = request.args.get('highlight')|int == product.id %}
     <div class="product-item card {% if is_highlighted %}highlighted-card{% endif %}">
         <h3 class="product-name"><a href="{{ product.url }}" target="_blank">{{ product.name }}</a></h3>
-        <p><strong>{{ _('URL:') }}</strong> <a href="{{ product.url }}" target="_blank">{{ product.url }}</a></p>
+        <p class="card-text">
+            {{ _('URL:') }} <a href="{{ product.url }}" onclick="posthog.capture('link_clicked', {product_id: {{ product.id }}, product_name: '{{ product.name }}', url: '{{ product.url }}'})">{{ product.url }}</a>
+        </p>
         <p><strong>{{ _('Current Price:') }}</strong>
             {% if product.current_price %}
                 <span class="price-value">{{ product.current_price }}$</span>

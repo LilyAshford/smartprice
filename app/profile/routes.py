@@ -5,6 +5,7 @@ from .forms import EditProductForm
 from app.extensions import limiter
 from app.models import UserNotification
 from app import db
+import posthog
 from app.models import User, Permission, Feedback, FeedbackCategory, Product, PriceHistory
 from app.profile.forms import (
     UpdateUsernameForm,
@@ -72,6 +73,7 @@ def delete_tracked_product(product_id):
 
     try:
         if delete_product(product_id):
+            posthog.capture(current_user.id, 'product_removed', {'product_id': product_id})
             flash(_('Product "%(name)s" has been successfully deleted.', name=product.name), 'success')
         else:
             flash(_('Failed to delete product.'), 'error')

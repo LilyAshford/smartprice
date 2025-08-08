@@ -9,6 +9,7 @@ from app.models import Product, PriceHistory
 from datetime import datetime, timedelta
 from sqlalchemy.exc import DataError
 from app.products.services import clean_price
+import posthog
 
 from app.extensions import db
 from app.models import Product
@@ -109,6 +110,9 @@ def index():
 
                 if product is None:
                     return redirect(url_for('products.index'))
+
+                posthog.capture(str(current_user.id), 'product_added',
+                                {'product_id': product.id, 'product_name': product.name})
 
                 if product.url.startswith('mock://'):
                     check_price_for_product.delay(product.id)

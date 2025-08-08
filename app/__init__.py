@@ -15,6 +15,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from .logging_config import SQLAlchemyLogHandler, NoDbLogDuplicatesFilter
 from werkzeug.middleware.proxy_fix import ProxyFix
+import posthog
 
 from app.utils import bp as utils_bp
 from app.api import bp as api_bp
@@ -113,6 +114,8 @@ def create_app(config_name=None):
     cfg = config.get(config_name) or config['default']
     app.config.from_object(cfg)
     cfg.init_app(app)
+    posthog.api_key = app.config.get('POSTHOG_API_KEY')
+    posthog.host = app.config.get('POSTHOG_HOST')
     from flask_admin import Admin
 
     admin_templates_path = os.path.join(os.path.dirname(flask_admin.__file__), 'templates')

@@ -20,6 +20,7 @@ from sqlalchemy.exc import (
 from werkzeug.routing import BuildError
 
 from app.extensions import db, mail, limiter
+import posthog
 from app.models import User, Role
 from markupsafe import Markup
 from app.auth.forms import (LoginForm,
@@ -89,6 +90,15 @@ def login():
                 flash(_('Your account is disabled'), 'error')
                 return redirect(url_for('auth.login'))
             login_user(user, remember=form.remember.data)
+            try:
+                posthog.capture(str(user.id), 'user_logged_in')
+                current_app.logger.info("PostHog event 'user_logged_in' captured")
+                from datetime import datetime, timedelta
+                if user.created_at < datetime.utcnow() - timedelta(days=7):
+                    posthog.capture(str(user.id), 'user_active_after_7_days')
+                    current_app.logger.info("PostHog event 'user_active_after_7_days' captured")
+            except Exception as e:
+                current_app.logger.error(f"PostHog error: {str(e)}")
             next_page = request.args.get('next')
             current_app.logger.info(f"User logged in: {user.email}")
             if user.is_administrator:
@@ -137,6 +147,7 @@ def register():
             token = user.generate_confirmation_token()
             send_verification_email(user, token)
             current_app.logger.info(f"New user registered: {user.email}")
+            posthog.capture(user.id, 'user_registered', {'email': user.email})
             flash(
                 _('Registration successful! A confirmation email has been sent to you. Please check your inbox (and spam folder!) to activate your account.'),
                 'info')
@@ -230,6 +241,7 @@ def confirm(token):
     if user_to_confirm.confirm(token):
         try:
             send_welcome_email(current_user)
+            posthog.capture(user_to_confirm.id, 'account_confirmed')
             flash(_('You have confirmed your account. A welcome email has been sent. Thanks!'), 'success')
         except Exception as e:
             current_app.logger.error(f"Failed to send welcome email to {user_to_confirm.email}: {e}")
