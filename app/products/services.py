@@ -272,7 +272,7 @@ def add_product_service(product_data: dict, user):
             check_price_for_product.delay(new_product.id)
 
         db.session.commit()
-        flash(_('Product "%(name)s" added for tracking!', name=new_product.name), 'success')
+        #flash(_('Product "%(name)s" added for tracking!', name=new_product.name), 'success')
         return new_product
 
     except IntegrityError:
