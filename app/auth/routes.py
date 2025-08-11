@@ -91,11 +91,17 @@ def login():
                 return redirect(url_for('auth.login'))
             login_user(user, remember=form.remember.data)
             try:
-                posthog.capture(str(user.id), 'user_logged_in')
+                posthog.capture(
+                    distinct_id=str(user.id),
+                    event='user_logged_in'
+                )
                 current_app.logger.info("PostHog event 'user_logged_in' captured")
                 from datetime import datetime, timedelta
                 if user.created_at < datetime.utcnow() - timedelta(days=7):
-                    posthog.capture(str(user.id), 'user_active_after_7_days')
+                    posthog.capture(
+                        distinct_id=str(user.id),
+                        event='user_active_after_7_days'
+                    )
                     current_app.logger.info("PostHog event 'user_active_after_7_days' captured")
             except Exception as e:
                 current_app.logger.error(f"PostHog error: {str(e)}")
@@ -147,7 +153,11 @@ def register():
             token = user.generate_confirmation_token()
             send_verification_email(user, token)
             current_app.logger.info(f"New user registered: {user.email}")
-            posthog.capture(user.id, 'user_registered', {'email': user.email})
+            posthog.capture(
+                distinct_id=str(user.id),
+                event='user_registered',
+                properties={'email': user.email}
+            )
             flash(
                 _('Registration successful! A confirmation email has been sent to you. Please check your inbox (and spam folder!) to activate your account.'),
                 'info')

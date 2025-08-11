@@ -69,8 +69,6 @@ class UserValidators:
             errors.append(_l('Password must contain at least one lowercase letter.'))
         if not re.search(r'\d', password):
             errors.append(_l('Password must contain at least one digit.'))
-        if not re.search(r'[@$!%*?&#._]', password):
-            errors.append(_l('Password must contain at least one special character (@$!%*?&#).'))
 
         if errors:
             raise ValidationError(" ".join(str(error) for error in errors))
