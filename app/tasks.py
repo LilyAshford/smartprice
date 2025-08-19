@@ -185,7 +185,7 @@ def process_notifications(product, alert_type, old_price, new_price):
     elif alert_type == 'price_drop' and not user.enable_price_drop_notifications:
         current_app.logger.info(f"Price drop notifications disabled for user {user.id}")
         return
-    elif alert_type == 'price_increase' and not user.enable_price_notifications:
+    elif alert_type == 'price_increase':
         current_app.logger.info(f"Price increase notifications disabled for user {user.id}")
         return
 

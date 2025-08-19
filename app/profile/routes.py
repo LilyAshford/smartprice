@@ -5,7 +5,9 @@ from .forms import EditProductForm
 from app.extensions import limiter
 from app.models import UserNotification
 from app import db
+import random
 import posthog
+from datetime import datetime, timedelta
 from app.models import User, Permission, Feedback, FeedbackCategory, Product, PriceHistory
 from app.profile.forms import (
     UpdateUsernameForm,
@@ -19,7 +21,9 @@ from flask_babel import _
 from sqlalchemy.exc import IntegrityError # DataError, InterfaceError, DatabaseError
 from app.mail_services import send_verification_email, send_admin_feedback_notification
 from sqlalchemy import desc
-
+from urllib.parse import urlparse
+import asyncio
+import json
 
 @bp.before_request
 @login_required
@@ -55,7 +59,8 @@ def index():
 @bp.route('/products')
 @login_required
 def tracked_products():
-    user_products = get_user_products(current_user.id)
+    user_products = Product.query.filter_by(user_id=current_user.id, is_comparison_only=False).order_by(
+        Product.created_at.desc()).all()
     return render_template('profile/tracked_products.html', title=_('My Tracked Products'), products=user_products)
 
 @bp.route('/product/<int:product_id>/delete', methods=['POST'])

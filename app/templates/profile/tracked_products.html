@@ -46,6 +46,7 @@
             <a href="{{ url_for('products.product_history', product_id=product.id) }}" class="btn btn-info btn-sm">
             <i class="fas fa-chart-line"></i> {{ _('Price History') }}
             </a>
+
             <a href="{{ url_for('profile.edit_product', product_id=product.id) }}" class="btn btn-secondary btn-sm">
                 <i class="fas fa-edit"></i> {{ _('Edit') }}
             </a>

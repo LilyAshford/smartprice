@@ -8,6 +8,8 @@ from flask import current_app
 from sqlalchemy import orm
 from app.extensions import db
 import re
+import aiohttp
+from app.utils.cache_utils import SearchResultsCache
 from decimal import Decimal, InvalidOperation
 from flask_babel import _
 from app.models import Product, PriceHistory
@@ -15,6 +17,12 @@ from app.utils.scrapers import extract_product_name
 from flask import current_app, flash, redirect, url_for
 from sqlalchemy.exc import IntegrityError, DataError
 from app.tasks import check_price_for_product
+from urllib.parse import urlencode, urlparse
+from app.utils.helpers import clean_price
+from app.utils.scrapers import extract_product_name #parse_ebay_search_results
+import hashlib
+from ..utils.scrapers import get_cached, set_cached
+import json
 
 def add_product(form_data):
     """
@@ -188,34 +196,6 @@ def delete_product(product_id):
     current_app.logger.warning(f"Product not found for deletion: {product_id}")
     return False
 
-def clean_price(price_str: str | None) -> Decimal | None:
-    """
-    Cleans a price string by removing currency symbols and commas, converting it to a Decimal.
-
-    Args:
-        price_str (str | None): The raw price string to clean.
-
-    Returns:
-        Decimal | None: The cleaned price as a Decimal, or None if the input is invalid.
-    """
-    if price_str is None:
-        return None
-
-    if isinstance(price_str, (int, float, Decimal)):
-        return Decimal(str(price_str))
-
-    if isinstance(price_str, str):
-        try:
-            cleaned_str = re.sub(r'[^\d.]', '', price_str)
-            if cleaned_str.count('.') > 1:
-                parts = cleaned_str.split('.')
-                cleaned_str = parts[0] + '.' + ''.join(parts[1:])
-            if not cleaned_str:
-                return None
-            return Decimal(cleaned_str)
-        except (InvalidOperation, TypeError):
-            return None
-    return None
 
 def add_product_service(product_data: dict, user):
     """
@@ -256,6 +236,18 @@ def add_product_service(product_data: dict, user):
             check_frequency=int(product_data.get('check_frequency', 24)),
             last_checked=datetime.utcnow() if product_data.get('current_price') is not None else None
         )
+        new_product.generate_identifier()
+
+        existing_group_product = Product.query.filter(
+            Product.user_id == user.id,
+            Product.product_identifier == new_product.product_identifier,
+            Product.id != new_product.id
+        ).first()
+
+        if existing_group_product:
+            new_product.comparison_group_id = existing_group_product.comparison_group_id
+            flash(_('Found a similar product in your list, grouping them together!'), 'info')
+
         db.session.add(new_product)
         db.session.flush()
 

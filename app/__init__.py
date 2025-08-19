@@ -16,6 +16,7 @@ from logging.handlers import RotatingFileHandler
 from .logging_config import SQLAlchemyLogHandler, NoDbLogDuplicatesFilter
 from werkzeug.middleware.proxy_fix import ProxyFix
 import posthog
+from urllib.parse import urlparse
 
 from app.utils import bp as utils_bp
 from app.api import bp as api_bp
@@ -116,6 +117,11 @@ def create_app(config_name=None):
     cfg.init_app(app)
     posthog.api_key = app.config.get('POSTHOG_API_KEY')
     posthog.host = app.config.get('POSTHOG_HOST')
+
+    @app.template_filter('urlparse')
+    def urlparse_filter(url):
+        return urlparse(url)
+
     from flask_admin import Admin
 
     admin_templates_path = os.path.join(os.path.dirname(flask_admin.__file__), 'templates')

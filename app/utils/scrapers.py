@@ -17,14 +17,11 @@ from playwright.async_api import async_playwright
 from typing import Dict, Tuple, Optional, Union
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from playwright_stealth import stealth_async
-
-import config
+from urllib.parse import urlencode
 
 load_dotenv()
 
 RAINFOREST_API_KEY = os.getenv("RAINFOREST_API_KEY")
-SCRAPERAPI_KEY = os.getenv("SCRAPERAPI_KEY")
-SCRAPEOPS_KEY = os.getenv("SCRAPEOPS_KEY")
 USER_AGENTS = [
         # Chrome (Windows)
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -102,20 +99,6 @@ async def set_cached(key, value, error=False):
         await r.setex(key, ttl, json.dumps(value, ensure_ascii=False))
     except Exception as e:
         logging.error(f"Redis cache SET failed: {e}")
-
-async def fetch_html_scraperapi(session, url, retries=2):
-    for attempt in range(retries):
-        try:
-            params = {'api_key': SCRAPERAPI_KEY, 'url': url, 'render': 'true', 'premium': 'true'}
-            async with session.get("http://api.scraperapi.com", params=params, timeout=45) as resp:
-                if resp.status != 200:
-                    logger.warning(f"ScraperAPI bad status: {resp.status}")
-                    continue
-                return await resp.text(), resp.status
-        except Exception as e:
-            logger.warning(f"ScraperAPI fetch error: {e}")
-            if attempt + 1 == retries:
-                return {"error": "scraperapi_fetch_error", "details": str(e)}, 500
 
 async def evade_bot_detection(context):
     page = await context.new_page()
@@ -366,20 +349,46 @@ class WildberriesParser(BaseParser):
 
 
 class WalmartParser(BaseParser):
-    async def parse(self, session):
-        html, status = await fetch_html_scraperapi(session, self.url)
-        if isinstance(html, dict): return html, True
-        soup = BeautifulSoup(html, "html.parser")
-        script_tag = soup.find("script", {"id": "__NEXT_DATA__"})
-        if not script_tag: return {"error": "walmart_parse_error"}, True
+    async def parse(self, session: aiohttp.ClientSession):
+        RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
+        if not RAPIDAPI_KEY:
+            return {"error": "missing_rapidapi_key"}, True
+
+        url = "https://axesso-walmart-data-service.p.rapidapi.com/wlm/walmart-lookup-product"
+        headers = {
+            "X-RapidAPI-Key": RAPIDAPI_KEY,
+            "X-RapidAPI-Host": "axesso-walmart-data-service.p.rapidapi.com"
+        }
+        params = {"url": self.url}
+
         try:
-            data = json.loads(script_tag.string)
-            product_data = data['props']['pageProps']['initialData']['data']['product']
-            name = product_data.get('name')
-            price = product_data.get('priceInfo', {}).get('currentPrice', {}).get('price')
-            return {"name": name, "price": float(price)}, False
+            async with session.get(url, headers=headers, params=params, timeout=20) as resp:
+                data = await resp.json()
+                if resp.status != 200:
+                    return {
+                        "error": "walmart_api_error",
+                        "status": resp.status,
+                        "details": data
+                    }, True
+
+                product_data = data.get("item", {}).get("props", {}).get("pageProps", {}).get("initialData", {}).get(
+                    "data", {}).get("product", {})
+
+                if not product_data:
+                    return {"error": "walmart_product_data_not_found", "details": data}, True
+
+                name = product_data.get("name")
+                price_info = product_data.get("priceInfo", {}).get("currentPrice", {})
+                price = price_info.get("price")
+
+                if not name or price is None:
+                    return {"error": "walmart_incomplete_data", "details": product_data}, True
+
+                return {"name": name, "price": float(price)}, False
+
         except Exception as e:
-            return {"error": "walmart_parse_error", "details": str(e)}, True
+            return {"error": "walmart_parse_exception", "details": str(e)}, True
+
 
 
 class MockParser:
@@ -423,7 +432,7 @@ DOMAIN_PARSERS = {
     "amazon.com": AmazonParser,
     "wildberries.ru": WildberriesParser,
     "walmart.com": WalmartParser,
-    "ebay.com": EbayParser
+    "ebay.com": EbayParser,
 }
 
 def get_parser(url):
@@ -504,9 +513,10 @@ def run_async_in_sync(coro):
 if __name__ == "__main__":
     test_urls = [
         #"https://www.wildberries.ru/catalog/6583985/detail.aspx",
-        "https://www.ebay.com/itm/256966053660?_trkparms=amclksrc%3DITM%26aid%3D1110018%26algo%3DHOMESPLICE.COMPLISTINGS%26ao%3D1%26asc%3D290501%2C290149%26meid%3D24d7519045dd4a49b234c0c13e48021a%26pid%3D101196%26rk%3D1%26rkt%3D12%26sd%3D127281867013%26itm%3D256966053660%26pmt%3D1%26noa%3D0%26pg%3D2332490%26algv%3DCompVIDesktopATF2V6ReplaceKnnV4WithVectorDbNsOptHotPlRecallCpcRecalls%26brand%3DNVIDIA&_trksid=p2332490.c101196.m2219&itmprp=cksum%3A25696605366024d7519045dd4a49b234c0c13e48021a%7Cenc%3AAQAKAAABMGd6yosUmY78X3sBQZlOPAfbcYMN1eLzdk%252BXueF57J0tezKI5wedZ2En3T%252FWoyn53ibvN%252Bdh17CwHRc8pDF4DOUBbvuDeZOvDDGGVfT9ZdusoN513hCl%252Bt1ZwXGS5YV73hYXWdmeMTqufWNC5JFAsI%252FMNyIULhUQs5qJtPO2WvnwH9dibUR9vFBatRArdCnnn0JXmPc5RLsiVoR7VRxf3kgkYW3yBuF526umSpIC2%252FUgP66x38LsSK2JVHAqlEZ4eKJ7hSCAUkjJv3zaTb%252Fy19mRWHe7dASzdeltSyed8%252FBBrO4KhrJ6r4woR0Wb8xejF7opt9Nz0QPHmc2nYgJS6ja3i%252FCbVhxUiuj9P13TkDRD8KQ769d93X3N8gAA8G%252FtzIZ6Oq62Xz39Fy7%252BIdSAbE8%253D%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01K20C62QJEVF8YH6RHHH3C57M",
-        "https://www.ebay.com/itm/226154271181",
-        "https://www.ebay.com/itm/267336611145?_skw=M3GAN&itmmeta=01K20QFE35YT8GHPJNYGPKMKM7&hash=item3e3e80f549:g:ua0AAeSwovVoflcU&itmprp=enc%3AAQAKAAAA4FkggFvd1GGDu0w3yXCmi1fH8DPwut%2FnBOKUuWT6shcRIEDEXKWNIuZwxpYqd5NPWvtbUmbQn581%2F0spjajAzqRlcTkeduTQtUJOD8%2BaUmJek7nKECISwFK8OCr7414q5jtZLUfPHmJEG5KIiYJmCfu9s%2B8V2eBXQEsnPVe9bBtip2AYxRWFiRChXNuLVOhA2wTJtCZJIyif6Dwk49INulWk2KiU5zO4%2BSO75dWKxUceix5lQOuppJOeLr99s8iRlv13j9BXm9g86ALG5jgG4d%2FkazqRD1ImOuCLkbASos5Y%7Ctkp%3ABFBM0OK9l5Bm",
+        #"https://www.ebay.com/itm/256966053660?_trkparms=amclksrc%3DITM%26aid%3D1110018%26algo%3DHOMESPLICE.COMPLISTINGS%26ao%3D1%26asc%3D290501%2C290149%26meid%3D24d7519045dd4a49b234c0c13e48021a%26pid%3D101196%26rk%3D1%26rkt%3D12%26sd%3D127281867013%26itm%3D256966053660%26pmt%3D1%26noa%3D0%26pg%3D2332490%26algv%3DCompVIDesktopATF2V6ReplaceKnnV4WithVectorDbNsOptHotPlRecallCpcRecalls%26brand%3DNVIDIA&_trksid=p2332490.c101196.m2219&itmprp=cksum%3A25696605366024d7519045dd4a49b234c0c13e48021a%7Cenc%3AAQAKAAABMGd6yosUmY78X3sBQZlOPAfbcYMN1eLzdk%252BXueF57J0tezKI5wedZ2En3T%252FWoyn53ibvN%252Bdh17CwHRc8pDF4DOUBbvuDeZOvDDGGVfT9ZdusoN513hCl%252Bt1ZwXGS5YV73hYXWdmeMTqufWNC5JFAsI%252FMNyIULhUQs5qJtPO2WvnwH9dibUR9vFBatRArdCnnn0JXmPc5RLsiVoR7VRxf3kgkYW3yBuF526umSpIC2%252FUgP66x38LsSK2JVHAqlEZ4eKJ7hSCAUkjJv3zaTb%252Fy19mRWHe7dASzdeltSyed8%252FBBrO4KhrJ6r4woR0Wb8xejF7opt9Nz0QPHmc2nYgJS6ja3i%252FCbVhxUiuj9P13TkDRD8KQ769d93X3N8gAA8G%252FtzIZ6Oq62Xz39Fy7%252BIdSAbE8%253D%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01K20C62QJEVF8YH6RHHH3C57M",
+        #"https://www.ebay.com/itm/226154271181",
+        #"https://aliexpress.ru/item/1005003829339181.html?sku_id=12000027291253306&spm=a2g2w.productlist.search_results.0.55864b24aY08CI",
+        #"https://www.ebay.com/itm/267336611145?_skw=M3GAN&itmmeta=01K20QFE35YT8GHPJNYGPKMKM7&hash=item3e3e80f549:g:ua0AAeSwovVoflcU&itmprp=enc%3AAQAKAAAA4FkggFvd1GGDu0w3yXCmi1fH8DPwut%2FnBOKUuWT6shcRIEDEXKWNIuZwxpYqd5NPWvtbUmbQn581%2F0spjajAzqRlcTkeduTQtUJOD8%2BaUmJek7nKECISwFK8OCr7414q5jtZLUfPHmJEG5KIiYJmCfu9s%2B8V2eBXQEsnPVe9bBtip2AYxRWFiRChXNuLVOhA2wTJtCZJIyif6Dwk49INulWk2KiU5zO4%2BSO75dWKxUceix5lQOuppJOeLr99s8iRlv13j9BXm9g86ALG5jgG4d%2FkazqRD1ImOuCLkbASos5Y%7Ctkp%3ABFBM0OK9l5Bm",
         #"https://www.walmart.com/ip/Lvelia-Robot-Toy-Kids-Intelligent-Electronic-Walking-Dancing-Robot-Toys-Flashing-Lights-Music-Age-3-12-Year-Old-Boys-Girls-Birthday-Gift-Present-Oran/943196113?classType=VARIANT&athbdg=L1800&from=/search",
     ]
 

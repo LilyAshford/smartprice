@@ -19,6 +19,8 @@ class Product(db.Model):
     )
 
     id = db.Column(db.Integer, primary_key=True)
+    comparison_group_id = db.Column(db.String(36), default=lambda: str(uuid.uuid4()), nullable=True, index=True)
+    product_identifier = db.Column(db.String(255), index=True, nullable=True)
     url = db.Column(db.String(500), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     target_price = db.Column(db.Numeric(10, 2), nullable=False)
@@ -30,9 +32,40 @@ class Product(db.Model):
     check_frequency = db.Column(db.Integer, nullable=False)
     current_price = db.Column(db.Numeric(10, 2))
     last_checked = db.Column(db.DateTime)
+    is_comparison_only = db.Column(db.Boolean, default=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user = db.relationship('User', back_populates='products')
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def generate_identifier(self):
+        import re
+        import hashlib
+        if self.name:
+            normalized_name = re.sub(r'[\W_]+', '', self.name.lower())
+            self.product_identifier = hashlib.md5(normalized_name.encode()).hexdigest()[:20]
+
+    def get_marketplace_name(self):
+        from urllib.parse import urlparse
+        domain = urlparse(self.url).netloc.lower()
+
+        marketplace_map = {
+            'amazon.com': 'Amazon',
+            'amazon.co.uk': 'Amazon UK',
+            'ebay.com': 'eBay',
+            'aliexpress.com': 'AliExpress',
+            'wildberries.ru': 'Wildberries',
+            'ozon.ru': 'Ozon',
+        }
+
+        for key, value in marketplace_map.items():
+            if key in domain:
+                return value
+        return domain.replace('www.', '').capitalize()
+
+    def get_favicon_url(self):
+        from urllib.parse import urlparse
+        domain = urlparse(self.url).netloc
+        return f"https://www.google.com/s2/favicons?domain={domain}"
 
     def __repr__(self):
         return f'<Product {self.name}>'
